@@ -2205,3 +2205,70 @@ body.light-theme .tab.active {
         font-size: 0.9em;
     }
 }
+
+/* ==========================================================================
+   ==========================================================================
+   ==========================================================================
+   ============================================================== ███████ ===
+   ============================================================== ██   ██ ===
+   Section 9 MOBILE RESPONSIVENESS ============================== ███████ ===
+   Make layout mobile-friendly ==================================      ██ ===
+   ==============================================================      ██ ===
+   ==========================================================================
+   ==========================================================================
+   ========================================================================== */
+
+   @media (max-width: 768px) {
+    body {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .tab-bar {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .tab {
+      flex: 1 1 45%;
+      margin: 4px;
+    }
+  
+    .dashboard-container {
+      display: block;
+    }
+  
+    .widget {
+      width: 100% !important;
+      margin-bottom: 20px;
+      grid-column: auto !important;
+      grid-row: auto !important;
+    }
+  
+    .chat-window {
+      width: 100% !important;
+      max-width: 100%;
+    }
+  
+    .input-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .input-container input,
+    .input-container button {
+      width: 100%;
+    }
+  
+    .p2p-qna-grid,
+    .qna-grid {
+      display: block;
+    }
+  
+    .p2p-qna-widget,
+    .qna-widget {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+  
