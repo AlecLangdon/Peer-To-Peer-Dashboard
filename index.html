@@ -1,0 +1,549 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteChat Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Skeuomorphic theme (enabled by default) -->
+    <link rel="stylesheet" id="skeuomorphic-theme" href="styles.css">
+    <!-- Frosted theme (disabled by default) -->
+    <link rel="stylesheet" id="frosted-theme" href="frosted-styles.css" disabled>
+</head>
+<body>
+    <img src="assets/ByteChatLogo.png" alt="ByteChat Logo" class="logo">
+    <h1 class="dashboard-heading">ByteChat Peer-To-Peer Dashboard</h1>
+    <!-- Add the tab bar here -->
+    <div class="tab-bar">
+        <button class="tab active" data-tab="dashboard">DashBoard</button>
+        <button class="tab" data-tab="p2p">P2P</button>
+        <button class="tab" data-tab="file-transfer">File Transfer</button>
+        <button class="tab" data-tab="security">Security</button>
+        <button class="tab" data-tab="cloud">Cloud</button>
+        <button class="tab" data-tab="qna">Q&A</button>
+    </div>
+
+    <!-- Tab Content Container -->
+    <div class="tab-content-container">
+        <!-- Dashboard Tab (Existing) -->
+        <div class="tab-content active" id="dashboard">
+            <div class="dashboard-container">
+                <!-- Left-side widgets (column 1) -->
+                <div class="widget" style="grid-column: 1 / 2; grid-row: 1 / 2;">
+                    <h3><i class="fas fa-tools"></i> Quick Access Tools</h3>
+                    <p>Quick Tools:</p>
+                    <p><i class="fas fa-undo"></i> Reset Session</p>
+                    <p><i class="fas fa-trash"></i> Clear Cache</p>
+                    <p><i class="fas fa-wifi"></i> Reconnect Network</p>
+                    <p><i class="fas fa-history"></i> Purge History</p>
+                    <button id="reset-session" class="action-button"><i class="fas fa-undo"></i> Reset Session</button>
+                    <button id="clear-cache" class="action-button"><i class="fas fa-trash"></i> Clear Cache</button>
+                    <button id="reconnect-network" class="action-button"><i class="fas fa-wifi"></i> Reconnect Network</button>
+                    <button id="purge-history" class="action-button"><i class="fas fa-history"></i> Purge History</button>
+                    <button class="action-button"><i class="fas fa-play"></i> Run All</button>
+                </div>
+
+                <!-- Knowledge Base (middle-left, row 2) -->
+                <div class="widget" style="grid-column: 1 / 2; grid-row: 2 / 3;" id="new-widget-4">
+                    <h3><i class="fas fa-book"></i> Knowledge Base</h3>
+                    <div class="faq">
+                        <div class="faq-item">
+                            <button class="faq-question">How do I reset my password?</button>
+                            <div class="faq-answer">Go to Settings > Account > Reset Password.</div>
+                        </div>
+                        <div class="faq-item">
+                            <button class="faq-question">How do I contact support?</button>
+                            <div class="faq-answer">Use the Chat Support widget to open a ticket.</div>
+                        </div>
+                    </div>
+                    <button class="action-button">View All FAQs</button>
+                </div>
+
+                <div class="widget sliding-widget" style="grid-column: 1 / 2; grid-row: 3 / 4;">
+                    <h3><i class="fas fa-lightbulb"></i> Pro Tip of the DAY</h3>
+                    <div class="slider-container">
+                        <p id="tipText" class="slide active">Use the 'Attach' button to share files with teammates in real time.</p>
+                    </div>
+                    <button id="refreshTips" class="action-button"><i class="fas fa-sync-alt"></i> Refresh Tips</button>
+                </div>
+
+                <!-- Need More Help? (moved to column 1, row 4) -->
+                <div class="widget" style="grid-column: 1 / 2; grid-row: 4 / 5;">
+                    <h3><i class="fas fa-question-circle"></i> Need More Help?</h3>
+                    <div class="button-container">
+                        <button id="contact-support" class="action-button"><i class="fas fa-life-ring"></i> Contact Support</button>
+                        <button id="read-docs" class="action-button"><i class="fas fa-book"></i> Read Docs</button>
+                        <button id="theme-toggle" class="action-button"><i class="fas fa-adjust"></i> Toggle Theme</button>
+                    </div>
+                </div>
+
+                <!-- Middle widgets (column 2) -->
+                <!-- System Updates (top-middle, column 2, row 1) -->
+                <div class="widget" style="grid-column: 2 / 3; grid-row: 1 / 2;" id="system-updates">
+                    <h3><i class="fas fa-bell"></i> System Updates</h3>
+                    <div class="update-feed">
+                        <p><strong>12:00 PM:</strong> System restart scheduled at 2PM.</p>
+                        <p><strong>11:30 AM:</strong> Login issue resolved.</p>
+                        <p><strong>10:15 AM:</strong> New feature deployed: Emoji Picker.</p>
+                    </div>
+                    <button class="action-button">View All Updates</button>
+                </div>
+
+                <!-- Chatbot Support (middle-middle, column 2, row 2) -->
+                <div class="widget" style="grid-column: 2 / 3; grid-row: 2 / 3;" id="chatbot-support">
+                    <h3><i class="fas fa-robot"></i> Chatbot Support</h3>
+                    <p>Chatbot Personality:</p>
+                    <div class="personality-toggle">
+                        <button class="toggle-option active" data-personality="friendly">Friendly</button>
+                        <button class="toggle-option" data-personality="formal">Formal</button>
+                    </div>
+                    <button class="action-button"><i class="fas fa-cog"></i> Settings</button>
+                </div>
+
+                <!-- Right-side widgets (columns 3-5) -->
+                <!-- Chat Support (top-right, columns 3-5, row 1) -->
+                <div class="widget" style="grid-column: 3 / 6; grid-row: 1 / 2;" id="chat-support">
+                    <h3><i class="fas fa-ticket-alt"></i> Chat Support</h3>
+                    <input type="text" id="ticket-search" placeholder="Search by Ticket ID..." class="search-bar">
+                    <div class="ticket-list">
+                        <p>Ticket #123: Login Issue - <a href="#">View</a></p>
+                        <p>Ticket #124: Payment Error - <a href="#">View</a></p>
+                    </div>
+                    <button class="action-button"><i class="fas fa-plus"></i> New Ticket</button>
+                </div>
+
+                <!-- Support Analytics (middle-right, columns 3-4, row 2) -->
+                <div class="widget" style="grid-column: 3 / 5; grid-row: 2 / 3;" id="support-analytics">
+                    <h3><i class="fas fa-chart-bar"></i> Support Analytics</h3>
+                    <p>Average Response Time (Last 7 Days)</p>
+                    <div class="graph response-time-graph">
+                        <div class="bar" data-label="Mon"></div>
+                        <div class="bar" data-label="Tue"></div>
+                        <div class="bar" data-label="Wed"></div>
+                        <div class="bar" data-label="Thu"></div>
+                        <div class="bar" data-label="Fri"></div>
+                        <div class="bar" data-label="Sat"></div>
+                        <div class="bar" data-label="Sun"></div>
+                    </div>
+                    <button class="action-button">View Details</button>
+                </div>
+
+                <!-- Ticket Status Overview (moved to column 5, row 2) -->
+                <div class="widget" style="grid-column: 5 / 6; grid-row: 2 / 3;" id="ticket-status-overview">
+                    <h3><i class="fas fa-ticket-alt"></i> Ticket Status Overview</h3>
+                    <p><i class="fas fa-ticket-alt"></i> Open Tickets: <span id="open-tickets">5</span></p>
+                    <p><i class="fas fa-check-circle"></i> Resolved Tickets: <span id="resolved-tickets">3</span></p>
+                </div>
+
+                <!-- Large widget (middle-right, columns 2-5, rows 3-4) -->
+                <div class="widget chat-window" style="grid-column: 2 / 6; grid-row: 3 / 5;">
+                    <button class="action-button expand-button" id="expand-chat"><i class="fas fa-expand"></i></button>
+                    <button class="action-button close-button" id="close-chat"><i class="fas fa-times"></i></button>
+                    <div class="chat-container">
+                        <h3><i class="fas fa-comments"></i> ByteChat Live Messaging</h3>
+                        <div id="chat-box">
+                            <div class="message bot">
+                                <span class="username">ByteBot</span>
+                                <span class="avatar"><i class="fas fa-robot"></i></span>
+                                <span class="content">Welcome to ByteChat!</span>
+                                <span class="timestamp">[12:00 PM]</span>
+                                <span class="status">Sent</span>
+                            </div>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" id="user-input" placeholder="Type your message..." />
+                            <button id="emoji-btn" class="action-button"><i class="fas fa-smile"></i> Emoji</button>
+                            <button id="send-btn" class="action-button"><i class="fas fa-paper-plane"></i> Send</button>
+                            <input type="file" id="file-input" style="display: none;" />
+                            <button id="attach-btn" class="action-button"><i class="fas fa-paperclip"></i> Attach</button>
+                        </div>
+                        <div id="emoji-picker" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- P2P Tab -->
+        <!-- P2P Tab -->
+<!-- P2P Tab -->
+<div class="tab-content" id="p2p">
+    <div class="dashboard-container">
+        <!-- Active P2P Connections (Large Widget) -->
+        <div class="widget" style="grid-column: 1 / 4; grid-row: 1 / 3;">
+            <h3><i class="fas fa-users"></i> Active P2P Connections</h3>
+            <p>No active connections.</p>
+        </div>
+
+        <!-- P2P Q&A Widget (Frequently Asked Questions Style) -->
+        <div class="widget p2p-qna-grid-container" style="grid-column: 1 / 4; grid-row: 3 / 5;">
+            <h2 class="p2p-section-title"><i class="fas fa-question-circle"></i> P2P Frequently Asked Questions</h2>
+            <div class="p2p-qna-grid">
+                <!-- Top Row (2 widgets, each spanning 2 columns) -->
+                <!-- Widget 1 -->
+                <div class="p2p-qna-widget" style="grid-column: 1 / 3; grid-row: 1 / 2;">
+                    <div class="p2p-qna-card">
+                        <div class="p2p-qna-card-inner">
+                            <div class="p2p-qna-card-front">
+                                <h3 class="p2p-qna-toggle"><span class="p2p-qna-number">1.</span> Decentralization</h3>
+                            </div>
+                            <div class="p2p-qna-card-back">
+                                <p class="p2p-qna-answer">No central authority, users communicate directly.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Widget 2 -->
+                <div class="p2p-qna-widget" style="grid-column: 3 / 5; grid-row: 1 / 2;">
+                    <div class="p2p-qna-card">
+                        <div class="p2p-qna-card-inner">
+                            <div class="p2p-qna-card-front">
+                                <h3 class="p2p-qna-toggle"><span class="p2p-qna-number">2.</span> Scalability</h3> <!-- Removed the extra "W" -->
+                            </div>
+                            <div class="p2p-qna-card-back">
+                                <p class="p2p-qna-answer">Easily expands as more users join the network.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Middle Row (2 widgets, each spanning 2 columns) -->
+                <!-- Widget 3 -->
+                <div class="p2p-qna-widget" style="grid-column: 1 / 3; grid-row: 2 / 3;">
+                    <div class="p2p-qna-card">
+                        <div class="p2p-qna-card-inner">
+                            <div class="p2p-qna-card-front">
+                                <h3 class="p2p-qna-toggle"><span class="p2p-qna-number">3.</span> Privacy</h3>
+                            </div>
+                            <div class="p2p-qna-card-back">
+                                <p class="p2p-qna-answer">Enhances security with encrypted communication.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Widget 4 -->
+                <div class="p2p-qna-widget" style="grid-column: 3 / 5; grid-row: 2 / 3;">
+                    <div class="p2p-qna-card">
+                        <div class="p2p-qna-card-inner">
+                            <div class="p2p-qna-card-front">
+                                <h3 class="p2p-qna-toggle"><span class="p2p-qna-number">4.</span> Resource Sharing</h3>
+                            </div>
+                            <div class="p2p-qna-card-back">
+                                <p class="p2p-qna-answer">Users contribute bandwidth and storage.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity (Medium Widget) -->
+        <div class="widget" style="grid-column: 4 / 6; grid-row: 1 / 2;">
+            <h3><i class="fas fa-list"></i> Recent Activity</h3>
+            <div class="activity-list">
+                <p>Connected to peer: 192.168.1.100</p>
+                <p>Transferred file: document.pdf</p>
+            </div>
+        </div>
+
+        <!-- Network Status (Medium Widget) -->
+        <div class="widget" style="grid-column: 4 / 6; grid-row: 2 / 3;">
+            <h3><i class="fas fa-signal"></i> Network Status</h3>
+            <p>Status: Connected</p>
+            <p>Peers: 5</p>
+        </div>
+
+        <!-- P2P Network Insights (Medium Widget) -->
+        <div class="widget p2p-insights-container" style="grid-column: 4 / 6; grid-row: 3 / 5;">
+            <h2 class="p2p-insights-title"><i class="fas fa-info-circle"></i> P2P Network Insights</h2>
+            <div class="p2p-insights-content">
+                <!-- Advantages Section -->
+                <div class="p2p-insights-section">
+                    <h3>Advantages of P2P Networks</h3>
+                    <ul>
+                        <li>Decentralization and resilience aspect</li>
+                        <li>Easy scalability</li>
+                        <li>Efficient resource utilization</li>
+                        <li>Cost savings</li>
+                        <li>Direct communication and faster content delivery</li>
+                        <li>Enhanced privacy and security</li>
+                    </ul>
+                </div>
+                <!-- Disadvantages Section -->
+                <div class="p2p-insights-section">
+                    <h3>Disadvantages of P2P Networks</h3>
+                    <ul>
+                        <li>Lack of centralized control</li>
+                        <li>Network management complexity</li>
+                        <li>Dependency on peer availability</li>
+                        <li>Performance and efficiency variability</li>
+                        <li>Legal risks</li>
+                        <li>Security and copyright concerns</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                <!-- File Transfer Tab -->
+                <div class="tab-content" id="file-transfer">
+                    <div class="dashboard-container">
+                        <!-- File Upload Progress (Wide Widget) -->
+                        <div class="widget" style="grid-column: 1 / 5; grid-row: 1 / 2;">
+                            <h3><i class="fas fa-upload"></i> File Upload Progress</h3>
+                            <div class="progress-bar"><div class="progress" style="width: 60%;">60%</div></div>
+                            <div class="progress-bar"><div class="progress" style="width: 30%;">30%</div></div>
+                            <button class="action-button"><i class="fas fa-pause"></i> Pause All</button>
+                        </div>
+                        <!-- Recent Transfers (Tall Widget) -->
+                        <div class="widget" style="grid-column: 1 / 3; grid-row: 2 / 4;">
+                            <h3><i class="fas fa-file-alt"></i> Recent Transfers</h3>
+                            <div class="transfer-list">
+                                <p>File1.pdf - 2MB - 12:00 PM</p>
+                                <p>Image.jpg - 500KB - 11:55 AM</p>
+                                <p>Doc.docx - 1MB - 11:50 AM</p>
+                            </div>
+                            <button class="action-button">View All Transfers</button>
+                        </div>
+                        <!-- Storage Usage (Small Widget) -->
+                        <div class="widget" style="grid-column: 3 / 5; grid-row: 2 / 3;">
+                            <h3><i class="fas fa-hdd"></i> Storage Usage</h3>
+                            <div class="circle-graph">
+                                <div id="storage-circle" class="center-circle">
+                                    <i class="fas fa-hdd"></i>
+                                    <span class="circle-label">75%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Security Tab -->
+                <div class="tab-content" id="security">
+                    <div class="dashboard-container">
+                        <!-- Security Alerts (Large Widget) -->
+                        <div class="widget" style="grid-column: 1 / 4; grid-row: 1 / 3;">
+                            <h3><i class="fas fa-shield-alt"></i> Security Alerts</h3>
+                            <div class="alert-list">
+                                <p>12:00 PM: Suspicious login attempt</p>
+                                <p>11:45 AM: Firewall breach detected</p>
+                                <p>11:30 AM: Encryption key updated</p>
+                            </div>
+                            <button class="action-button">View All Alerts</button>
+                        </div>
+                        <!-- Encryption Status (Medium Widget) -->
+                        <div class="widget" style="grid-column: 4 / 6; grid-row: 1 / 2;">
+                            <h3><i class="fas fa-lock"></i> Encryption Status</h3>
+                            <div class="toggle-option active">Enabled</div>
+                            <button class="action-button"><i class="fas fa-cog"></i> Configure</button>
+                        </div>
+                        <!-- Firewall Status (Small Widget) -->
+                        <div class="widget" style="grid-column: 4 / 6; grid-row: 2 / 3;">
+                            <h3><i class="fas fa-fire"></i> Firewall Status</h3>
+                            <p>Status: <span id="firewall-status">Active</span></p>
+                            <button class="action-button">Toggle</button>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- Cloud Tab -->
+                <div class="tab-content" id="cloud">
+                    <div class="dashboard-container">
+                        <!-- Cloud Sync Status (Wide Widget) -->
+                        <div class="widget" style="grid-column: 1 / 5; grid-row: 1 / 2;">
+                            <h3><i class="fas fa-cloud"></i> Cloud Sync Status</h3>
+                            <div class="progress-bar"><div class="progress" style="width: 80%;">80%</div></div>
+                            <button class="action-button"><i class="fas fa-sync"></i> Sync Now</button>
+                        </div>
+                        <!-- Cloud Storage Metrics (Medium Widget) -->
+                        <div class="widget" style="grid-column: 1 / 3; grid-row: 2 / 3;">
+                            <h3><i class="fas fa-chart-pie"></i> Cloud Storage Metrics</h3>
+                            <div class="circle-graph">
+                                <div id="cloud-circle" class="center-circle">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <span class="circle-label">60%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Recent Cloud Activity (Small Widget) -->
+                        <div class="widget" style="grid-column: 3 / 5; grid-row: 2 / 3;">
+                            <h3><i class="fas fa-history"></i> Recent Cloud Activity</h3>
+                            <div class="activity-list">
+                                <p>12:00 PM: File synced</p>
+                                <p>11:55 AM: Folder updated</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <!-- QnA Tab -->
+                <div class="tab-content" id="qna">
+                    <div class="dashboard-container">
+                        <!-- Container for 10 smaller widgets -->
+                        <div class="widget qna-grid-container" style="grid-column: 1 / 4; grid-row: 1 / 3;">
+                            <h2 class="qna-section-title"><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+                            <div class="qna-grid">
+                                <!-- Top Row (4 widgets) -->
+                                <!-- Widget 1 (Previously Widget 9) -->
+                                <div class="qna-widget" style="grid-column: 1 / 2; grid-row: 1 / 2;">
+                                    <div class="qna-card">
+                                        <div class="qna-card-inner">
+                                            <div class="qna-card-front">
+                                                <h3 class="qna-toggle"><span class="qna-number">1.</span> <span class="qna-question">Can I use P2P on a mobile device?</span></h3>
+                                            </div>
+                                            <div class="qna-card-back">
+                                                <p class="qna-answer">Yes, users are able to make transactions and receive payments using their mobile devices.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Widget 2 -->
+                                <div class="qna-widget" style="grid-column: 2 / 3; grid-row: 1 / 2;">
+                                    <div class="qna-card">
+                                        <div class="qna-card-inner">
+                                            <div class="qna-card-front">
+                                                <h3 class="qna-toggle"><span class="qna-number">2.</span> <span class="qna-question">What are some examples of P2P applications?</span></h3>
+                                            </div>
+                                            <div class="qna-card-back">
+                                                <p class="qna-answer">There are file sharing P2P applications such as BitTorrent, LimeWire, Kazaa, eMule, Gnutella, and Soulseek.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Widget 3 -->
+                                <div class="qna-widget" style="grid-column: 3 / 4; grid-row: 1 / 2;">
+                                    <div class="qna-card">
+                                        <div class="qna-card-inner">
+                                            <div class="qna-card-front">
+                                                <h3 class="qna-toggle"><span class="qna-number">3.</span> <span class="qna-question">What are some P2P payment apps?</span></h3>
+                                            </div>
+                                            <div class="qna-card-back">
+                                                <p class="qna-answer">Venmo, Cash App, Zelle, PayPal, Google Pay, and Apple Pay.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Widget 4 -->
+                                <div class="qna-widget" style="grid-column: 4 / 5; grid-row: 1 / 2;">
+                                    <div class="qna-card">
+                                        <div class="qna-card-inner">
+                                            <div class="qna-card-front">
+                                                <h3 class="qna-toggle"><span class="qna-number">4.</span> <span class="qna-question">Why is my P2P app not connecting?</span></h3>
+                                            </div>
+                                            <div class="qna-card-back">
+                                                <p class="qna-answer">If you are connected to the internet, make sure the connection is stable.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- Middle Row (4 widgets) -->
+                                <!-- Widget 5 -->
+                                <div class="qna-widget" style="grid-column: 1 / 2; grid-row: 2 / 3;">
+                                    <div class="qna-card">
+                                        <div class="qna-card-inner">
+                                            <div class="qna-card-front">
+                                                <h3 class="qna-toggle"><span class="qna-number">5.</span> <span class="qna-question">Why has my P2P suddenly stopped working?</span></h3>
+                                            </div>
+                                            <div class="qna-card-back">
+                                                <p class="qna-answer">Check if your network is working properly.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Widget 6 -->
+                                <div class="qna-widget" style="grid-column: 2 / 3; grid-row: 2 / 3;">
+                                    <div class="qna-card">
+                                        <div class="qna-card-inner">
+                                            <div class="qna-card-front">
+                                                <h3 class="qna-toggle"><span class="qna-number">6.</span> <span class="qna-question">What can you do with a P2P application?</span></h3>
+                                            </div>
+                                            <div class="qna-card-back">
+                                                <p class="qna-answer">File sharing, transactions, communication.</p>
+                                                <a href="https://cryptodaily.co.uk/glossary/understanding-p2p-networks-functionality-benefits-and-applications" target="_blank" class="read-more-btn">Read More about P2P Networks</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Widget 7 -->
+                                <div class="qna-widget" style="grid-column: 3 / 4; grid-row: 2 / 3;">
+                                    <div class="qna-card">
+                                        <div class="qna-card-inner">
+                                            <div class="qna-card-front">
+                                                <h3 class="qna-toggle"><span class="qna-number">7.</span> <span class="qna-question">What kind of data can you share with a P2P application?</span></h3>
+                                            </div>
+                                            <div class="qna-card-back">
+                                                <p class="qna-answer">Music, software, documents, images.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Widget 8 -->
+                                <div class="qna-widget" style="grid-column: 4 / 5; grid-row: 2 / 3;">
+                                    <div class="qna-card">
+                                        <div class="qna-card-inner">
+                                            <div class="qna-card-front">
+                                                <h3 class="qna-toggle"><span class="qna-number">8.</span> <span class="qna-question">Is P2P legal?</span></h3>
+                                            </div>
+                                            <div class="qna-card-back">
+                                                <p class="qna-answer">Yes, P2P is legal as long as the data is not copyrighted.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+        
+                                <!-- Bottom Row (2 widgets, each spanning 2 columns) -->
+                                <!-- Widget 9 (Previously Widget 1) -->
+                                <div class="qna-widget" style="grid-column: 1 / 3; grid-row: 3 / 4;">
+                                    <div class="qna-card">
+                                        <div class="qna-card-inner">
+                                            <div class="qna-card-front">
+                                                <h3 class="qna-toggle"><span class="qna-number">9.</span> <span class="qna-question">How can I make my P2P safe?</span></h3>
+                                            </div>
+                                            <div class="qna-card-back">
+                                                <p class="qna-answer">Immediately update software whenever new updates are available. Use strong passwords and encrypt your data. If you are transferring money, double-check that you are sending it to the correct recipient and not a scam link.</p>
+                                                <a href="https://toxigon.com/cybersecurity-and-p2p" target="_blank" class="read-more-btn">Read More</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Widget 10 -->
+                                <div class="qna-widget" style="grid-column: 3 / 5; grid-row: 3 / 4;">
+                                    <div class="qna-card">
+                                        <div class="qna-card-inner">
+                                            <div class="qna-card-front">
+                                                <h3 class="qna-toggle"><span class="qna-number">10.</span> <span class="qna-question">How do I stay safe using P2P?</span></h3>
+                                            </div>
+                                            <div class="qna-card-back">
+                                                <p class="qna-answer">Make sure you are using a secure network. Stick to P2P apps that you are familiar with and know are safe.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Recent Questions (Medium Widget) -->
+                        <div class="widget" style="grid-column: 4 / 6; grid-row: 1 / 2;">
+                            <h3><i class="fas fa-list"></i> Recent Questions</h3>
+                            <div class="question-list">
+                                <p>Q: How to reset password?</p>
+                                <p>Q: How to contact support?</p>
+                            </div>
+                        </div>
+                        <!-- Top Answer of the Day (Small Widget) -->
+                        <div class="widget" style="grid-column: 4 / 6; grid-row: 2 / 3;">
+                            <h3><i class="fas fa-star"></i> Top Answer of the Day</h3>
+                            <p>A: Go to Settings > Account > Reset Password.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="overlay" id="dashboard-overlay"></div>
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="script.js"></script>
+        </body>
+        </html>
