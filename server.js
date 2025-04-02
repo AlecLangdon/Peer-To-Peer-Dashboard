@@ -134,6 +134,18 @@ io.on('connection', (socket) => {
         console.log(`${data.userName} stopped typing.`);
     });
 
+    // Handle mock send money transactions
+    socket.on('sendMoney', (transactionData) => {
+        console.log('Received sendMoney event:', transactionData);
+        io.emit('moneySent', transactionData);
+    });
+
+    // Handle payment requests
+    socket.on('requestPayment', (requestData) => {
+        console.log('Received requestPayment event:', requestData);
+        io.emit('paymentRequested', requestData);
+    });
+
     // Handle user disconnection
     socket.on('disconnect', () => {
         console.log('User disconnected:', socket.id);

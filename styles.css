@@ -1387,7 +1387,6 @@ body.light-theme .tab.active {
     font-size: 1em;
 }
 
-
 /* ==========================================================================
    ==========================================================================
    ==========================================================================
@@ -1690,6 +1689,632 @@ body.light-theme .tab.active {
         glow 4s infinite ease-in-out,
         breathe 2.5s infinite ease-in-out;
 }
+
+/* Transfer Money Feature (New Rule for P2P Tab) */
+.transfer-money-container {
+    margin-top: 20px;
+    padding: 15px;
+    background: linear-gradient(225deg, #606060, #B0B0B0);
+    border-radius: 15px;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.3),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+        0 0 20px rgba(29, 78, 216, 0.7);
+}
+
+.transfer-money-container h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+    color: #E0E0E0;
+    text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
+    animation: glow 4s infinite ease-in-out;
+}
+
+.transfer-money-container .peer-select {
+    width: 100%;
+    max-width: 300px;
+    background: linear-gradient(145deg, #404040, #606060);
+    border: none;
+    border-radius: 15px;
+    padding: 8px 12px;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15),
+        0 0 10px rgba(29, 78, 216, 0.2);
+    margin-bottom: 10px;
+    transition: box-shadow 0.2s;
+}
+
+.transfer-money-container .peer-select:focus {
+    outline: none;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 257, 0.15),
+        0 0 20px rgba(29, 78, 216, 0.7);
+}
+
+/* Transfer Money Input */
+.transfer-money-container .money-input {
+    width: 100%;
+    max-width: 300px;
+    background: linear-gradient(145deg, #404040, #606060);
+    border: none;
+    border-radius: 15px;
+    padding: 8px 12px;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15),
+        0 0 10px rgba(29, 78, 216, 0.2);
+    margin-bottom: 10px;
+    transition: box-shadow 0.2s;
+}
+
+.transfer-money-container .money-input:focus {
+    outline: none;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 257, 0.15),
+        0 0 20px rgba(29, 78, 216, 0.7);
+}
+
+.transfer-money-container .money-input::placeholder {
+    color: #A0A0A0;
+    opacity: 0.8;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+}
+
+/* Ensure Select Peer dropdown matches Payment Method dropdown */
+.active-p2p-connections .p2p-send-form .peer-select,
+.active-p2p-connections .p2p-send-form select:first-of-type {
+    background: linear-gradient(145deg, #404040, #606060);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15),
+        0 0 10px rgba(29, 78, 216, 0.2);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.active-p2p-connections .p2p-send-form .peer-select:focus,
+.active-p2p-connections .p2p-send-form select:first-of-type:focus {
+    outline: none;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 257, 0.15),
+        0 0 20px rgba(29, 78, 216, 0.7);
+}
+
+/* Transfer Money Activity List */
+.transfer-money-container .activity-list {
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.transfer-money-container .activity-list p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+/* Active P2P Connections Widget - Updated 2-Column Layout */
+.active-p2p-connections {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.active-p2p-connections .p2p-transfer-wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    gap: 20px;
+}
+
+/* Left Column: Peer Info + Send Form */
+.active-p2p-connections .p2p-left-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.3),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+        0 0 20px rgba(29, 78, 216, 0.7);
+    backdrop-filter: blur(5px);
+    overflow-y: auto;
+}
+
+.active-p2p-connections .peer-list {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.active-p2p-connections .peer-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: background 0.2s ease-in-out;
+}
+
+.active-p2p-connections .peer-info:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.active-p2p-connections .peer-info i {
+    font-size: 2em;
+    color: #E0E0E0;
+    text-shadow: 0 0 10px rgba(29, 78, 216, 0.8);
+}
+
+.active-p2p-connections .peer-meta {
+    flex: 1;
+}
+
+.active-p2p-connections .peer-meta h4 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #E0E0E0;
+    text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
+}
+
+.active-p2p-connections .peer-meta p {
+    margin: 5px 0 0;
+    font-size: 0.9em;
+    position: relative;
+    padding-left: 20px;
+}
+
+.active-p2p-connections .peer-meta .peer-status::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.active-p2p-connections .peer-meta .peer-status.online::before {
+    background: #0F0;
+    box-shadow: 0 0 10px #0F0;
+}
+
+.active-p2p-connections .peer-meta .peer-status.offline::before {
+    background: #F00;
+    box-shadow: 0 0 10px #F00;
+}
+
+.active-p2p-connections .p2p-send-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.active-p2p-connections .p2p-send-form .soft-label {
+    font-size: 1em;
+    color: #E0E0E0;
+    text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
+}
+
+.active-p2p-connections .p2p-send-form .amount-input,
+.active-p2p-connections .p2p-send-form .method-select,
+.active-p2p-connections .p2p-send-form .note-input,
+.active-p2p-connections .request-prompt .request-amount-input,
+.active-p2p-connections .request-prompt .request-note-input {
+    width: 100%;
+    background: linear-gradient(145deg, #404040, #606060);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15),
+        0 0 10px rgba(29, 78, 216, 0.2);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.active-p2p-connections .p2p-send-form .amount-input:focus,
+.active-p2p-connections .p2p-send-form .method-select:focus,
+.active-p2p-connections .p2p-send-form .note-input:focus,
+.active-p2p-connections .request-prompt .request-amount-input:focus,
+.active-p2p-connections .request-prompt .request-note-input:focus {
+    outline: none;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 257, 0.15),
+        0 0 20px rgba(29, 78, 216, 0.7);
+}
+
+.active-p2p-connections .p2p-send-form .amount-input::placeholder,
+.active-p2p-connections .p2p-send-form .note-input::placeholder,
+.active-p2p-connections .request-prompt .request-amount-input::placeholder,
+.active-p2p-connections .request-prompt .request-note-input::placeholder {
+    color: #A0A0A0;
+    opacity: 0.8;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+}
+
+.active-p2p-connections .p2p-send-form .form-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.active-p2p-connections .p2p-send-form .p2p-send-button,
+.active-p2p-connections .p2p-send-form .cancel-button,
+.active-p2p-connections .p2p-send-form .request-button,
+.active-p2p-connections .confirmation-prompt .confirm-button,
+.active-p2p-connections .confirmation-prompt .cancel-button,
+.active-p2p-connections .request-prompt .request-confirm-button,
+.active-p2p-connections .request-prompt .request-cancel-button {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 250, 0.3) 100%);
+    box-shadow: 
+        0 18px 36px rgba(0, 0, 0, 0.5),
+        inset 0 4.5px 9px rgba(255, 255, 255, 0.6);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 24px;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    min-width: 120px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    text-shadow: 0 0 18px rgba(29, 78, 216, 0.9);
+    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    animation: glow 4s infinite ease-in-out;
+}
+
+.active-p2p-connections .p2p-send-form .p2p-send-button::after,
+.active-p2p-connections .p2p-send-form .cancel-button::after,
+.active-p2p-connections .p2p-send-form .request-button::after,
+.active-p2p-connections .confirmation-prompt .confirm-button::after,
+.active-p2p-connections .confirmation-prompt .cancel-button::after,
+.active-p2p-connections .request-prompt .request-confirm-button::after,
+.active-p2p-connections .request-prompt .request-cancel-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 18px 18px 0 0;
+    z-index: 2;
+    opacity: 0.7;
+    pointer-events: none;
+    animation: gloss 2.5s infinite alternate;
+}
+
+.active-p2p-connections .p2p-send-form .p2p-send-button:hover,
+.active-p2p-connections .p2p-send-form .cancel-button:hover,
+.active-p2p-connections .p2p-send-form .request-button:hover,
+.active-p2p-connections .confirmation-prompt .confirm-button:hover,
+.active-p2p-connections .confirmation-prompt .cancel-button:hover,
+.active-p2p-connections .request-prompt .request-confirm-button:hover,
+.active-p2p-connections .request-prompt .request-cancel-button:hover {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0.4) 100%);
+    transform: translateY(-3px);
+    box-shadow: 
+        0 12px 24px rgba(0, 0, 0, 0.5),
+        inset 0 3px 6px rgba(255, 255, 255, 0.6),
+        0 0 30px rgba(29, 78, 216, 0.9);
+}
+
+.active-p2p-connections .p2p-send-form .p2p-send-button:active,
+.active-p2p-connections .p2p-send-form .cancel-button:active,
+.active-p2p-connections .p2p-send-form .request-button:active,
+.active-p2p-connections .confirmation-prompt .confirm-button:active,
+.active-p2p-connections .confirmation-prompt .cancel-button:active,
+.active-p2p-connections .request-prompt .request-confirm-button:active,
+.active-p2p-connections .request-prompt .request-cancel-button:active {
+    transform: translateY(3px);
+    box-shadow: 
+        0 6px 12px rgba(0, 0, 0, 0.5),
+        inset 0 3px 6px rgba(255, 255, 255, 0.6);
+}
+
+.active-p2p-connections .p2p-send-form .cancel-button,
+.active-p2p-connections .confirmation-prompt .cancel-button,
+.active-p2p-connections .request-prompt .request-cancel-button {
+    background: linear-gradient(135deg, rgba(50, 50, 50, 0.5) 0%, rgba(200, 200, 200, 0.3) 100%);
+}
+
+.active-p2p-connections .p2p-send-form .cancel-button:hover,
+.active-p2p-connections .confirmation-prompt .cancel-button:hover,
+.active-p2p-connections .request-prompt .request-cancel-button:hover {
+    background: linear-gradient(135deg, rgba(50, 50, 50, 0.6) 0%, rgba(200, 200, 200, 0.4) 100%);
+}
+
+.active-p2p-connections .p2p-send-form .request-button {
+    background: linear-gradient(135deg, rgba(0, 50, 100, 0.5) 0%, rgba(150, 200, 255, 0.3) 100%);
+}
+
+.active-p2p-connections .p2p-send-form .request-button:hover {
+    background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(150, 200, 255, 0.4) 100%);
+}
+
+.active-p2p-connections .p2p-send-form .repeat-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.active-p2p-connections .p2p-send-form .repeat-toggle label {
+    font-size: 0.9em;
+    color: #E0E0E0;
+    text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
+}
+
+.active-p2p-connections .p2p-send-form .repeat-toggle .repeat-checkbox {
+    appearance: none;
+    width: 40px;
+    height: 20px;
+    background: linear-gradient(145deg, #404040, #606060);
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.active-p2p-connections .p2p-send-form .repeat-toggle .repeat-checkbox::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(145deg, #606060, #B0B0B0);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out;
+}
+
+.active-p2p-connections .p2p-send-form .repeat-toggle .repeat-checkbox:checked {
+    background: linear-gradient(145deg, #1E3A8A, #162E6F);
+}
+
+.active-p2p-connections .p2p-send-form .repeat-toggle .repeat-checkbox:checked::before {
+    transform: translateX(20px);
+}
+
+/* Right Column: Transaction History Log */
+.active-p2p-connections .p2p-right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(145deg, #808080, #606060);
+    border-radius: 22.5px;
+    padding: 20px;
+    box-shadow: 
+        inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        inset -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
+        0 0 45px rgba(29, 78, 216, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.active-p2p-connections .transaction-log {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.active-p2p-connections .transaction-log h4 {
+    margin: 0 0 10px;
+    font-size: 2.2em;
+    color: #dce5f2;
+    text-shadow: 
+        0 0 6px rgba(173, 216, 255, 0.8),
+        0 0 14px rgba(173, 216, 255, 0.6),
+        0 0 28px rgba(173, 216, 255, 0.4);
+    animation: glow 4s infinite ease-in-out;
+}
+
+.active-p2p-connections .transaction-log ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.active-p2p-connections .transaction-log li {
+    padding: 10px;
+    background: rgba(21, 220, 81, 0.05);
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    color: #E0E0E0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s ease-in-out;
+}
+
+.active-p2p-connections .transaction-log li:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.active-p2p-connections .transaction-log li strong {
+    color: #1E90FF;
+    font-weight: bold;
+}
+
+/* Confirmation and Request Prompts */
+.active-p2p-connections .confirmation-prompt,
+.active-p2p-connections .request-prompt {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: linear-gradient(225deg, #606060, #B0B0B0);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        12px 12px 24px rgba(0, 0, 0, 0.4),
+        -12px -12px 24px rgba(255, 252, 255, 0.15),
+        inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.25),
+        inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.35),
+        0 0 30px rgba(29, 78, 216, 0.7);
+    padding: 20px;
+    z-index: 1001;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.active-p2p-connections .confirmation-prompt.show,
+.active-p2p-connections .request-prompt.show {
+    display: flex;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.active-p2p-connections .confirmation-prompt p,
+.active-p2p-connections .request-prompt p {
+    font-size: 1.2em;
+    text-align: center;
+    color: #E0E0E0;
+    text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
+    margin: 0;
+}
+
+.active-p2p-connections .confirmation-prompt .confirmation-buttons,
+.active-p2p-connections .request-prompt .request-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Toast Notification */
+.active-p2p-connections .p2p-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #1E3A8A, #162E6F);
+    color: #E0E0E0;
+    padding: 15px 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        5px 5px 15px rgba(0, 0, 0, 0.4),
+        -5px -5px 15px rgba(255, 255, 255, 0.15),
+        inset 2px 2px 5px rgba(0, 0, 0, 0.25),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.35),
+        0 0 20px rgba(29, 78, 216, 0.7);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1003;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.active-p2p-connections .p2p-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.active-p2p-connections .p2p-toast.success {
+    border-left: 4px solid #0F0;
+}
+
+.active-p2p-connections .p2p-toast.cancel {
+    border-left: 4px solid #F00;
+}
+
+.active-p2p-connections .p2p-toast.request {
+    border-left: 4px solid #FFD700;
+}
+
+.active-p2p-connections .p2p-toast .close-toast {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
+    border: none;
+    border-radius: 50%;
+    color: #E0E0E0;
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 
+        0 5px 10px rgba(0, 0, 0, 0.3),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    transition: background 0.2s;
+}
+
+.active-p2p-connections .p2p-toast .close-toast:hover {
+    background: linear-gradient(135deg, #1E3A8A, #162E6F);
+}
+
+/* Confirmation Stamp */
+.active-p2p-connections .confirmation-stamp {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: #0F0;
+    font-size: 5em;
+    z-index: 1002;
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.active-p2p-connections .confirmation-stamp.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
 
 /* ==========================================================================
    ==========================================================================
@@ -2056,7 +2681,7 @@ body.light-theme .tab.active {
    ==========================================================================
    ==========================================================================
    ========================================================================== */
-   @media (max-width: 768px) {
+@media (max-width: 768px) {
     .dashboard-container {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
@@ -2218,7 +2843,7 @@ body.light-theme .tab.active {
    ==========================================================================
    ========================================================================== */
 
-   @media (max-width: 768px) {
+@media (max-width: 768px) {
     body {
       font-size: 14px;
       padding: 10px;
@@ -2270,5 +2895,4 @@ body.light-theme .tab.active {
       width: 100%;
       margin-bottom: 15px;
     }
-  }
-  
+}

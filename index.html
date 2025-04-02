@@ -26,7 +26,7 @@
         <button class="tab" data-tab="qna">Q&A</button>
     </div>
 
-    <!-- Tab Content Container -->
+<!-- Tab Content Container ----------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <div class="tab-content-container">
         <!-- Dashboard Tab (Existing) -->
         <div class="tab-content active" id="dashboard">
@@ -166,364 +166,448 @@
             </div>
         </div>
 
-        <!-- P2P Tab -->
-        <!-- P2P Tab -->
-<!-- P2P Tab -->
-<div class="tab-content" id="p2p">
-    <div class="dashboard-container">
-        <!-- Active P2P Connections (Large Widget) -->
-        <div class="widget" style="grid-column: 1 / 4; grid-row: 1 / 3;">
-            <h3><i class="fas fa-users"></i> Active P2P Connections</h3>
-            <p>No active connections.</p>
-        </div>
+<!------ P2P Tab ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+        <div id="p2p" class="tab-content">
+            <div class="dashboard-container">
+                <!-- Active P2P Connections Widget (Updated with 2-Column Layout) -->
+                <div class="widget active-p2p-connections" style="grid-column: 1 / 4; grid-row: 1 / 3;">
+                    <h3>Active P2P Connections</h3>
+                    <div class="p2p-transfer-wrapper">
+                        <!-- Left Column: Peer Info + Send Form -->
+                        <div class="p2p-left-column">
+                            <div class="peer-list">
+                                <div class="peer-info">
+                                    <i class="fas fa-user-circle"></i>
+                                    <div class="peer-meta">
+                                        <h4>John Doe</h4>
+                                        <p class="peer-status online">Online - 192.168.1.101</p>
+                                    </div>
+                                </div>
+                                <div class="peer-info">
+                                    <i class="fas fa-user-circle"></i>
+                                    <div class="peer-meta">
+                                        <h4>Jane Smith</h4>
+                                        <p class="peer-status offline">Offline - 192.168.1.102</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="p2p-send-form">
+                                <label for="peer" class="soft-label">Select Peer</label>
+                                <select id="peer" class="peer-select">
+                                    <option value="">Select a peer</option>
+                                    <option value="John Doe">John Doe</option>
+                                    <option value="Jane Smith">Jane Smith</option>
+                                </select>
+                                <label for="amount" class="soft-label">Amount (USD)</label>
+                                <input type="number" id="amount" class="amount-input" placeholder="Enter amount" />
+                                <label for="method" class="soft-label">Payment Method</label>
+                                <select id="method" class="method-select">
+                                    <option value="Zelle">Zelle</option>
+                                    <option value="Venmo">Venmo</option>
+                                    <option value="PayPal">PayPal</option>
+                                    <option value="CashApp">CashApp</option>
+                                </select>
+                                <label for="note" class="soft-label">Note</label>
+                                <input type="text" id="note" class="note-input" placeholder="(optional) For lunch, rent..." />
+                                <div class="form-buttons">
+                                    <button class="p2p-send-button">Send Money</button>
+                                    <button class="cancel-button">Cancel</button>
+                                    <button class="request-button">Request Payment</button>
+                                </div>
+                                <div class="repeat-toggle">
+                                    <label for="repeat-payment">Send this amount weekly</label>
+                                    <input type="checkbox" id="repeat-payment" class="repeat-checkbox" />
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Right Column: Transaction History Log -->
+                        <div class="p2p-right-column">
+                            <div class="transaction-log">
+                                <h4>Recent Transfers</h4>
+                                <ul id="transaction-list">
+                                    <!-- Transaction entries will be added dynamically via JavaScript -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Confirmation Prompt -->
+                    <div class="confirmation-prompt" id="confirmation-prompt">
+                        <p id="confirmation-message">Are you sure you want to send $80 to John Doe?</p>
+                        <div class="confirmation-buttons">
+                            <button class="confirm-button">Yes</button>
+                            <button class="cancel-button">No</button>
+                        </div>
+                    </div>
+                    <!-- Request Payment Prompt -->
+                    <div class="request-prompt" id="request-prompt">
+                        <p id="request-message">Request payment from John Doe</p>
+                        <label for="request-amount" class="soft-label">Amount (USD)</label>
+                        <input type="number" id="request-amount" class="request-amount-input" placeholder="Enter amount" />
+                        <label for="request-note" class="soft-label">Note</label>
+                        <input type="text" id="request-note" class="request-note-input" placeholder="(optional) For lunch, rent..." />
+                        <div class="request-buttons">
+                            <button class="request-confirm-button">Send Request</button>
+                            <button class="request-cancel-button">Cancel</button>
+                        </div>
+                    </div>
+                    <!-- Toast Notification -->
+                    <div class="p2p-toast" id="p2p-toast">
+                        <span id="toast-message"></span>
+                        <button class="close-toast">✖️</button>
+                    </div>
+                    <!-- Confirmation Stamp -->
+                    <div class="confirmation-stamp" id="confirmation-stamp">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </div>
 
-        <!-- P2P Q&A Widget (Frequently Asked Questions Style) -->
-        <div class="widget p2p-qna-grid-container" style="grid-column: 1 / 4; grid-row: 3 / 5;">
-            <h2 class="p2p-section-title"><i class="fas fa-question-circle"></i> P2P Frequently Asked Questions</h2>
-            <div class="p2p-qna-grid">
-                <!-- Top Row (2 widgets, each spanning 2 columns) -->
-                <!-- Widget 1 -->
-                <div class="p2p-qna-widget" style="grid-column: 1 / 3; grid-row: 1 / 2;">
-                    <div class="p2p-qna-card">
-                        <div class="p2p-qna-card-inner">
-                            <div class="p2p-qna-card-front">
-                                <h3 class="p2p-qna-toggle"><span class="p2p-qna-number">1.</span> Decentralization</h3>
-                            </div>
-                            <div class="p2p-qna-card-back">
-                                <p class="p2p-qna-answer">No central authority, users communicate directly.</p>
-                            </div>
-                        </div>
+                <!-- Recent Activity Widget -->
+                <div class="widget" style="grid-column: 4 / 7; grid-row: 1 / 2;">
+                    <h3>Recent Activity</h3>
+                    <div class="activity-log">
+                        <p>Connected to peer 192.168.1.101 - 10:45 AM</p>
+                        <p>Disconnected from peer 192.168.1.103 - 10:30 AM</p>
                     </div>
                 </div>
-                <!-- Widget 2 -->
-                <div class="p2p-qna-widget" style="grid-column: 3 / 5; grid-row: 1 / 2;">
-                    <div class="p2p-qna-card">
-                        <div class="p2p-qna-card-inner">
-                            <div class="p2p-qna-card-front">
-                                <h3 class="p2p-qna-toggle"><span class="p2p-qna-number">2.</span> Scalability</h3> <!-- Removed the extra "W" -->
+
+                <!-- Network Status Widget -->
+                <div class="widget" style="grid-column: 4 / 7; grid-row: 2 / 3;">
+                    <h3>Network Status</h3>
+                    <p>Status: Connected</p>
+                    <p>Peers: 5</p>
+                </div>
+
+                <!-- P2P Frequently Asked Questions Widget -->
+                <div class="widget p2p-qna-grid-container" style="grid-column: 1 / 4; grid-row: 3 / 5;">
+                    <h2 class="p2p-section-title"><i class="fas fa-question-circle"></i> P2P Frequently Asked Questions</h2>
+                    <div class="p2p-qna-grid">
+                        <!-- Top Row (2 widgets, each spanning 2 columns) -->
+                        <!-- Widget 1 -->
+                        <div class="p2p-qna-widget" style="grid-column: 1 / 3; grid-row: 1 / 2;">
+                            <div class="p2p-qna-card">
+                                <div class="p2p-qna-card-inner">
+                                    <div class="p2p-qna-card-front">
+                                        <h3 class="p2p-qna-toggle"><span class="p2p-qna-number">1.</span> Decentralization</h3>
+                                    </div>
+                                    <div class="p2p-qna-card-back">
+                                        <p class="p2p-qna-answer">No central authority, users communicate directly.</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="p2p-qna-card-back">
-                                <p class="p2p-qna-answer">Easily expands as more users join the network.</p>
+                        </div>
+                        <!-- Widget 2 -->
+                        <div class="p2p-qna-widget" style="grid-column: 3 / 5; grid-row: 1 / 2;">
+                            <div class="p2p-qna-card">
+                                <div class="p2p-qna-card-inner">
+                                    <div class="p2p-qna-card-front">
+                                        <h3 class="p2p-qna-toggle"><span class="p2p-qna-number">2.</span> Scalability</h3> <!-- Removed the extra "W" -->
+                                    </div>
+                                    <div class="p2p-qna-card-back">
+                                        <p class="p2p-qna-answer">Easily expands as more users join the network.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Middle Row (2 widgets, each spanning 2 columns) -->
+                        <!-- Widget 3 -->
+                        <div class="p2p-qna-widget" style="grid-column: 1 / 3; grid-row: 2 / 3;">
+                            <div class="p2p-qna-card">
+                                <div class="p2p-qna-card-inner">
+                                    <div class="p2p-qna-card-front">
+                                        <h3 class="p2p-qna-toggle"><span class="p2p-qna-number">3.</span> Privacy</h3>
+                                    </div>
+                                    <div class="p2p-qna-card-back">
+                                        <p class="p2p-qna-answer">Enhances security with encrypted communication.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget 4 -->
+                        <div class="p2p-qna-widget" style="grid-column: 3 / 5; grid-row: 2 / 3;">
+                            <div class="p2p-qna-card">
+                                <div class="p2p-qna-card-inner">
+                                    <div class="p2p-qna-card-front">
+                                        <h3 class="p2p-qna-toggle"><span class="p2p-qna-number">4.</span> Resource Sharing</h3>
+                                    </div>
+                                    <div class="p2p-qna-card-back">
+                                        <p class="p2p-qna-answer">Users contribute bandwidth and storage.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Middle Row (2 widgets, each spanning 2 columns) -->
-                <!-- Widget 3 -->
-                <div class="p2p-qna-widget" style="grid-column: 1 / 3; grid-row: 2 / 3;">
-                    <div class="p2p-qna-card">
-                        <div class="p2p-qna-card-inner">
-                            <div class="p2p-qna-card-front">
-                                <h3 class="p2p-qna-toggle"><span class="p2p-qna-number">3.</span> Privacy</h3>
+                <!-- P2P Network Insights Widget -->
+                <div class="widget" style="grid-column: 4 / 7; grid-row: 3 / 5;">
+                    <div class="p2p-insights-container">
+                        <h2 class="p2p-insights-title">P2P Network Insights</h2>
+                        <div class="p2p-insights-content">
+                            <div class="p2p-insights-section">
+                                <h3>Advantages of P2P Networks</h3>
+                                <ul>
+                                    <li>Decentralization and resilience aspect</li>
+                                    <li>Easy scalability</li>
+                                    <li>Efficient resource utilization</li>
+                                    <li>Cost savings</li>
+                                    <li>Direct communication and faster content delivery</li>
+                                    <li>Enhanced privacy and security</li>
+                                </ul>
                             </div>
-                            <div class="p2p-qna-card-back">
-                                <p class="p2p-qna-answer">Enhances security with encrypted communication.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Widget 4 -->
-                <div class="p2p-qna-widget" style="grid-column: 3 / 5; grid-row: 2 / 3;">
-                    <div class="p2p-qna-card">
-                        <div class="p2p-qna-card-inner">
-                            <div class="p2p-qna-card-front">
-                                <h3 class="p2p-qna-toggle"><span class="p2p-qna-number">4.</span> Resource Sharing</h3>
-                            </div>
-                            <div class="p2p-qna-card-back">
-                                <p class="p2p-qna-answer">Users contribute bandwidth and storage.</p>
+                            <div class="p2p-insights-section">
+                                <h3>Disadvantages of P2P Networks</h3>
+                                <ul>
+                                    <li>Lack of centralized control</li>
+                                    <li>Network management complexity</li>
+                                    <li>Dependency on peer availability</li>
+                                    <li>Performance and efficiency variability</li>
+                                    <li>Legal risks</li>
+                                    <li>Security and copyright concerns</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Recent Activity (Medium Widget) -->
-        <div class="widget" style="grid-column: 4 / 6; grid-row: 1 / 2;">
-            <h3><i class="fas fa-list"></i> Recent Activity</h3>
-            <div class="activity-list">
-                <p>Connected to peer: 192.168.1.100</p>
-                <p>Transferred file: document.pdf</p>
+    
+<!----- File Transfer Tab ---------------------------------------------------------------------------------------------------------------------------------------------------------------->
+        <div class="tab-content" id="file-transfer">
+            <div class="dashboard-container">
+                <!-- File Upload Progress (Wide Widget) -->
+                <div class="widget" style="grid-column: 1 / 5; grid-row: 1 / 2;">
+                    <h3><i class="fas fa-upload"></i> File Upload Progress</h3>
+                    <div class="progress-bar"><div class="progress" style="width: 60%;">60%</div></div>
+                    <div class="progress-bar"><div class="progress" style="width: 30%;">30%</div></div>
+                    <button class="action-button"><i class="fas fa-pause"></i> Pause All</button>
+                </div>
+                <!-- Recent Transfers (Tall Widget) -->
+                <div class="widget" style="grid-column: 1 / 3; grid-row: 2 / 4;">
+                    <h3><i class="fas fa-file-alt"></i> Recent Transfers</h3>
+                    <div class="transfer-list">
+                        <p>File1.pdf - 2MB - 12:00 PM</p>
+                        <p>Image.jpg - 500KB - 11:55 AM</p>
+                        <p>Doc.docx - 1MB - 11:50 AM</p>
+                    </div>
+                    <button class="action-button">View All Transfers</button>
+                </div>
+                <!-- Storage Usage (Small Widget) -->
+                <div class="widget" style="grid-column: 3 / 5; grid-row: 2 / 3;">
+                    <h3><i class="fas fa-hdd"></i> Storage Usage</h3>
+                    <div class="circle-graph">
+                        <div id="storage-circle" class="center-circle">
+                            <i class="fas fa-hdd"></i>
+                            <span class="circle-label">75%</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <!-- Network Status (Medium Widget) -->
-        <div class="widget" style="grid-column: 4 / 6; grid-row: 2 / 3;">
-            <h3><i class="fas fa-signal"></i> Network Status</h3>
-            <p>Status: Connected</p>
-            <p>Peers: 5</p>
-        </div>
-
-        <!-- P2P Network Insights (Medium Widget) -->
-        <div class="widget p2p-insights-container" style="grid-column: 4 / 6; grid-row: 3 / 5;">
-            <h2 class="p2p-insights-title"><i class="fas fa-info-circle"></i> P2P Network Insights</h2>
-            <div class="p2p-insights-content">
-                <!-- Advantages Section -->
-                <div class="p2p-insights-section">
-                    <h3>Advantages of P2P Networks</h3>
-                    <ul>
-                        <li>Decentralization and resilience aspect</li>
-                        <li>Easy scalability</li>
-                        <li>Efficient resource utilization</li>
-                        <li>Cost savings</li>
-                        <li>Direct communication and faster content delivery</li>
-                        <li>Enhanced privacy and security</li>
-                    </ul>
+<!----- Security Tab ---------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+        <div class="tab-content" id="security">
+            <div class="dashboard-container">
+                <!-- Security Alerts (Large Widget) -->
+                <div class="widget" style="grid-column: 1 / 4; grid-row: 1 / 3;">
+                    <h3><i class="fas fa-shield-alt"></i> Security Alerts</h3>
+                    <div class="alert-list">
+                        <p>12:00 PM: Suspicious login attempt</p>
+                        <p>11:45 AM: Firewall breach detected</p>
+                        <p>11:30 AM: Encryption key updated</p>
+                    </div>
+                    <button class="action-button">View All Alerts</button>
                 </div>
-                <!-- Disadvantages Section -->
-                <div class="p2p-insights-section">
-                    <h3>Disadvantages of P2P Networks</h3>
-                    <ul>
-                        <li>Lack of centralized control</li>
-                        <li>Network management complexity</li>
-                        <li>Dependency on peer availability</li>
-                        <li>Performance and efficiency variability</li>
-                        <li>Legal risks</li>
-                        <li>Security and copyright concerns</li>
-                    </ul>
+                <!-- Encryption Status (Medium Widget) -->
+                <div class="widget" style="grid-column: 4 / 6; grid-row: 1 / 2;">
+                    <h3><i class="fas fa-lock"></i> Encryption Status</h3>
+                    <div class="toggle-option active">Enabled</div>
+                    <button class="action-button"><i class="fas fa-cog"></i> Configure</button>
+                </div>
+                <!-- Firewall Status (Small Widget) -->
+                <div class="widget" style="grid-column: 4 / 6; grid-row: 2 / 3;">
+                    <h3><i class="fas fa-fire"></i> Firewall Status</h3>
+                    <p>Status: <span id="firewall-status">Active</span></p>
+                    <button class="action-button">Toggle</button>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-                <!-- File Transfer Tab -->
-                <div class="tab-content" id="file-transfer">
-                    <div class="dashboard-container">
-                        <!-- File Upload Progress (Wide Widget) -->
-                        <div class="widget" style="grid-column: 1 / 5; grid-row: 1 / 2;">
-                            <h3><i class="fas fa-upload"></i> File Upload Progress</h3>
-                            <div class="progress-bar"><div class="progress" style="width: 60%;">60%</div></div>
-                            <div class="progress-bar"><div class="progress" style="width: 30%;">30%</div></div>
-                            <button class="action-button"><i class="fas fa-pause"></i> Pause All</button>
-                        </div>
-                        <!-- Recent Transfers (Tall Widget) -->
-                        <div class="widget" style="grid-column: 1 / 3; grid-row: 2 / 4;">
-                            <h3><i class="fas fa-file-alt"></i> Recent Transfers</h3>
-                            <div class="transfer-list">
-                                <p>File1.pdf - 2MB - 12:00 PM</p>
-                                <p>Image.jpg - 500KB - 11:55 AM</p>
-                                <p>Doc.docx - 1MB - 11:50 AM</p>
-                            </div>
-                            <button class="action-button">View All Transfers</button>
-                        </div>
-                        <!-- Storage Usage (Small Widget) -->
-                        <div class="widget" style="grid-column: 3 / 5; grid-row: 2 / 3;">
-                            <h3><i class="fas fa-hdd"></i> Storage Usage</h3>
-                            <div class="circle-graph">
-                                <div id="storage-circle" class="center-circle">
-                                    <i class="fas fa-hdd"></i>
-                                    <span class="circle-label">75%</span>
-                                </div>
-                            </div>
+<!------ Cloud Tab ----------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+        <div class="tab-content" id="cloud">
+            <div class="dashboard-container">
+                <!-- Cloud Sync Status (Wide Widget) -->
+                <div class="widget" style="grid-column: 1 / 5; grid-row: 1 / 2;">
+                    <h3><i class="fas fa-cloud"></i> Cloud Sync Status</h3>
+                    <div class="progress-bar"><div class="progress" style="width: 80%;">80%</div></div>
+                    <button class="action-button"><i class="fas fa-sync"></i> Sync Now</button>
+                </div>
+                <!-- Cloud Storage Metrics (Medium Widget) -->
+                <div class="widget" style="grid-column: 1 / 3; grid-row: 2 / 3;">
+                    <h3><i class="fas fa-chart-pie"></i> Cloud Storage Metrics</h3>
+                    <div class="circle-graph">
+                        <div id="cloud-circle" class="center-circle">
+                            <i class="fas fa-chart-pie"></i>
+                            <span class="circle-label">60%</span>
                         </div>
                     </div>
                 </div>
-        
-                <!-- Security Tab -->
-                <div class="tab-content" id="security">
-                    <div class="dashboard-container">
-                        <!-- Security Alerts (Large Widget) -->
-                        <div class="widget" style="grid-column: 1 / 4; grid-row: 1 / 3;">
-                            <h3><i class="fas fa-shield-alt"></i> Security Alerts</h3>
-                            <div class="alert-list">
-                                <p>12:00 PM: Suspicious login attempt</p>
-                                <p>11:45 AM: Firewall breach detected</p>
-                                <p>11:30 AM: Encryption key updated</p>
-                            </div>
-                            <button class="action-button">View All Alerts</button>
-                        </div>
-                        <!-- Encryption Status (Medium Widget) -->
-                        <div class="widget" style="grid-column: 4 / 6; grid-row: 1 / 2;">
-                            <h3><i class="fas fa-lock"></i> Encryption Status</h3>
-                            <div class="toggle-option active">Enabled</div>
-                            <button class="action-button"><i class="fas fa-cog"></i> Configure</button>
-                        </div>
-                        <!-- Firewall Status (Small Widget) -->
-                        <div class="widget" style="grid-column: 4 / 6; grid-row: 2 / 3;">
-                            <h3><i class="fas fa-fire"></i> Firewall Status</h3>
-                            <p>Status: <span id="firewall-status">Active</span></p>
-                            <button class="action-button">Toggle</button>
-                        </div>
+                <!-- Recent Cloud Activity (Small Widget) -->
+                <div class="widget" style="grid-column: 3 / 5; grid-row: 2 / 3;">
+                    <h3><i class="fas fa-history"></i> Recent Cloud Activity</h3>
+                    <div class="activity-list">
+                        <p>12:00 PM: File synced</p>
+                        <p>11:55 AM: Folder updated</p>
                     </div>
                 </div>
-        
-                <!-- Cloud Tab -->
-                <div class="tab-content" id="cloud">
-                    <div class="dashboard-container">
-                        <!-- Cloud Sync Status (Wide Widget) -->
-                        <div class="widget" style="grid-column: 1 / 5; grid-row: 1 / 2;">
-                            <h3><i class="fas fa-cloud"></i> Cloud Sync Status</h3>
-                            <div class="progress-bar"><div class="progress" style="width: 80%;">80%</div></div>
-                            <button class="action-button"><i class="fas fa-sync"></i> Sync Now</button>
-                        </div>
-                        <!-- Cloud Storage Metrics (Medium Widget) -->
-                        <div class="widget" style="grid-column: 1 / 3; grid-row: 2 / 3;">
-                            <h3><i class="fas fa-chart-pie"></i> Cloud Storage Metrics</h3>
-                            <div class="circle-graph">
-                                <div id="cloud-circle" class="center-circle">
-                                    <i class="fas fa-chart-pie"></i>
-                                    <span class="circle-label">60%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Recent Cloud Activity (Small Widget) -->
-                        <div class="widget" style="grid-column: 3 / 5; grid-row: 2 / 3;">
-                            <h3><i class="fas fa-history"></i> Recent Cloud Activity</h3>
-                            <div class="activity-list">
-                                <p>12:00 PM: File synced</p>
-                                <p>11:55 AM: Folder updated</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                <!-- QnA Tab -->
-                <div class="tab-content" id="qna">
-                    <div class="dashboard-container">
-                        <!-- Container for 10 smaller widgets -->
-                        <div class="widget qna-grid-container" style="grid-column: 1 / 4; grid-row: 1 / 3;">
-                            <h2 class="qna-section-title"><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
-                            <div class="qna-grid">
-                                <!-- Top Row (4 widgets) -->
-                                <!-- Widget 1 (Previously Widget 9) -->
-                                <div class="qna-widget" style="grid-column: 1 / 2; grid-row: 1 / 2;">
-                                    <div class="qna-card">
-                                        <div class="qna-card-inner">
-                                            <div class="qna-card-front">
-                                                <h3 class="qna-toggle"><span class="qna-number">1.</span> <span class="qna-question">Can I use P2P on a mobile device?</span></h3>
-                                            </div>
-                                            <div class="qna-card-back">
-                                                <p class="qna-answer">Yes, users are able to make transactions and receive payments using their mobile devices.</p>
-                                            </div>
-                                        </div>
+            </div>
+        </div>
+
+<!------ QnA Tab --------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+        <div class="tab-content" id="qna">
+            <div class="dashboard-container">
+                <!-- Container for 10 smaller widgets -->
+                <div class="widget qna-grid-container" style="grid-column: 1 / 4; grid-row: 1 / 3;">
+                    <h2 class="qna-section-title"><i class="fas fa-question-circle"></i> Frequently Asked Questions</h2>
+                    <div class="qna-grid">
+                        <!-- Top Row (4 widgets) -->
+                        <!-- Widget 1 (Previously Widget 9) -->
+                        <div class="qna-widget" style="grid-column: 1 / 2; grid-row: 1 / 2;">
+                            <div class="qna-card">
+                                <div class="qna-card-inner">
+                                    <div class="qna-card-front">
+                                        <h3 class="qna-toggle"><span class="qna-number">1.</span> <span class="qna-question">Can I use P2P on a mobile device?</span></h3>
                                     </div>
-                                </div>
-                                <!-- Widget 2 -->
-                                <div class="qna-widget" style="grid-column: 2 / 3; grid-row: 1 / 2;">
-                                    <div class="qna-card">
-                                        <div class="qna-card-inner">
-                                            <div class="qna-card-front">
-                                                <h3 class="qna-toggle"><span class="qna-number">2.</span> <span class="qna-question">What are some examples of P2P applications?</span></h3>
-                                            </div>
-                                            <div class="qna-card-back">
-                                                <p class="qna-answer">There are file sharing P2P applications such as BitTorrent, LimeWire, Kazaa, eMule, Gnutella, and Soulseek.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Widget 3 -->
-                                <div class="qna-widget" style="grid-column: 3 / 4; grid-row: 1 / 2;">
-                                    <div class="qna-card">
-                                        <div class="qna-card-inner">
-                                            <div class="qna-card-front">
-                                                <h3 class="qna-toggle"><span class="qna-number">3.</span> <span class="qna-question">What are some P2P payment apps?</span></h3>
-                                            </div>
-                                            <div class="qna-card-back">
-                                                <p class="qna-answer">Venmo, Cash App, Zelle, PayPal, Google Pay, and Apple Pay.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Widget 4 -->
-                                <div class="qna-widget" style="grid-column: 4 / 5; grid-row: 1 / 2;">
-                                    <div class="qna-card">
-                                        <div class="qna-card-inner">
-                                            <div class="qna-card-front">
-                                                <h3 class="qna-toggle"><span class="qna-number">4.</span> <span class="qna-question">Why is my P2P app not connecting?</span></h3>
-                                            </div>
-                                            <div class="qna-card-back">
-                                                <p class="qna-answer">If you are connected to the internet, make sure the connection is stable.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-        
-                                <!-- Middle Row (4 widgets) -->
-                                <!-- Widget 5 -->
-                                <div class="qna-widget" style="grid-column: 1 / 2; grid-row: 2 / 3;">
-                                    <div class="qna-card">
-                                        <div class="qna-card-inner">
-                                            <div class="qna-card-front">
-                                                <h3 class="qna-toggle"><span class="qna-number">5.</span> <span class="qna-question">Why has my P2P suddenly stopped working?</span></h3>
-                                            </div>
-                                            <div class="qna-card-back">
-                                                <p class="qna-answer">Check if your network is working properly.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Widget 6 -->
-                                <div class="qna-widget" style="grid-column: 2 / 3; grid-row: 2 / 3;">
-                                    <div class="qna-card">
-                                        <div class="qna-card-inner">
-                                            <div class="qna-card-front">
-                                                <h3 class="qna-toggle"><span class="qna-number">6.</span> <span class="qna-question">What can you do with a P2P application?</span></h3>
-                                            </div>
-                                            <div class="qna-card-back">
-                                                <p class="qna-answer">File sharing, transactions, communication.</p>
-                                                <a href="https://cryptodaily.co.uk/glossary/understanding-p2p-networks-functionality-benefits-and-applications" target="_blank" class="read-more-btn">Read More about P2P Networks</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Widget 7 -->
-                                <div class="qna-widget" style="grid-column: 3 / 4; grid-row: 2 / 3;">
-                                    <div class="qna-card">
-                                        <div class="qna-card-inner">
-                                            <div class="qna-card-front">
-                                                <h3 class="qna-toggle"><span class="qna-number">7.</span> <span class="qna-question">What kind of data can you share with a P2P application?</span></h3>
-                                            </div>
-                                            <div class="qna-card-back">
-                                                <p class="qna-answer">Music, software, documents, images.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Widget 8 -->
-                                <div class="qna-widget" style="grid-column: 4 / 5; grid-row: 2 / 3;">
-                                    <div class="qna-card">
-                                        <div class="qna-card-inner">
-                                            <div class="qna-card-front">
-                                                <h3 class="qna-toggle"><span class="qna-number">8.</span> <span class="qna-question">Is P2P legal?</span></h3>
-                                            </div>
-                                            <div class="qna-card-back">
-                                                <p class="qna-answer">Yes, P2P is legal as long as the data is not copyrighted.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-        
-                                <!-- Bottom Row (2 widgets, each spanning 2 columns) -->
-                                <!-- Widget 9 (Previously Widget 1) -->
-                                <div class="qna-widget" style="grid-column: 1 / 3; grid-row: 3 / 4;">
-                                    <div class="qna-card">
-                                        <div class="qna-card-inner">
-                                            <div class="qna-card-front">
-                                                <h3 class="qna-toggle"><span class="qna-number">9.</span> <span class="qna-question">How can I make my P2P safe?</span></h3>
-                                            </div>
-                                            <div class="qna-card-back">
-                                                <p class="qna-answer">Immediately update software whenever new updates are available. Use strong passwords and encrypt your data. If you are transferring money, double-check that you are sending it to the correct recipient and not a scam link.</p>
-                                                <a href="https://toxigon.com/cybersecurity-and-p2p" target="_blank" class="read-more-btn">Read More</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Widget 10 -->
-                                <div class="qna-widget" style="grid-column: 3 / 5; grid-row: 3 / 4;">
-                                    <div class="qna-card">
-                                        <div class="qna-card-inner">
-                                            <div class="qna-card-front">
-                                                <h3 class="qna-toggle"><span class="qna-number">10.</span> <span class="qna-question">How do I stay safe using P2P?</span></h3>
-                                            </div>
-                                            <div class="qna-card-back">
-                                                <p class="qna-answer">Make sure you are using a secure network. Stick to P2P apps that you are familiar with and know are safe.</p>
-                                            </div>
-                                        </div>
+                                    <div class="qna-card-back">
+                                        <p class="qna-answer">Yes, users are able to make transactions and receive payments using their mobile devices.</p>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <!-- Widget 2 -->
+                        <div class="qna-widget" style="grid-column: 2 / 3; grid-row: 1 / 2;">
+                            <div class="qna-card">
+                                <div class="qna-card-inner">
+                                    <div class="qna-card-front">
+                                        <h3 class="qna-toggle"><span class="qna-number">2.</span> <span class="qna-question">What are some examples of P2P applications?</span></h3>
+                                    </div>
+                                    <div class="qna-card-back">
+                                        <p class="qna-answer">There are file sharing P2P applications such as BitTorrent, LimeWire, Kazaa, eMule, Gnutella, and Soulseek.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget 3 -->
+                        <div class="qna-widget" style="grid-column: 3 / 4; grid-row: 1 / 2;">
+                            <div class="qna-card">
+                                <div class="qna-card-inner">
+                                    <div class="qna-card-front">
+                                        <h3 class="qna-toggle"><span class="qna-number">3.</span> <span class="qna-question">What are some P2P payment apps?</span></h3>
+                                    </div>
+                                    <div class="qna-card-back">
+                                        <p class="qna-answer">Venmo, Cash App, Zelle, PayPal, Google Pay, and Apple Pay.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget 4 -->
+                        <div class="qna-widget" style="grid-column: 4 / 5; grid-row: 1 / 2;">
+                            <div class="qna-card">
+                                <div class="qna-card-inner">
+                                    <div class="qna-card-front">
+                                        <h3 class="qna-toggle"><span class="qna-number">4.</span> <span class="qna-question">Why is my P2P app not connecting?</span></h3>
+                                    </div>
+                                    <div class="qna-card-back">
+                                        <p class="qna-answer">If you are connected to the internet, make sure the connection is stable.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Middle Row (4 widgets) -->
+                        <!-- Widget 5 -->
+                        <div class="qna-widget" style="grid-column: 1 / 2; grid-row: 2 / 3;">
+                            <div class="qna-card">
+                                <div class="qna-card-inner">
+                                    <div class="qna-card-front">
+                                        <h3 class="qna-toggle"><span class="qna-number">5.</span> <span class="qna-question">Why has my P2P suddenly stopped working?</span></h3>
+                                    </div>
+                                    <div class="qna-card-back">
+                                        <p class="qna-answer">Check if your network is working properly.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget 6 -->
+                        <div class="qna-widget" style="grid-column: 2 / 3; grid-row: 2 / 3;">
+                            <div class="qna-card">
+                                <div class="qna-card-inner">
+                                    <div class="qna-card-front">
+                                        <h3 class="qna-toggle"><span class="qna-number">6.</span> <span class="qna-question">What can you do with a P2P application?</span></h3>
+                                    </div>
+                                    <div class="qna-card-back">
+                                        <p class="qna-answer">File sharing, transactions, communication.</p>
+                                        <a href="https://cryptodaily.co.uk/glossary/understanding-p2p-networks-functionality-benefits-and-applications" target="_blank" class="read-more-btn">Read More about P2P Networks</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget 7 -->
+                        <div class="qna-widget" style="grid-column: 3 / 4; grid-row: 2 / 3;">
+                            <div class="qna-card">
+                                <div class="qna-card-inner">
+                                    <div class="qna-card-front">
+                                        <h3 class="qna-toggle"><span class="qna-number">7.</span> <span class="qna-question">What kind of data can you share with a P2P application?</span></h3>
+                                    </div>
+                                    <div class="qna-card-back">
+                                        <p class="qna-answer">Music, software, documents, images.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget 8 -->
+                        <div class="qna-widget" style="grid-column: 4 / 5; grid-row: 2 / 3;">
+                            <div class="qna-card">
+                                <div class="qna-card-inner">
+                                    <div class="qna-card-front">
+                                        <h3 class="qna-toggle"><span class="qna-number">8.</span> <span class="qna-question">Is P2P legal?</span></h3>
+                                    </div>
+                                    <div class="qna-card-back">
+                                        <p class="qna-answer">Yes, P2P is legal as long as the data is not copyrighted.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Row (2 widgets, each spanning 2 columns) -->
+                        <!-- Widget 9 (Previously Widget 1) -->
+                        <div class="qna-widget" style="grid-column: 1 / 3; grid-row: 3 / 4;">
+                            <div class="qna-card">
+                                <div class="qna-card-inner">
+                                    <div class="qna-card-front">
+                                        <h3 class="qna-toggle"><span class="qna-number">9.</span> <span class="qna-question">How can I make my P2P safe?</span></h3>
+                                    </div>
+                                    <div class="qna-card-back">
+                                        <p class="qna-answer">Immediately update software whenever new updates are available. Use strong passwords and encrypt your data. If you are transferring money, double-check that you are sending it to the correct recipient and not a scam link.</p>
+                                        <a href="https://toxigon.com/cybersecurity-and-p2p" target="_blank" class="read-more-btn">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Widget 10 -->
+                        <div class="qna-widget" style="grid-column: 3 / 5; grid-row: 3 / 4;">
+                            <div class="qna-card">
+                                <div class="qna-card-inner">
+                                    <div class="qna-card-front">
+                                        <h3 class="qna-toggle"><span class="qna-number">10.</span> <span class="qna-question">How do I stay safe using P2P?</span></h3>
+                                    </div>
+                                    <div class="qna-card-back">
+                                        <p class="qna-answer">Make sure you are using a secure network. Stick to P2P apps that you are familiar with and know are safe.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
                         </div>
                         <!-- Recent Questions (Medium Widget) -->
                         <div class="widget" style="grid-column: 4 / 6; grid-row: 1 / 2;">
@@ -538,12 +622,12 @@
                             <h3><i class="fas fa-star"></i> Top Answer of the Day</h3>
                             <p>A: Go to Settings > Account > Reset Password.</p>
                         </div>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="overlay" id="dashboard-overlay"></div>
-            <script src="/socket.io/socket.io.js"></script>
-            <script src="script.js"></script>
-        </body>
-        </html>
+                 </div>
+             </div>
+         </div>
+
+        <div class="overlay" id="dashboard-overlay"></div>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="script.js"></script>
+</body>
+</html>
