@@ -1893,15 +1893,14 @@ body.light-theme .tab.active {
 
 .active-p2p-connections .transaction-log ul#transaction-list {
     list-style: none;
-    padding: 0;
+    padding: 20px 0 0 0;
     margin: 40px 0 0 0;
-    max-height: 510px; /* 550px - 40px padding */
+    max-height: 650px;
     overflow-y: auto;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     scrollbar-width: auto;
-    height: auto;
     min-height: 0;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
@@ -3035,8 +3034,3 @@ body.light-theme .tab.active {
       margin-bottom: 15px;
     }
 }
-
-
-
-
-
