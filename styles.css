@@ -12,6 +12,16 @@
    ==========================================================================
    ==========================================================================
    ========================================================================== */
+   html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    height: 100%;
+}
+
    body {
     background: linear-gradient(to bottom left, #909090, #505050);
     color: #E0E0E0;
@@ -1387,6 +1397,9 @@ body.light-theme .tab.active {
     font-size: 1em;
 }
 
+
+
+
 /* ==========================================================================
    ==========================================================================
    ==========================================================================
@@ -1403,9 +1416,10 @@ body.light-theme .tab.active {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    gap: 80px; /* Increase the gap to 80px to match other tabs */
-    padding: 70px; /* Increase padding to match other tabs */
-    height: 100%;
+    gap: 80px;
+    padding: 70px;
+    height: 100%; /* Ensure the container takes the full height of its parent */
+    box-sizing: border-box;
 }
 
 /* Data Transfer Rate Graph for P2P Tab */
@@ -1813,33 +1827,94 @@ body.light-theme .tab.active {
 .active-p2p-connections {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 550px;
     box-sizing: border-box;
     overflow: hidden;
+    background: linear-gradient(225deg, #606060, #B0B0B0);
+    border-radius: 22.5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        12px 12px 24px rgba(0, 0, 0, 0.4),
+        -12px -12px 24px rgba(255, 252, 255, 0.15),
+        inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.25),
+        inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.35),
+        0 0 30px rgba(29, 78, 216, 0.7);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .active-p2p-connections .p2p-transfer-wrapper {
     display: flex;
     flex-direction: row;
-    height: 100%;
+    height: calc(100% - 60px);
     width: 100%;
     gap: 20px;
+    overflow: hidden;
 }
 
-/* Left Column: Peer Info + Send Form */
 .active-p2p-connections .p2p-left-column {
     flex: 1;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-    border-radius: 15px;
+    background: linear-gradient(145deg, #808080, #606060);
+    border-radius: 22.5px;
     padding: 20px;
     box-shadow: 
-        inset 2px 2px 5px rgba(0, 0, 0, 0.3),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.2),
-        0 0 20px rgba(29, 78, 216, 0.7);
-    backdrop-filter: blur(5px);
+        inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        inset -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
+        0 0 45px rgba(29, 78, 216, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     overflow-y: auto;
+    min-height: 0;
+}
+
+.active-p2p-connections .p2p-right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(145deg, #808080, #606060);
+    border-radius: 22.5px;
+    padding: 20px;
+    box-shadow: 
+        inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        inset -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
+        0 0 45px rgba(29, 78, 216, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    min-height: 0;
+}
+
+.active-p2p-connections .transaction-log {
+    flex: 1;
+    overflow: visible;
+    position: relative;
+    max-height: 100%;
+    min-height: 0;
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list {
+    list-style: none;
+    padding: 0;
+    margin: 40px 0 0 0;
+    max-height: 510px; /* 550px - 40px padding */
+    overflow-y: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: auto;
+    height: auto;
+    min-height: 0;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+.active-p2p-connections:hover {
+    box-shadow: 
+        6px 6px 18px rgba(0, 0, 0, 0.5),
+        -6px -6px 18px rgba(255, 255, 255, 0.25),
+        inset 3px 3px 6px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 6px rgba(255, 255, 255, 0.4),
+        0 0 60px rgba(70, 120, 255, 1),
+        0 0 15px rgba(70, 120, 255, 1);
 }
 
 .active-p2p-connections .peer-list {
@@ -1885,6 +1960,7 @@ body.light-theme .tab.active {
     font-size: 0.9em;
     position: relative;
     padding-left: 20px;
+    color: #E0E0E0; /* Revert text color */
 }
 
 .active-p2p-connections .peer-meta .peer-status::before {
@@ -1909,15 +1985,25 @@ body.light-theme .tab.active {
 }
 
 .active-p2p-connections .p2p-send-form {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .active-p2p-connections .p2p-send-form .soft-label {
     font-size: 1em;
     color: #E0E0E0;
     text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
+}
+
+.active-p2p-connections .repeat-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .active-p2p-connections .p2p-send-form .amount-input,
@@ -1936,7 +2022,7 @@ body.light-theme .tab.active {
     box-shadow: 
         inset 2px 2px 5px rgba(0, 0, 0, 0.4),
         inset -2px -2px 5px rgba(255, 255, 255, 0.15),
-        0 0 10px rgba(29, 78, 216, 0.2);
+        0 0 10px rgba(29, 0, 216, 0.2);
     transition: box-shadow 0.2s ease-in-out;
 }
 
@@ -2115,28 +2201,8 @@ body.light-theme .tab.active {
     transform: translateX(20px);
 }
 
-/* Right Column: Transaction History Log */
-.active-p2p-connections .p2p-right-column {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(145deg, #808080, #606060);
-    border-radius: 22.5px;
-    padding: 20px;
-    box-shadow: 
-        inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
-        inset -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
-        0 0 45px rgba(29, 78, 216, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.active-p2p-connections .transaction-log {
-    flex: 1;
-    overflow-y: auto;
-}
-
 .active-p2p-connections .transaction-log h4 {
-    margin: 0 0 10px;
+    margin: 0;
     font-size: 2.2em;
     color: #dce5f2;
     text-shadow: 
@@ -2144,25 +2210,106 @@ body.light-theme .tab.active {
         0 0 14px rgba(173, 216, 255, 0.6),
         0 0 28px rgba(173, 216, 255, 0.4);
     animation: glow 4s infinite ease-in-out;
+    position: absolute; /* Fix the title at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(145deg, #808080, #606060); /* Match the container background */
+    z-index: 1; /* Ensure it stays above the scrolling list */
+    padding: 5px 10px; /* Add padding for better spacing */
+    border-radius: 8px 8px 0 0; /* Rounded top corners to blend with container */
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.3),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.2); /* Subtle inset shadow for skeuomorphic effect */
 }
 
 .active-p2p-connections .transaction-log ul {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 40px 0 0 0; /* Add margin-top to account for the fixed h4 height */
+    height: calc(100% - 40px); /* Adjust height to fit within the container, accounting for h4 */
+    max-height: calc(100% - 40px); /* Ensure the list doesn't overflow */
+    overflow-y: auto; /* Enable scrolling for the list */
+    box-sizing: border-box; /* Ensure padding/margins are included in height */
+    display: flex;
+    flex-direction: column; /* Stack transactions from top to bottom */
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list li.sent span {
+    display: block;
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list li.requested span {
+    display: block;
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list li.sent .transaction-line-1 {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list li.sent .transaction-line-2 {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list li.requested .transaction-line-1 {
+    font-weight: 600;
+    color: #ffcc00;
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list li.requested .transaction-line-2 {
+    font-size: 0.9em;
+    color: rgba(255, 204, 0, 0.7);
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list::-webkit-scrollbar {
+    width: 8px; /* Ensure scroll bar is visible in WebKit browsers */
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list::-webkit-scrollbar-thumb {
+    background: #888; /* Style the scroll bar thumb */
+    border-radius: 4px;
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Hover effect for the scroll bar thumb */
 }
 
 .active-p2p-connections .transaction-log li {
     padding: 10px;
-    background: rgba(21, 220, 81, 0.05);
+    background: rgba(21, 220, 81, 0.05); /* Green tint for sent transactions */
     border-radius: 8px;
     margin-bottom: 8px;
     font-size: 0.9em;
     color: #E0E0E0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; /* Change to column for dual-line display */
     transition: background 0.2s ease-in-out;
+}
+
+/* Style for the first line (e.g., "User sent $78 to John Doe at 11:24 PM") */
+.active-p2p-connections .transaction-log li .transaction-line-1 {
+    font-weight: bold;
+    margin-bottom: 4px; /* Space between the two lines */
+}
+
+/* Style for the second line (e.g., "$78 sent to John Doe – 2:24:25 PM") */
+.active-p2p-connections .transaction-log li .transaction-line-2 {
+    font-size: 0.85em;
+    color: #BBB; /* Slightly lighter color for the second line */
+}
+
+.active-p2p-connections .transaction-log li.received {
+    background: rgba(255, 215, 0, 0.05); /* Yellow tint for received transactions */
 }
 
 .active-p2p-connections .transaction-log li:hover {
@@ -2306,14 +2453,6 @@ body.light-theme .tab.active {
     transform: translate(-50%, -50%) scale(1);
     opacity: 1;
 }
-
-
-
-
-
-
-
-
 
 
 /* ==========================================================================
@@ -2896,3 +3035,8 @@ body.light-theme .tab.active {
       margin-bottom: 15px;
     }
 }
+
+
+
+
+

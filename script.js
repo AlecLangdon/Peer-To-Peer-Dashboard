@@ -203,65 +203,65 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (emojiBtn && emojiPicker) {
-        emojiPicker.innerHTML = '';
-        const closeButton = document.createElement('button');
-        closeButton.textContent = '✖';
-        closeButton.classList.add('emoji-close-btn');
-        closeButton.addEventListener('click', () => {
-            emojiPicker.style.display = 'none';
-            console.log('Emoji picker closed via close button');
-        });
-        emojiPicker.appendChild(closeButton);
-
-        const categoryContainer = document.createElement('div');
-        categoryContainer.classList.add('emoji-category-container');
-        Object.keys(emojiCategories).forEach(category => {
-            const tab = document.createElement('button');
-            tab.textContent = category;
-            tab.classList.add('emoji-tab');
-            tab.addEventListener('click', () => showCategory(category));
-            categoryContainer.appendChild(tab);
-        });
-        emojiPicker.appendChild(categoryContainer);
-
-        let activeCategory = Object.keys(emojiCategories)[0];
-        Object.keys(emojiCategories).forEach(category => {
-            const emojiDiv = document.createElement('div');
-            emojiDiv.classList.add('emoji-category');
-            emojiDiv.style.display = category === activeCategory ? 'flex' : 'none';
-            emojiCategories[category].forEach(emoji => {
-                const emojiButton = document.createElement('button');
-                emojiButton.textContent = emoji;
-                emojiButton.classList.add('emoji-option');
-                emojiButton.addEventListener('click', () => {
-                    userInput.value += emoji;
-                    userInput.focus();
-                    emojiPicker.style.display = 'none';
-                    console.log('Emoji selected:', emoji);
-                });
-                emojiDiv.appendChild(emojiButton);
+            emojiPicker.innerHTML = '';
+            const closeButton = document.createElement('button');
+            closeButton.textContent = '✖';
+            closeButton.classList.add('emoji-close-btn');
+            closeButton.addEventListener('click', () => {
+                emojiPicker.style.display = 'none';
+                console.log('Emoji picker closed via close button');
             });
-            emojiPicker.appendChild(emojiDiv);
-        });
+            emojiPicker.appendChild(closeButton);
+
+            const categoryContainer = document.createElement('div');
+            categoryContainer.classList.add('emoji-category-container');
+            Object.keys(emojiCategories).forEach(category => {
+                const tab = document.createElement('button');
+                tab.textContent = category;
+                tab.classList.add('emoji-tab');
+                tab.addEventListener('click', () => showCategory(category));
+                categoryContainer.appendChild(tab);
+            });
+            emojiPicker.appendChild(categoryContainer);
+
+            let activeCategory = Object.keys(emojiCategories)[0];
+            Object.keys(emojiCategories).forEach(category => {
+                const emojiDiv = document.createElement('div');
+                emojiDiv.classList.add('emoji-category');
+                emojiDiv.style.display = category === activeCategory ? 'flex' : 'none';
+                emojiCategories[category].forEach(emoji => {
+                    const emojiButton = document.createElement('button');
+                    emojiButton.textContent = emoji;
+                    emojiButton.classList.add('emoji-option');
+                    emojiButton.addEventListener('click', () => {
+                        userInput.value += emoji;
+                        userInput.focus();
+                        emojiPicker.style.display = 'none';
+                        console.log('Emoji selected:', emoji);
+                    });
+                    emojiDiv.appendChild(emojiButton);
+                });
+                emojiPicker.appendChild(emojiDiv);
+            });
 
         function showCategory(category) {
-            document.querySelectorAll('.emoji-category').forEach(div => div.style.display = 'none');
-            document.querySelectorAll('.emoji-tab').forEach(tab => tab.classList.remove('active'));
-            document.querySelector(`.emoji-category:nth-child(${Object.keys(emojiCategories).indexOf(category) + 3})`).style.display = 'flex';
-            document.querySelector(`.emoji-tab:contains("${category}")`).classList.add('active');
-            activeCategory = category;
-            console.log('Switched to category:', category);
-        }
+                    document.querySelectorAll('.emoji-category').forEach(div => div.style.display = 'none');
+                    document.querySelectorAll('.emoji-tab').forEach(tab => tab.classList.remove('active'));
+                    document.querySelector(`.emoji-category:nth-child(${Object.keys(emojiCategories).indexOf(category) + 3})`).style.display = 'flex';
+                    document.querySelector(`.emoji-tab:contains("${category}")`).classList.add('active');
+                    activeCategory = category;
+                    console.log('Switched to category:', category);
+                }
 
-        emojiBtn.addEventListener('click', () => {
-            console.log('Emoji button clicked, toggling picker');
-            const currentDisplay = window.getComputedStyle(emojiPicker).display;
-            emojiPicker.style.display = currentDisplay === 'block' ? 'none' : 'block';
-            console.log('Emoji picker display set to:', emojiPicker.style.display);
-        });
+    emojiBtn.addEventListener('click', () => {
+                console.log('Emoji button clicked, toggling picker');
+                const currentDisplay = window.getComputedStyle(emojiPicker).display;
+                emojiPicker.style.display = currentDisplay === 'block' ? 'none' : 'block';
+                console.log('Emoji picker display set to:', emojiPicker.style.display);
+            });
     } else {
-        console.error('Emoji button or picker element not found');
-    }
+            console.error('Emoji button or picker element not found');
+        }
 
     // Expand/Collapse Chat Functionality (Updated)
     const toggleChatExpansion = () => {
@@ -280,43 +280,43 @@ document.addEventListener('DOMContentLoaded', () => {
         chatWindow.classList.toggle('chat-expanded');
 
         if (isExpanded) {
-            // Store the original parent and create a placeholder
-            originalParent = chatWindow.parentNode;
-            placeholder = document.createElement('div');
-            placeholder.classList.add('chat-placeholder');
-            placeholder.style.width = initialStyle.width;
-            placeholder.style.height = initialStyle.height;
-            originalParent.insertBefore(placeholder, chatWindow);
+                    // Store the original parent and create a placeholder
+                    originalParent = chatWindow.parentNode;
+                    placeholder = document.createElement('div');
+                    placeholder.classList.add('chat-placeholder');
+                    placeholder.style.width = initialStyle.width;
+                    placeholder.style.height = initialStyle.height;
+                    originalParent.insertBefore(placeholder, chatWindow);
 
-            // Move the chat window to the body
-            document.body.appendChild(chatWindow);
+                    // Move the chat window to the body
+                    document.body.appendChild(chatWindow);
 
-            // Apply overlay and blur effects
-            overlay.classList.add('active');
-            dashboardContainer.classList.add('blurred');
-        } else {
-            // Remove overlay and blur effects
-            overlay.classList.remove('active');
-            dashboardContainer.classList.remove('blurred');
+                    // Apply overlay and blur effects
+                    overlay.classList.add('active');
+                    dashboardContainer.classList.add('blurred');
+                } else {
+                    // Remove overlay and blur effects
+                    overlay.classList.remove('active');
+                    dashboardContainer.classList.remove('blurred');
 
-            // Clear inline styles to ensure the widget falls back to CSS Grid styles
-            chatWindow.style.width = '';
-            chatWindow.style.height = '';
-            chatWindow.style.position = '';
-            chatWindow.style.top = '';
-            chatWindow.style.left = '';
-            chatWindow.style.transform = '';
-            chatWindow.style.maxWidth = '';
-            chatWindow.style.maxHeight = '';
-            chatWindow.style.zIndex = '';
+                    // Clear inline styles to ensure the widget falls back to CSS Grid styles
+                    chatWindow.style.width = '';
+                    chatWindow.style.height = '';
+                    chatWindow.style.position = '';
+                    chatWindow.style.top = '';
+                    chatWindow.style.left = '';
+                    chatWindow.style.transform = '';
+                    chatWindow.style.maxWidth = '';
+                    chatWindow.style.maxHeight = '';
+                    chatWindow.style.zIndex = '';
 
-            // Move the chat window back to its original position
-            if (originalParent && placeholder) {
-                originalParent.replaceChild(chatWindow, placeholder);
-                placeholder = null;
-                originalParent = null;
-            }
-        }
+                    // Move the chat window back to its original position
+                    if (originalParent && placeholder) {
+                        originalParent.replaceChild(chatWindow, placeholder);
+                        placeholder = null;
+                        originalParent = null;
+                    }
+                }
 
         // Log classes after toggling
         console.log('Classes after toggle:', chatWindow.classList.toString());
@@ -337,50 +337,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Scroll to bottom when expanding/collapsing
         scrollToBottom();
-    };
+        };
 
     if (expandButton) {
-        expandButton.removeEventListener('click', toggleChatExpansion);
-        expandButton.addEventListener('click', () => {
-            console.log('Expand button clicked');
-            toggleChatExpansion();
-        });
-    } else {
-        console.error('Expand button not found');
-    }
+            expandButton.removeEventListener('click', toggleChatExpansion);
+            expandButton.addEventListener('click', () => {
+                console.log('Expand button clicked');
+                toggleChatExpansion();
+            });
+        } else {
+            console.error('Expand button not found');
+        }
 
-    if (closeButton) {
-        closeButton.removeEventListener('click', toggleChatExpansion);
-        closeButton.addEventListener('click', () => {
-            console.log('Close button clicked');
-            toggleChatExpansion();
-        });
-    } else {
-        console.error('Close button not found');
-    }
+        if (closeButton) {
+            closeButton.removeEventListener('click', toggleChatExpansion);
+            closeButton.addEventListener('click', () => {
+                console.log('Close button clicked');
+                toggleChatExpansion();
+            });
+        } else {
+            console.error('Close button not found');
+        }
 
-    // Attach event listeners with error handling
-    if (sendBtn) {
-        sendBtn.addEventListener('click', () => {
-            console.log('Send button clicked');
-            socket.emit('stopTyping', { userName }); // Stop typing when message is sent
-            sendMessage();
-        });
-    } else {
-        console.error('Send button not found');
-    }
+        // Attach event listeners with error handling
+        if (sendBtn) {
+            sendBtn.addEventListener('click', () => {
+                console.log('Send button clicked');
+                socket.emit('stopTyping', { userName }); // Stop typing when message is sent
+                sendMessage();
+            });
+        } else {
+            console.error('Send button not found');
+        }
 
-    if (userInput) {
-        let typingTimeout;
-        let isTyping = false; // Track if the user is currently typing
+        if (userInput) {
+            let typingTimeout;
+            let isTyping = false; // Track if the user is currently typing
 
-        userInput.addEventListener('input', () => {
-            // Only emit 'typing' if the user wasn't already typing
-            if (!isTyping) {
-                console.log(`${userName} is typing...`);
-                socket.emit('typing', { userName });
-                isTyping = true;
-            }
+            userInput.addEventListener('input', () => {
+                // Only emit 'typing' if the user wasn't already typing
+                if (!isTyping) {
+                    console.log(`${userName} is typing...`);
+                    socket.emit('typing', { userName });
+                    isTyping = true;
+                }
 
             // Clear the previous timeout and set a new one
             clearTimeout(typingTimeout);
@@ -458,7 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Theme toggle not found');
     }
 
-    // Auto-scroll functionality
+    // Auto-scroll functionality for chat
     let isUserAtBottom = true;
 
     // Function to scroll to the bottom of the chat
@@ -535,7 +535,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('File input not found');
     }
 
-    // Socket.io event listeners
+    // Socket.io event listeners for chat
     socket.on('chatHistory', (history) => {
         console.log('Received chat history:', history);
         chatBox.innerHTML = '';
@@ -742,6 +742,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return `Hello! How can I assist you today, ${userName}?`;
     }
 
+
     // Chat Support 2: Update Progress Bar
     const ticketsInQueue = 5;
     const ticketsResolved = 3;
@@ -887,7 +888,86 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // New Send Money Functionality for Active P2P Connections Widget in P2P Tab
+    // Updated Send Money Functionality for Active P2P Connections Widget in P2P Tab
+    // Function to add a transaction to the list
+    function addTransaction(type, amount, peer, note) {
+        const transactionList = document.querySelector('.transaction-log ul#transaction-list');
+        if (transactionList) {
+            const li = document.createElement('li');
+            li.classList.add(type);
+
+            const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            const user = 'User'; // Replace with actual user name if available
+            const line1 = document.createElement('span');
+            line1.classList.add('transaction-line-1');
+            const line2 = document.createElement('span');
+            line2.classList.add('transaction-line-2');
+
+            if (type === 'sent') {
+                line1.textContent = `${user} sent $${amount} to ${peer} at ${time}`;
+                line2.textContent = `$${amount} sent to ${peer} – ${time}${note ? ` (Note: ${note})` : ''}`;
+            } else if (type === 'requested') {
+                line1.textContent
+                line2.textContent = `$${amount} requested from ${peer} – ${time}${note ? ` (Note: ${note})` : ''}`;
+            }
+
+            li.appendChild(line1);
+            li.appendChild(line2);
+            console.log('LI element after appending lines:', li);
+
+            // Prepend the new transaction to the top of the list
+            transactionList.prepend(li);
+            console.log('Transaction prepended to list:', li);
+            console.log('First transaction in list after prepend:', transactionList.children[0]?.textContent);
+            console.log('Last transaction in list after prepend:', transactionList.children[transactionList.children.length - 1]?.textContent);
+
+            // Autoscroll to the top
+            autoscrollTransactionList();
+        } else {
+            console.error('Transaction list not found');
+        }
+    }   // ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+               
+    // Function to autoscroll the transaction list to the top (latest transaction)
+    function autoscrollTransactionList() {
+        const transactionList = document.querySelector('.transaction-log ul#transaction-list');
+        if (transactionList) {
+            console.log('autoscrollTransactionList called');
+            // Wait for the DOM to update by adding a slight delay
+            setTimeout(() => {
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        const scrollHeight = transactionList.scrollHeight;
+                        const clientHeight = transactionList.clientHeight;
+                        const maxScrollTop = scrollHeight - clientHeight;
+
+                        console.log('Scroll parameters - scrollTop before:', transactionList.scrollTop, 'scrollHeight:', scrollHeight, 'clientHeight:', clientHeight, 'maxScrollTop:', maxScrollTop);
+                        console.log('Number of transactions:', transactionList.children.length);
+
+                        if (maxScrollTop > 0) {
+                            transactionList.scrollTo({
+                                top: 0, // Scroll to the top (newest transaction)
+                                behavior: 'smooth'
+                            });
+                            console.log('Autoscrolled to top, scrollTop after:', transactionList.scrollTop);
+                        } else {
+                            console.log('No scroll needed, content fits within clientHeight');
+                        }
+
+                        // Double-check the scroll position after another delay
+                        setTimeout(() => {
+                            console.log('Final scrollTop check:', transactionList.scrollTop);
+                            console.log('Visible transaction at top:', transactionList.children[0]?.textContent);
+                        }, 500);
+                    });
+                });
+            }, 100); // Slight delay to ensure DOM updates
+        } else {
+            console.error('Transaction list not found for autoscroll');
+        }
+    }
+
+    // Update the event listeners to pass the transaction data object
     const sendMoneyBtn = document.querySelector('.p2p-send-button');
     const cancelBtn = document.querySelector('.form-buttons .cancel-button');
     const requestBtn = document.querySelector('.request-button');
@@ -938,8 +1018,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             confirmationMessage.textContent = `Are you sure you want to send $${amount}.00 to ${peer}?`;
-            confirmationPrompt.style.display = 'flex';
-            confirmationPrompt.classList.add('show'); // Add the .show class for animation
+            confirmationPrompt.classList.add('show');
+            console.log('Confirmation prompt shown');
         });
 
         // Confirm the transaction
@@ -947,15 +1027,17 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Confirm button clicked');
             const amount = parseFloat(amountInput.value);
             const peer = peerSelect.value;
-            confirmationPrompt.style.display = 'none';
-            confirmationPrompt.classList.remove('show'); // Remove the .show class
+            const note = noteInput.value.trim();
 
-            const timestamp = getTimestamp();
+            confirmationPrompt.classList.remove('show');
+
+            const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             const transactionData = {
                 userName: userName,
                 peer: peer,
                 amount: amount,
-                timestamp: timestamp
+                timestamp: timestamp,
+                note: note
             };
 
             // Emit the transaction to the server
@@ -967,29 +1049,28 @@ document.addEventListener('DOMContentLoaded', () => {
             p2pToast.classList.add('show');
             setTimeout(() => {
                 p2pToast.classList.remove('show');
-            }, 3000); // Auto-dismiss after 3 seconds
+            }, 3000);
 
-            // Add to transaction log
-            const logEntry = document.createElement('li');
-            logEntry.textContent = `$${amount} sent to ${peer} - ${new Date().toLocaleTimeString()}`;
-            transactionLog.prepend(logEntry);
+            // Add to transaction log locally for the sender
+            addTransaction('sent', amount, peer, note);
 
             // Clear the inputs
             amountInput.value = '';
             noteInput.value = '';
+            console.log('Confirmation prompt hidden after confirm');
         });
 
         // Cancel the transaction from the confirmation prompt
         cancelPromptButton.addEventListener('click', () => {
             console.log('Cancel prompt button clicked');
-            confirmationPrompt.style.display = 'none';
-            confirmationPrompt.classList.remove('show'); // Remove the .show class
+            confirmationPrompt.classList.remove('show');
             p2pToast.className = 'p2p-toast cancel';
             toastMessage.textContent = '❌ Transaction cancelled.';
             p2pToast.classList.add('show');
             setTimeout(() => {
                 p2pToast.classList.remove('show');
-            }, 3000); // Auto-dismiss after 3 seconds
+            }, 3000);
+            console.log('Confirmation prompt hidden after cancel');
         });
 
         // Cancel button functionality (resets the form)
@@ -1003,7 +1084,7 @@ document.addEventListener('DOMContentLoaded', () => {
             p2pToast.classList.add('show');
             setTimeout(() => {
                 p2pToast.classList.remove('show');
-            }, 3000); // Auto-dismiss after 3 seconds
+            }, 3000);
         });
 
         // Request Payment button functionality
@@ -1022,8 +1103,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             requestMessage.textContent = `Request payment from ${peer}`;
-            requestPrompt.style.display = 'flex';
-            requestPrompt.classList.add('show'); // Add the .show class for animation
+            requestPrompt.classList.add('show');
+            console.log('Request prompt shown');
         });
 
         // Confirm the payment request
@@ -1043,10 +1124,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            requestPrompt.style.display = 'none';
-            requestPrompt.classList.remove('show'); // Remove the .show class
+            requestPrompt.classList.remove('show');
 
-            const timestamp = getTimestamp();
+            const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             const requestData = {
                 userName: userName,
                 peer: peer,
@@ -1064,33 +1144,32 @@ document.addEventListener('DOMContentLoaded', () => {
             p2pToast.classList.add('show');
             setTimeout(() => {
                 p2pToast.classList.remove('show');
-            }, 3000); // Auto-dismiss after 3 seconds
+            }, 3000);
 
-            // Add to transaction log
-            const logEntry = document.createElement('li');
-            logEntry.textContent = `Requested $${amount} from ${peer}${note ? ` (Note: ${note})` : ''} - ${new Date().toLocaleTimeString()}`;
-            transactionLog.prepend(logEntry);
+            // Add to transaction log locally for the requester
+            addTransaction('requested', amount, peer, note);
 
             // Clear the inputs
             requestAmountInput.value = '';
             requestNoteInput.value = '';
+            console.log('Request promptA hidden after confirm');
         });
 
         // Cancel the payment request
         requestCancelButton.addEventListener('click', () => {
             console.log('Request Cancel button clicked');
-            requestPrompt.style.display = 'none';
-            requestPrompt.classList.remove('show'); // Remove the .show class
+            requestPrompt.classList.remove('show');
             p2pToast.className = 'p2p-toast cancel';
             toastMessage.textContent = '❌ Payment request cancelled.';
             p2pToast.classList.add('show');
             setTimeout(() => {
                 p2pToast.classList.remove('show');
-            }, 3000); // Auto-dismiss after 3 seconds
+            }, 3000);
 
             // Clear the inputs
             requestAmountInput.value = '';
             requestNoteInput.value = '';
+            console.log('Request prompt hidden after cancel');
         });
 
         // Close toast manually
@@ -1101,14 +1180,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Handle incoming transactions
         socket.on('moneySent', (transactionData) => {
             console.log('Received moneySent event:', transactionData);
-            const logEntry = document.createElement('li');
-            logEntry.innerHTML = `<i class="fas fa-money-bill-wave"></i> ${transactionData.userName} sent $${transactionData.amount} to ${transactionData.peer} at ${transactionData.timestamp}`;
-            transactionLog.prepend(logEntry);
-
-            // Limit the number of entries to 5
-            const entries = transactionLog.querySelectorAll('li');
-            if (entries.length > 5) {
-                entries[entries.length - 1].remove();
+            // Only add the transaction if the current user is not the sender
+            if (transactionData.userName !== userName) {
+                addTransaction('sent', transactionData.amount, transactionData.peer, transactionData.note);
             }
 
             // Show toast notification to the sender
@@ -1118,21 +1192,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 p2pToast.classList.add('show');
                 setTimeout(() => {
                     p2pToast.classList.remove('show');
-                }, 3000); // Auto-dismiss after 3 seconds
+                }, 3000);
             }
         });
 
         // Handle incoming payment requests
         socket.on('paymentRequested', (requestData) => {
             console.log('Received paymentRequested event:', requestData);
-            const logEntry = document.createElement('li');
-            logEntry.innerHTML = `<i class="fas fa-hand-holding-usd"></i> ${requestData.userName} requested $${requestData.amount} from ${requestData.peer} at ${requestData.timestamp}${requestData.note ? ` (Note: ${requestData.note})` : ''}`;
-            transactionLog.prepend(logEntry);
-
-            // Limit the number of entries to 5
-            const entries = transactionLog.querySelectorAll('li');
-            if (entries.length > 5) {
-                entries[entries.length - 1].remove();
+            // Only add the transaction if the current user is not the requester
+            if (requestData.userName !== userName) {
+                addTransaction('requested', requestData.amount, requestData.peer, requestData.note);
             }
 
             // Show toast notification to the recipient
@@ -1142,10 +1211,66 @@ document.addEventListener('DOMContentLoaded', () => {
                 p2pToast.classList.add('show');
                 setTimeout(() => {
                     p2pToast.classList.remove('show');
-                }, 3000); // Auto-dismiss after 3 seconds
+                }, 3000);
             }
         });
     } else {
         console.error('Send money elements not found in Active P2P Connections widget');
     }
 }); // Close the DOMContentLoaded event listener
+
+// Optional: Uncomment the following code to reintroduce the `isUserNearTop` functionality
+/*
+    // Track if the user is near the top of the transaction list
+    let isUserNearTop = true;
+
+    const transactionList = document.querySelector('.transaction-log ul#transaction-list');
+    if (transactionList) {
+        transactionList.addEventListener('scroll', () => {
+            // Consider the user "near the top" if they're within 50 pixels of the top
+            isUserNearTop = transactionList.scrollTop <= 50;
+            console.log('Scroll event, isUserNearTop:', isUserNearTop, 'scrollTop:', transactionList.scrollTop, 'scrollHeight:', transactionList.scrollHeight, 'clientHeight:', transactionList.clientHeight);
+        });
+    }
+
+    // Function to autoscroll the transaction list to the top (latest transaction)
+    function autoscrollTransactionList() {
+        const transactionList = document.querySelector('.transaction-log ul#transaction-list');
+        if (transactionList) {
+            console.log('autoscrollTransactionList called');
+            setTimeout(() => {
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        const scrollHeight = transactionList.scrollHeight;
+                        const clientHeight = transactionList.clientHeight;
+                        const maxScrollTop = scrollHeight - clientHeight;
+
+                        console.log('Scroll parameters - scrollTop before:', transactionList.scrollTop, 'scrollHeight:', scrollHeight, 'clientHeight:', clientHeight, 'maxScrollTop:', maxScrollTop);
+                        console.log('Number of transactions:', transactionList.children.length);
+
+                        if (maxScrollTop > 0) {
+                            if (isUserNearTop) {
+                                transactionList.scrollTo({
+                                    top: 0, // Scroll to the top (newest transaction)
+                                    behavior: 'smooth'
+                                });
+                                console.log('Autoscrolled to top, scrollTop after:', transactionList.scrollTop);
+                            } else {
+                                console.log('User is not near the top, skipping autoscroll. scrollTop:', transactionList.scrollTop);
+                            }
+                        } else {
+                            console.log('No scroll needed, content fits within clientHeight');
+                        }
+
+                        setTimeout(() => {
+                            console.log('Final scrollTop check:', transactionList.scrollTop);
+                            console.log('Visible transaction at top:', transactionList.children[0]?.textContent);
+                        }, 500);
+                    });
+                });
+            }, 100);
+        } else {
+            console.error('Transaction list not found for autoscroll');
+        }
+    }
+*/
