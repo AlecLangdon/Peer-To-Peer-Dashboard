@@ -64,12 +64,44 @@ function saveMessages() {
     }
 }
 
+// Load transfers from transfers.json or initialize an empty array
+let transfers = [];
+const transfersFilePath = path.join(__dirname, 'transfers.json');
+if (fs.existsSync(transfersFilePath)) {
+    try {
+        const data = fs.readFileSync(transfersFilePath, 'utf8');
+        transfers = JSON.parse(data);
+        console.log('Loaded transfers from transfers.json:', transfers);
+    } catch (err) {
+        console.error('Error loading transfers from transfers.json:', err);
+        transfers = [];
+    }
+} else {
+    // Create transfers.json if it doesn't exist
+    fs.writeFileSync(transfersFilePath, JSON.stringify([]));
+    console.log('Created transfers.json');
+}
+
+// Function to save transfers to transfers.json
+function saveTransfers() {
+    try {
+        fs.writeFileSync(transfersFilePath, JSON.stringify(transfers, null, 2), 'utf8');
+        console.log('Transfers saved to transfers.json:', transfers);
+    } catch (err) {
+        console.error('Error saving transfers to transfers.json:', err);
+    }
+}
+
 // Socket.io connection
 io.on('connection', (socket) => {
     console.log('A user connected:', socket.id);
 
     // Send existing messages to the new user
     socket.emit('chatHistory', messages);
+
+    // Send existing transfers to the new user
+    socket.emit('p2pTransactionHistory', transfers);
+    console.log('Sent p2pTransactionHistory to client:', transfers);
 
     // Handle new messages
     socket.on('sendMessage', (messageData) => {
@@ -137,13 +169,55 @@ io.on('connection', (socket) => {
     // Handle mock send money transactions
     socket.on('sendMoney', (transactionData) => {
         console.log('Received sendMoney event:', transactionData);
+        const transaction = {
+            type: 'sent',
+            userName: transactionData.userName,
+            peer: transactionData.peer,
+            amount: transactionData.amount,
+            timestamp: transactionData.timestamp,
+            note: transactionData.note
+        };
+        transfers.push(transaction);
+        saveTransfers(); // Save transfers to file
         io.emit('moneySent', transactionData);
+        console.log('Emitted moneySent:', transactionData);
+        io.emit('newP2PTransaction', transaction);
+        console.log('Emitted newP2PTransaction:', transaction);
     });
 
     // Handle payment requests
     socket.on('requestPayment', (requestData) => {
         console.log('Received requestPayment event:', requestData);
+        const transaction = {
+            type: 'requested',
+            userName: requestData.userName,
+            peer: requestData.peer,
+            amount: requestData.amount,
+            timestamp: requestData.timestamp,
+            note: requestData.note
+        };
+        transfers.push(transaction);
+        saveTransfers(); // Save transfers to file
         io.emit('paymentRequested', requestData);
+        console.log('Emitted paymentRequested:', requestData);
+        io.emit('newP2PTransaction', transaction);
+        console.log('Emitted newP2PTransaction:', transaction);
+    });
+
+    // Handle request for P2P transaction history
+    socket.on('requestP2PTransactionHistory', () => {
+        console.log('Received requestP2PTransactionHistory from:', socket.id);
+        socket.emit('p2pTransactionHistory', transfers);
+        console.log('Emitted p2pTransactionHistory:', transfers);
+    });
+
+    // Handle adding P2P transactions (used by addTransaction in script.js)
+    socket.on('addP2PTransaction', (transaction) => {
+        console.log('Received addP2PTransaction:', transaction);
+        transfers.push(transaction);
+        saveTransfers();
+        io.emit('newP2PTransaction', transaction);
+        console.log('Emitted newP2PTransaction:', transaction);
     });
 
     // Handle user disconnection

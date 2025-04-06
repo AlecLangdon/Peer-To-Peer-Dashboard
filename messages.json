@@ -3504,5 +3504,185 @@
     "content": "Hello! How can I assist you today, User?",
     "timestamp": "[1:13 AM]",
     "status": "Sent"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[19:03 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[19:03 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[20:11 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[20:11 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[21:22 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[21:22 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[21:49 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[21:49 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "how",
+    "timestamp": "[21:49 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[21:49 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "are",
+    "timestamp": "[21:49 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[21:49 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "you",
+    "timestamp": "[21:49 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[21:49 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[18:39 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[18:39 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "🤝jj",
+    "timestamp": "[18:39 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[18:39 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "file",
+    "userName": "User",
+    "content": {
+      "fileId": "1743899977274-iylx5lhwj",
+      "fileName": "1378252 (1).jpg",
+      "filePath": "/uploads/1743899977258-35n7f642n.jpg",
+      "isImage": true
+    },
+    "timestamp": "[18:39 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "user",
+    "userName": "Alec Langdon",
+    "content": "hi",
+    "timestamp": "[20:18 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, Alec Langdon?",
+    "timestamp": "[20:18 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "user",
+    "userName": "Alec Langdon",
+    "content": "HI",
+    "timestamp": "[21:13 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, Alec Langdon?",
+    "timestamp": "[21:13 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "user",
+    "userName": "Alec Langdon",
+    "content": "HI",
+    "timestamp": "[21:15 PM]",
+    "status": "Sent"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, Alec Langdon?",
+    "timestamp": "[21:15 PM]",
+    "status": "Sent"
   }
 ]
