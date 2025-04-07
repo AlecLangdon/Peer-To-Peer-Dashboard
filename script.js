@@ -5,6 +5,7 @@ let userName; // Stores the user's name, set via sessionStorage
 let currentTabIndex = 0; // Tracks the currently active tab index for tab switching
 let transactions = []; // Array to store P2P transactions for the preview widget
 let pendingTransactions = []; // Array to store all P2P transactions, including those not yet displayed
+let lastLocalTransactionId = null; // Track the last locally added transaction ID
 
 // DOM Elements for Chat Functionality
 const chatBox = document.getElementById('chat-box');
@@ -31,6 +32,15 @@ const dashboardContainer = document.querySelector('.dashboard-container');
 let isExpanded = false; // Tracks if the chat window is expanded
 let originalParent = null; // Stores the original parent of the chat window when expanded
 let placeholder = null; // Placeholder element used during chat expansion
+
+// Debounce utility function
+function debounce(func, wait) {
+    let timeout;
+    return function (...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+}
 
 // DOMContentLoaded Event Listener
 // Initializes the app when the DOM is fully loaded
@@ -876,83 +886,11 @@ function setupSupportAnalytics() {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // P2P Transfer Functionality
 // Handles the P2P Money Transfer widget, including sending/requesting money
 function setupP2PTransfer(socket) {
     // Add a transaction to the DOM
-    // Adds a transaction to the Recent Transfers list
+    // Adds a transaction to the Recent Transfers list with a date field and transactionId for deduplication
     function addTransaction(type, amount, peer, note) {
         const transactionList = document.querySelector('ul#transaction-list');
         if (transactionList) {
@@ -968,24 +906,32 @@ function setupP2PTransfer(socket) {
 
             if (type === 'sent') {
                 line1.textContent = `${user} sent $${amount} to ${peer} at ${time}`;
-                line2.textContent = `$${amount} sent to ${peer} – ${time}${note ? ` (Note: ${note})` : ''}`;
+                line2.textContent = `$${amount} sent to ${peer} – ${time}${note ? ` [Note: ${note}]` : ''}`;
             } else if (type === 'requested') {
                 line1.textContent = `${user} requested $${amount} from ${peer} at ${time}`;
-                line2.textContent = `$${amount} requested from ${peer} – ${time}${note ? ` (Note: ${note})` : ''}`;
+                line2.textContent = `$${amount} requested from ${peer} – ${time}${note ? ` [Note: ${note}]` : ''}`;
             }
 
             li.appendChild(line1);
             li.appendChild(line2);
             transactionList.prepend(li);
 
-            // Emit the transaction to the server
-            const transaction = { type, amount, peer, note, timestamp: time, userName };
+            // Generate a unique transactionId
+            const transactionId = Date.now() + '-' + Math.random().toString(36).substr(2, 9);
+
+            // Emit the transaction to the server with a date field and transactionId
+            const transaction = { type, amount, peer, note, timestamp: time, userName, date: new Date().toISOString(), transactionId };
             socket.emit('addP2PTransaction', transaction);
             console.log('Emitted addP2PTransaction:', transaction);
 
-            // Add to pending transactions
-            pendingTransactions.unshift(transaction);
-            console.log('Added to pendingTransactions:', pendingTransactions);
+            // Set the last local transaction ID
+            lastLocalTransactionId = transactionId;
+
+            // Add to pending transactions if not already present
+            if (!pendingTransactions.some(t => t.transactionId === transactionId)) {
+                pendingTransactions.unshift(transaction);
+                console.log('Added to pendingTransactions:', pendingTransactions);
+            }
 
             autoscrollTransactionList();
         } else {
@@ -1061,7 +1007,41 @@ function setupP2PTransfer(socket) {
         const transactionList = document.querySelector('ul#transaction-list');
         if (transactionList) {
             transactionList.innerHTML = ''; // Clear existing list
-            history.forEach(({ type, amount, peer, note, timestamp, userName: storedUserName }) => {
+            // Sort history by date, newest first, with improved timestamp fallback
+            history.sort((a, b) => {
+                let dateA = a.date && !isNaN(new Date(a.date)) ? new Date(a.date) : null;
+                let dateB = b.date && !isNaN(new Date(b.date)) ? new Date(b.date) : null;
+                if (dateA && dateB) {
+                    // If both dates are valid, sort by date
+                    return dateB - dateA; // Newest first
+                }
+                // Fallback to timestamp if date is missing or invalid
+                const timeA = a.timestamp || '12:00 AM';
+                const timeB = b.timestamp || '12:00 AM';
+                const parseTime = (timeStr) => {
+                    const timeMatch = timeStr.match(/(\d{1,2}):(\d{2})\s?(AM|PM)/i);
+                    if (!timeMatch) {
+                        console.warn(`Invalid timestamp format: ${timeStr}, defaulting to epoch`);
+                        return new Date(0); // Fallback to epoch if timestamp is invalid
+                    }
+                    let hours = parseInt(timeMatch[1], 10);
+                    const minutes = parseInt(timeMatch[2], 10);
+                    const period = timeMatch[3].toUpperCase();
+                    if (period === 'PM' && hours !== 12) hours += 12;
+                    if (period === 'AM' && hours === 12) hours = 0;
+                    // Use a fixed date (e.g., today) to ensure consistent comparison
+                    const date = new Date();
+                    date.setHours(hours, minutes, 0, 0);
+                    return date;
+                };
+                dateA = dateA || parseTime(timeA);
+                dateB = dateB || parseTime(timeB);
+                console.log(`Sorting in loadTransactions - Transaction A: ${JSON.stringify(a)}, Date A: ${dateA.toISOString()}`);
+                console.log(`Sorting in loadTransactions - Transaction B: ${JSON.stringify(b)}, Date B: ${dateB.toISOString()}`);
+                return dateB - dateA; // Newest first
+            });
+            console.log('Sorted history in loadTransactions:', history.map(t => ({ timestamp: t.timestamp, date: t.date, amount: t.amount })));
+            history.reverse().forEach(({ type, amount, peer, note, timestamp, userName: storedUserName }) => {
                 const li = document.createElement('li');
                 li.classList.add(type);
                 const line1 = document.createElement('span');
@@ -1071,14 +1051,14 @@ function setupP2PTransfer(socket) {
                 const user = storedUserName || 'User';
                 if (type === 'sent') {
                     line1.textContent = `${user} sent $${amount} to ${peer} at ${timestamp}`;
-                    line2.textContent = `$${amount} sent to ${peer} – ${timestamp}${note ? ` (Note: ${note})` : ''}`;
+                    line2.textContent = `$${amount} sent to ${peer} – ${timestamp}${note ? ` [Note: ${note}]` : ''}`;
                 } else if (type === 'requested') {
                     line1.textContent = `${user} requested $${amount} from ${peer} at ${timestamp}`;
-                    line2.textContent = `$${amount} requested from ${peer} – ${timestamp}${note ? ` (Note: ${note})` : ''}`;
+                    line2.textContent = `$${amount} requested from ${peer} – ${timestamp}${note ? ` [Note: ${note}]` : ''}`;
                 }
                 li.appendChild(line1);
                 li.appendChild(line2);
-                transactionList.appendChild(li);
+                transactionList.prepend(li); // Prepend to maintain newest-first order
             });
             autoscrollTransactionList();
             console.log('Loaded transactions from server:', history.length);
@@ -1089,6 +1069,7 @@ function setupP2PTransfer(socket) {
             console.log('Stored transactions in pendingTransactions:', pendingTransactions);
         }
     }
+
 
     // Add a single transaction to the DOM with retry logic
     function addTransactionToDOM(transaction, retryCount = 0) {
@@ -1105,10 +1086,10 @@ function setupP2PTransfer(socket) {
             const user = storedUserName || 'User';
             if (type === 'sent') {
                 line1.textContent = `${user} sent $${amount} to ${peer} at ${timestamp}`;
-                line2.textContent = `$${amount} sent to ${peer} – ${timestamp}${note ? ` (Note: ${note})` : ''}`;
+                line2.textContent = `$${amount} sent to ${peer} – ${timestamp}${note ? ` [Note: ${note}]` : ''}`;
             } else if (type === 'requested') {
                 line1.textContent = `${user} requested $${amount} from ${peer} at ${timestamp}`;
-                line2.textContent = `$${amount} requested from ${peer} – ${timestamp}${note ? ` (Note: ${note})` : ''}`;
+                line2.textContent = `$${amount} requested from ${peer} – ${timestamp}${note ? ` [Note: ${note}]` : ''}`;
             }
             li.appendChild(line1);
             li.appendChild(line2);
@@ -1131,6 +1112,40 @@ function setupP2PTransfer(socket) {
         const transactionList = document.querySelector('ul#transaction-list');
         if (transactionList) {
             transactionList.innerHTML = ''; // Clear existing list
+            // Sort pendingTransactions by date, newest first, with improved timestamp fallback
+            pendingTransactions.sort((a, b) => {
+                let dateA = a.date && !isNaN(new Date(a.date)) ? new Date(a.date) : null;
+                let dateB = b.date && !isNaN(new Date(b.date)) ? new Date(b.date) : null;
+                if (dateA && dateB) {
+                    // If both dates are valid, sort by date
+                    return dateB - dateA; // Newest first
+                }
+                // Fallback to timestamp if date is missing or invalid
+                const timeA = a.timestamp || '12:00 AM';
+                const timeB = b.timestamp || '12:00 AM';
+                const parseTime = (timeStr) => {
+                    const timeMatch = timeStr.match(/(\d{1,2}):(\d{2})\s?(AM|PM)/i);
+                    if (!timeMatch) {
+                        console.warn(`Invalid timestamp format: ${timeStr}, defaulting to epoch`);
+                        return new Date(0); // Fallback to epoch if timestamp is invalid
+                    }
+                    let hours = parseInt(timeMatch[1], 10);
+                    const minutes = parseInt(timeMatch[2], 10);
+                    const period = timeMatch[3].toUpperCase();
+                    if (period === 'PM' && hours !== 12) hours += 12;
+                    if (period === 'AM' && hours === 12) hours = 0;
+                    // Use a fixed date (e.g., today) to ensure consistent comparison
+                    const date = new Date();
+                    date.setHours(hours, minutes, 0, 0);
+                    return date;
+                };
+                dateA = dateA || parseTime(timeA);
+                dateB = dateB || parseTime(timeB);
+                console.log(`Sorting in forceRenderTransactions - Transaction A: ${JSON.stringify(a)}, Date A: ${dateA.toISOString()}`);
+                console.log(`Sorting in forceRenderTransactions - Transaction B: ${JSON.stringify(b)}, Date B: ${dateB.toISOString()}`);
+                return dateB - dateA; // Newest first
+            });
+            console.log('Sorted pendingTransactions in forceRenderTransactions:', pendingTransactions.map(t => ({ timestamp: t.timestamp, date: t.date, amount: t.amount })));
             pendingTransactions.forEach(({ type, amount, peer, note, timestamp, userName: storedUserName }) => {
                 const li = document.createElement('li');
                 li.classList.add(type);
@@ -1141,14 +1156,14 @@ function setupP2PTransfer(socket) {
                 const user = storedUserName || 'User';
                 if (type === 'sent') {
                     line1.textContent = `${user} sent $${amount} to ${peer} at ${timestamp}`;
-                    line2.textContent = `$${amount} sent to ${peer} – ${timestamp}${note ? ` (Note: ${note})` : ''}`;
+                    line2.textContent = `$${amount} sent to ${peer} – ${timestamp}${note ? ` [Note: ${note}]` : ''}`;
                 } else if (type === 'requested') {
                     line1.textContent = `${user} requested $${amount} from ${peer} at ${timestamp}`;
-                    line2.textContent = `$${amount} requested from ${peer} – ${timestamp}${note ? ` (Note: ${note})` : ''}`;
+                    line2.textContent = `$${amount} requested from ${peer} – ${timestamp}${note ? ` [Note: ${note}]` : ''}`;
                 }
                 li.appendChild(line1);
                 li.appendChild(line2);
-                transactionList.appendChild(li);
+                transactionList.prepend(li); // Prepend to maintain newest-first order
             });
             autoscrollTransactionList();
             console.log('Forced re-render of transactions:', pendingTransactions);
@@ -1339,36 +1354,46 @@ function setupP2PTransfer(socket) {
         });
 
         // Socket.io Event Listeners for P2P Transactions
+        const debouncedLoadTransactions = debounce(loadTransactions, 500);
+
         socket.on('p2pTransactionHistory', (history) => {
-            console.log('Received p2pTransactionHistory:', history);
+            console.log('Received p2pTransactionHistory at:', new Date().toISOString(), history);
             transactions = history.slice(0, 3); // Limit to 3 most recent for preview
             pendingTransactions = history; // Store all transactions
             updateP2PPreview();
-            loadTransactions(history); // Load into main transaction list
+            debouncedLoadTransactions(history); // Load into main transaction list with debounce
         });
 
         socket.on('newP2PTransaction', (transaction) => {
-            console.log('Received newP2PTransaction:', transaction);
+            console.log('Received newP2PTransaction at:', new Date().toISOString(), transaction);
             if (!transaction) {
                 console.error('Received invalid transaction data:', transaction);
                 return;
             }
-            transactions.unshift(transaction);
-            if (transactions.length > 3) {
-                transactions.pop();
+            // Skip if this transaction was added by the local client
+            if (transaction.transactionId === lastLocalTransactionId) {
+                console.log('Skipping local transaction:', transaction.transactionId);
+                return;
             }
-            updateP2PPreview();
-            // Add to pending transactions
-            pendingTransactions.unshift(transaction);
-            console.log('Updated pendingTransactions:', pendingTransactions);
-            // Add to DOM if P2P tab is active
-            const activeTab = document.querySelector('.tab.active');
-            if (activeTab && activeTab.getAttribute('data-tab') === 'p2p') {
-                addTransactionToDOM(transaction);
-                // Force re-render to ensure the list is updated
-                setTimeout(forceRenderTransactions, 1000);
+            // Check if the transaction already exists in pendingTransactions
+            if (!pendingTransactions.some(t => t.transactionId === transaction.transactionId)) {
+                transactions.unshift(transaction);
+                if (transactions.length > 3) {
+                    transactions.pop();
+                }
+                updateP2PPreview();
+                // Add to pending transactions
+                pendingTransactions.unshift(transaction);
+                console.log('Updated pendingTransactions:', pendingTransactions);
+                // Add to DOM if P2P tab is active
+                const activeTab = document.querySelector('.tab.active');
+                if (activeTab && activeTab.getAttribute('data-tab') === 'p2p') {
+                    addTransactionToDOM(transaction);
+                } else {
+                    console.log('P2P tab not active, transaction will be added when tab is switched');
+                }
             } else {
-                console.log('P2P tab not active, transaction will be added when tab is switched');
+                console.log('Transaction already exists, skipping:', transaction.transactionId);
             }
         });
 
@@ -1414,56 +1439,6 @@ function setupP2PTransfer(socket) {
         });
     });
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Bot Chat Functionality
 // Initializes the Bot Chat widget for automated support

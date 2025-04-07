@@ -82,9 +82,11 @@ if (fs.existsSync(transfersFilePath)) {
     console.log('Created transfers.json');
 }
 
-// Function to save transfers to transfers.json
+// Function to save transfers to transfers.json, ensuring newest-first order
 function saveTransfers() {
     try {
+        // Sort transfers by date, newest first
+        transfers.sort((a, b) => new Date(b.date) - new Date(a.date));
         fs.writeFileSync(transfersFilePath, JSON.stringify(transfers, null, 2), 'utf8');
         console.log('Transfers saved to transfers.json:', transfers);
     } catch (err) {
@@ -175,10 +177,12 @@ io.on('connection', (socket) => {
             peer: transactionData.peer,
             amount: transactionData.amount,
             timestamp: transactionData.timestamp,
-            note: transactionData.note
+            note: transactionData.note,
+            date: transactionData.date || new Date().toISOString(), // Ensure date is set
+            transactionId: transactionData.transactionId || (Date.now() + '-' + Math.random().toString(36).substr(2, 9))
         };
         transfers.push(transaction);
-        saveTransfers(); // Save transfers to file
+        saveTransfers();
         io.emit('moneySent', transactionData);
         console.log('Emitted moneySent:', transactionData);
         io.emit('newP2PTransaction', transaction);
@@ -194,10 +198,12 @@ io.on('connection', (socket) => {
             peer: requestData.peer,
             amount: requestData.amount,
             timestamp: requestData.timestamp,
-            note: requestData.note
+            note: requestData.note,
+            date: requestData.date || new Date().toISOString(), // Ensure date is set
+            transactionId: requestData.transactionId || (Date.now() + '-' + Math.random().toString(36).substr(2, 9))
         };
         transfers.push(transaction);
-        saveTransfers(); // Save transfers to file
+        saveTransfers();
         io.emit('paymentRequested', requestData);
         console.log('Emitted paymentRequested:', requestData);
         io.emit('newP2PTransaction', transaction);
@@ -214,6 +220,8 @@ io.on('connection', (socket) => {
     // Handle adding P2P transactions (used by addTransaction in script.js)
     socket.on('addP2PTransaction', (transaction) => {
         console.log('Received addP2PTransaction:', transaction);
+        transaction.date = transaction.date || new Date().toISOString();
+        transaction.transactionId = transaction.transactionId || (Date.now() + '-' + Math.random().toString(36).substr(2, 9));
         transfers.push(transaction);
         saveTransfers();
         io.emit('newP2PTransaction', transaction);
