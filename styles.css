@@ -12,7 +12,31 @@
    ==========================================================================
    ==========================================================================
    ========================================================================== */
-   html, body {
+
+
+
+   .dashboard-container {
+    zoom: 0.2; /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------Added to scale the tab bar to 20% */
+}
+
+/* Ensure the parent container allows for overflow */
+.tab-content-container {
+    overflow: visible !important;
+}
+
+/* Ensure body and main allow scrolling if needed */
+body, main {
+    overflow: auto;
+}
+
+
+
+
+
+
+
+
+html, body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -22,8 +46,20 @@ main {
     height: 100%;
 }
 
-   body {
-    background: linear-gradient(145deg, #404040,#606060, #404040); /* Frosted gradient */
+body {
+    background: linear-gradient(145deg, #606060,#404040,#606060,#404040); /* Frosted gradient */
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    text-shadow: 0 0 10px #1d4ed8cc;
+    margin: 0;
+    min-height: 100vh;
+    transition: background 0.1s ease;
+    overflow: auto; /* Already added for dashboard scaling */
+}
+
+/* FROSTED BACKGROUND
+body {
+    background: linear-gradient(to top right, #4A4A4A, #D3D3D3); 
     color: #E0E0E0;
     font-family: 'Orbitron', 'Arial', sans-serif;
     text-shadow: 0 0 10px rgba(29, 78, 216, 0.8);
@@ -31,9 +67,10 @@ main {
     min-height: 100vh;
     transition: background 0.3s ease;
 }
-
+    
+/* FROSTED THEME */
 body.light-theme {
-    background: linear-gradient(to bottom left, #D3D3D3, #FFFFFF);
+    background: linear-gradient(to top right, #D3D3D3, #FFFFFF);
     color: #333;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
@@ -51,6 +88,7 @@ body.light-theme {
         inset 4.5px 4.5px 12px rgba(0, 0, 0, 0.25),
         inset -4.5px -4.5px 12px rgba(255, 255, 255, 0.35);
     position: relative;
+    zoom: 0.2; /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------Added to scale the tab bar to 20% */
 }
 
 .logo::after {
@@ -66,18 +104,19 @@ body.light-theme {
 }
 
 /* Dashboard Heading */
+/* FROSTED Dashboard Heading*/ 
 .dashboard-heading {
     text-align: center;
     font-size: 5.25em;
     color: #E0E0E0;
-    background: linear-gradient(to bottom left, #C0C0C0, #A0A0A0);
+    background: linear-gradient(145deg, #B0B0B0, #808080); 
     border-radius: 30px;
-    border: 1.5px solid rgba(255, 255, 250, 0.3);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
     box-shadow: 
         18px 18px 36px rgba(0, 0, 0, 0.4),
         -18px -18px 36px rgba(255, 255, 255, 0.15),
-        inset 4.5px 4.5px 12px rgba(0, 0, 0, 0.25),
-        inset -4.5px -4.5px 12px rgba(255, 255, 255, 0.35),
+        inset 6px 6px 15px rgba(0, 0, 0, 0.25),
+        inset -6px -6px 15px rgba(255, 255, 255, 0.35),
         0 0 60px rgba(29, 78, 216, 0.7);
     padding: 22.5px 45px;
     margin: 0 auto 45px;
@@ -85,6 +124,7 @@ body.light-theme {
     position: relative;
     text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
     animation: glow 4s infinite ease-in-out;
+    zoom: 0.2; /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------Added to scale the tab bar to 20% */
 }
 
 .dashboard-heading::after {
@@ -137,6 +177,7 @@ body.light-theme {
     }
 }
 
+
 /* ==========================================================================
    ==========================================================================
    ==========================================================================
@@ -154,7 +195,7 @@ body.light-theme {
     width: 100%;
     max-width: 3600px;
     margin: 0 auto;
-    overflow: hidden;
+    overflow: visible !important; /* Already adjusted for dashboard scaling */
 }
 
 .tab-content {
@@ -178,36 +219,37 @@ body.light-theme {
     margin: 0 auto 45px;
     width: fit-content;
     padding: 22.5px 45px;
-    background: linear-gradient(to bottom left, #C0C0C0, #A0A0A0);
+    background: linear-gradient(145deg, #B0B0B0, #808080); /* Frosted gradient */
     border-radius: 30px;
-    border: 1.5px solid rgba(255, 255, 250, 0.3);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
     box-shadow: 
         18px 18px 36px rgba(0, 0, 0, 0.4),
         -18px -18px 36px rgba(255, 255, 255, 0.15),
-        inset 4.5px 4.5px 12px rgba(0, 0, 0, 0.25),
-        inset -4.5px -4.5px 12px rgba(255, 255, 255, 0.35),
+        inset 6px 6px 15px rgba(0, 0, 0, 0.25),
+        inset -6px -6px 15px rgba(255, 255, 255, 0.35),
         0 0 60px rgba(29, 78, 216, 0.7);
+    zoom: 0.2; /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------Added to scale the tab bar to 20% */
 }
 
 body.light-theme .tab-bar {
-    background: linear-gradient(to bottom left, #E0E0E0, #C0C0C0);
+    background: linear-gradient(145deg, #D0D0D0, #A0A0A0);
     border: 1.5px solid rgba(0, 0, 0, 0.1);
     box-shadow: 
         18px 18px 36px rgba(0, 0, 0, 0.2),
         -18px -18px 36px rgba(255, 255, 255, 0.5),
-        inset 4.5px 4.5px 12px rgba(0, 0, 0, 0.15),
-        inset -4.5px -4.5px 12px rgba(255, 255, 255, 0.4),
+        inset 6px 6px 15px rgba(0, 0, 0, 0.15),
+        inset -6px -6px 15px rgba(255, 255, 255, 0.4),
         0 0 60px rgba(0, 0, 0, 0.3);
 }
 
 .tab {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 250, 0.3) 100%);
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
     box-shadow: 
-        0 18px 36px rgba(0, 0, 0, 0.5),
-        inset 0 4.5px 9px rgba(255, 255, 255, 0.6);
+        7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        -7.5px -7.5px 15px rgba(255, 255, 255, 0.2);
     border: none;
+    border-radius: 15px;
     padding: 15px 30px;
-    border-radius: 24px;
     color: #E0E0E0;
     font-family: 'Orbitron', 'Arial', sans-serif;
     font-size: 21px;
@@ -215,13 +257,12 @@ body.light-theme .tab-bar {
     white-space: nowrap;
     cursor: pointer;
     position: relative;
-    overflow: hidden;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 9px;
-    text-shadow: 0 0 18px rgba(29, 78, 216, 0.9);
-    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    gap: 7.5px;
+    text-shadow: 0 0 18px rgba(30, 58, 138, 0.9);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     animation: glow 4s infinite ease-in-out;
 }
 
@@ -230,54 +271,48 @@ body.light-theme .tab-bar {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 50%;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
-    border-radius: 18px 18px 0 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    border-radius: 15px;
     z-index: 2;
-    opacity: 0.7;
     pointer-events: none;
-    animation: gloss 2.5s infinite alternate;
 }
 
 .tab:hover {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0.4) 100%);
-    transform: translateY(-3px);
     box-shadow: 
-        0 12px 24px rgba(0, 0, 0, 0.5),
-        inset 0 3px 6px rgba(255, 255, 255, 0.6),
-        0 0 30px rgba(29, 78, 216, 0.9);
+        4.5px 4.5px 27px rgba(30, 58, 138, 1.0),
+        -4.5px -4.5px 27px rgba(255, 255, 255, 0.4);
+    transform: translateY(3px);
 }
 
 .tab.active {
     background: linear-gradient(145deg, #1E3A8A, #162E6F);
-    transform: translateY(3px);
     box-shadow: 
-        0 6px 12px rgba(0, 0, 0, 0.5),
-        inset 0 3px 6px rgba(255, 255, 255, 0.6);
-    animation: pop 0.4s ease-out; /* Add the pop animation when the tab becomes active */
+        7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
+        0 0 22.5px rgba(29, 78, 216, 0.9);
+    animation: pop 0.4s ease-out;
 }
 
 body.light-theme .tab {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255, 255, 0.5) 100%);
+    background: linear-gradient(145deg, #9ca3af, #6b7280);
     color: #333;
     text-shadow: 0 0 7.5px rgba(0, 0, 0, 0.3);
 }
 
-bodylight-theme .tab:hover {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(255, 255, 255, 0.6) 100%);
+body.light-theme .tab:hover {
     box-shadow: 
-        0 12px 24px rgba(0, 0, 0, 0.3),
-        inset 0 3px 6px rgba(255, 255, 255, 0.7),
-        0 0 30px rgba(0, 0, 0, 0.5);
+        4.5px 4.5px 27px rgba(0, 0, 0, 0.3),
+        -4.5px -4.5px 27px rgba(255, 255, 255, 0.5);
 }
 
 body.light-theme .tab.active {
     background: linear-gradient(145deg, #3b82f6, #2563eb);
     box-shadow: 
-        0 6px 12px rgba(0, 0, 0, 0.3),
-        inset 0 3px 6px rgba(255, 255, 255, 0.7);
-    animation: pop 0.4s ease-out; /* Apply the pop animation in light theme as well */
+        7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        -7.5px -7.5px 15px rgba(255, 255, 255, 0.2);
+    animation: pop 0.4s ease-out;
 }
 
 /* Pop Animation Keyframes */
@@ -309,39 +344,16 @@ body.light-theme .tab.active {
    ========================================================================== */
 /* Widget */
 .widget {
-    background: linear-gradient(225deg, #606060, #B0B0B0);
+    background: linear-gradient(145deg, #B0B0B0, #808080); /* Frosted gradient */
     border-radius: 80px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1.5px solid #ffffff33;
     box-shadow: 
-        24px 24px 48px rgba(0, 0, 0, 0.4),
-        -24px -24px 48px rgba(255, 252, 255, 0.15),
-        inset 9px 9px 18px rgba(0, 0, 0, 0.25),
-        inset -9px -9px 18px rgba(255, 255, 255, 0.35),
-        0 0 60px rgba(29, 78, 216, 0.7);
+        18px 18px 36px #00000066,
+        -18px -18px 36px #ffffff26,
+        inset 6px 6px 15px #00000040,
+        inset -6px -6px 15px #ffffff59,
+        0 0 60px #1d4ed8b3;
     padding: 40px;
-    transition: box-shadow 0.3s ease-in-out, opacity 0.5s ease-in-out;
-    overflow: auto;
-    opacity: 0; /* Start with opacity 0 for the pop animation */
-    transform: scale(0.8); /* Start slightly scaled down for the pop effect */
-    will-change: transform, opacity; /* Optimize for transform and opacity animations */
-    justify-self: center; /* Center horizontally within the grid cell */
-    align-self: center; /* Center vertically within the grid cell */
-    width: 100%; /* Ensure the widget takes up the full width of its grid area */
-    height: 100%; /* Ensure the widget takes up the full height of its grid area */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-}
-
-/* .widget { FROSTED
-    background: linear-gradient(145deg, #B0B0B0, #808080);  
-    border-radius: 80px;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 
-        18px 18px 36px rgba(0, 0, 0, 0.4),
-        -18px -18px 36px rgba(255, 255, 255, 0.15),
-        inset 6px 6px 15px rgba(0, 0, 0, 0.25),
-        inset -6px -6px 15px rgba(255, 255, 255, 0.35),
-        0 0 60px rgba(29, 78, 216, 0.7);
-    padding: 45px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.5s ease-in-out;
     overflow: auto;
     opacity: 0;
@@ -352,7 +364,7 @@ body.light-theme .tab.active {
     width: 100%;
     height: 100%;
     box-sizing: border-box;
-}*/
+}
 
 /* Ensure all widgets (except ByteChat Live Messaging) use flexbox to position buttons at the bottom */
 .widget:not([style*="grid-column: 2 / 6"][style*="grid-row: 3 / 5"]) {
@@ -371,12 +383,12 @@ body.light-theme .tab.active {
 /* Hover effect for all widgets */
 .widget:hover {
     box-shadow: 
-        9px 9px 27px rgba(0, 0, 0, 0.5),
-        -9px -9px 27px rgba(255, 255, 255, 0.25),
-        inset 4.5px 4.5px 12px rgba(0, 0, 0, 0.3),
-        inset -4.5px -4.5px 12px rgba(255, 255, 255, 0.4),
-        0 0 120px rgba(70, 120, 255, 1), /* Larger, brighter glow */
-        0 0 30px rgba(70, 120, 255, 1); /* Secondary, more concentrated glow */
+        9px 9px 27px #00000080,
+        -9px -9px 27px #ffffff40,
+        inset 4.5px 4.5px 12px #0000004d,
+        inset -4.5px -4.5px 12px #ffffff66,
+        0 0 120px #4678ff, /* Larger, brighter glow */
+        0 0 30px #4678ff; /* Secondary, more concentrated glow */
     opacity: 0.98;
     z-index: 2; /* Bring the widget forward on hover */
 }
@@ -409,6 +421,17 @@ body.light-theme .tab.active {
 /* Widget Pop Animation for Active Tab */
 .tab-content.active .widget {
     animation: widget-pop 0.5s ease-out forwards;
+}
+
+body.light-theme .widget {
+    background: linear-gradient(145deg, #D0D0D0, #A0A0A0);
+    box-shadow: 
+        18px 18px 36px rgba(0, 0, 0, 0.2),
+        -18px -18px 36px rgba(255, 255, 255, 0.5),
+        inset 6px 6px 15px rgba(0, 0, 0, 0.15),
+        inset -6px -6px 15px rgba(255, 255, 255, 0.4),
+        0 0 60px rgba(0, 0, 0, 0.3);
+    border: 1.5px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Stagger the animation for each widget */
@@ -449,84 +472,84 @@ body.light-theme .tab.active {
 
 /* Action Buttons */
 .action-button {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 250, 0.3) 100%);
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
     box-shadow: 
-        0 18px 36px rgba(0, 0, 0, 0.5),
-        inset 0 4.5px 9px rgba(255, 255, 255, 0.6);
+        7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        -7.5px -7.5px 15px rgba(255, 255, 255, 0.2);
     border: none;
-    padding: 12px 24px;
-    border-radius: 24px;
-    color: white;
+    border-radius: 15px;
+    padding: 15px 22.5px;
+    color: #E0E0E0;
     font-family: 'Orbitron', 'Arial', sans-serif;
     font-size: 18px;
     min-width: 135px;
     white-space: nowrap;
     cursor: pointer;
     position: relative;
-    overflow: hidden;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 9px;
-    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    gap: 7.5px;
+    text-shadow: 0 0 18px rgba(30, 58, 138, 0.9);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    animation: glow 4s infinite ease-in-out;
+    margin: 7.5px;
 }
+
 
 .action-button::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 50%;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
-    border-radius: 18px 18px 0 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    border-radius: 15px;
     z-index: 2;
-    opacity: 0.7;
     pointer-events: none;
-    animation: gloss 2.5s infinite alternate;
 }
 
 
 .action-button:hover {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0.4) 100%);
-    transform: translateY(-3px);
     box-shadow: 
-        0 12px 24px rgba(0, 0, 0, 0.5),
-        inset 0 3px 6px rgba(255, 255, 255, 0.6),
-        0 0 30px rgba(29, 78, 216, 0.9);
+        4.5px 4.5px 27px rgba(30, 58, 138, 1.0),
+        -4.5px -4.5px 27px rgba(255, 255, 255, 0.4);
+    transform: translateY(3px);
 }
 
 .action-button:active {
-    transform: translateY(3px);
+    transform: translateY(3px) scale(0.98);
     box-shadow: 
-        0 6px 12px rgba(0, 0, 0, 0.5),
-        inset 0 3px 6px rgba(255, 255, 255, 0.6);
+        3px 3px 12px rgba(0, 0, 0, 0.5),
+        inset 3px 3px 7.5px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 7.5px rgba(255, 255, 255, 0.2);
 }
 
 /* Read More Button */
 .read-more-btn {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 250, 0.3) 100%);
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
     box-shadow: 
-        0 18px 36px rgba(0, 0, 0, 0.5),
-        inset 0 4.5px 9px rgba(255, 255, 255, 0.6);
+        7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        -7.5px -7.5px 15px rgba(255, 255, 255, 0.2);
     border: none;
-    padding: 12px 24px;
-    border-radius: 24px;
-    color: white;
+    border-radius: 15px;
+    padding: 15px 22.5px;
+    color: #E0E0E0;
     font-family: 'Orbitron', 'Arial', sans-serif;
     font-size: 18px;
     min-width: 135px;
     white-space: nowrap;
     cursor: pointer;
     position: relative;
-    overflow: hidden;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 9px;
-    text-shadow: 0 0 18px rgba(29, 78, 216, 0.9);
-    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    gap: 7.5px;
+    text-shadow: 0 0 18px rgba(30, 58, 138, 0.9);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     animation: glow 4s infinite ease-in-out;
+    margin: 7.5px;
 }
 
 .read-more-btn::after {
@@ -534,34 +557,31 @@ body.light-theme .tab.active {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 50%;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
-    border-radius: 18px 18px 0 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    border-radius: 15px;
     z-index: 2;
-    opacity: 0.7;
     pointer-events: none;
-    animation: gloss 2.5s infinite alternate;
 }
 
 .read-more-btn:hover {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0.4) 100%);
-    transform: translateY(-3px);
     box-shadow: 
-        0 12px 24px rgba(0, 0, 0, 0.5),
-        inset 0 3px 6px rgba(255, 255, 255, 0.6),
-        0 0 30px rgba(29, 78, 216, 0.9);
+        4.5px 4.5px 27px rgba(30, 58, 138, 1.0),
+        -4.5px -4.5px 27px rgba(255, 255, 255, 0.4);
+    transform: translateY(3px);
 }
 
 .read-more-btn:active {
-    transform: translateY(3px);
+    transform: translateY(3px) scale(0.98);
     box-shadow: 
-        0 6px 12px rgba(0, 0, 0, 0.5),
-        inset 0 3px 6px rgba(255, 255, 255, 0.6);
+        3px 3px 12px rgba(0, 0, 0, 0.5),
+        inset 3px 3px 7.5px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 7.5px rgba(255, 255, 255, 0.2);
 }
 
 .read-more-btn::before {
-    content: '\f0c1'; /* Font Awesome link icon */
+    content: '\f0c1';
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     font-size: 0.9em;
@@ -572,11 +592,11 @@ body.light-theme .tab.active {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    background: linear-gradient(135deg, #1E3A8A, #162E6F);
+    background: linear-gradient(145deg, #1E3A8A, #162E6F);
     color: #E0E0E0;
     padding: 15px 25px;
     border-radius: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
     box-shadow: 
         5px 5px 15px rgba(0, 0, 0, 0.4),
         -5px -5px 15px rgba(255, 255, 255, 0.15),
@@ -666,7 +686,7 @@ body.light-theme .tab.active {
     flex-direction: column;
     height: 100%;
     max-height: calc(100% - 60px);
-    background: linear-gradient(225deg, #606060, #B0B0B0);
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
     border-radius: 50px;
     box-shadow: 
         inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
@@ -674,6 +694,21 @@ body.light-theme .tab.active {
         0 0 45px rgba(29, 78, 216, 0.7);
     padding: 30px;
 }
+
+/* SKUEMORPHIC ByteChat Live Messaging Around (ByteChat Live Messaging Widget) 
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: calc(100% - 60px);
+    background: linear-gradient(225deg, #606060, #B0B0B0);
+    border-radius: 50px;
+    box-shadow: 
+        inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        inset -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
+        0 0 45px rgba(29, 78, 216, 0.7);
+    padding: 30px;
+}*/
 
 .chat-container h3 {
     margin-bottom: 15px;
@@ -691,7 +726,7 @@ body.light-theme .tab.active {
     overflow-y: auto;
     padding: 45px;
     background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 25px;
+    border-radius: 15px;
     margin-bottom: 0;
     display: flex;
     flex-direction: column-reverse;
@@ -708,10 +743,12 @@ body.light-theme .tab.active {
     font-size: 1em !important;
     line-height: 1.4;
     margin: 10px 0;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
     box-shadow: 
-        0 10px 20px rgba(0, 0, 0, 0.5),
-        inset 0 2px 6px rgba(255, 255, 255, 0.6);
+        5px 5px 15px rgba(0, 0, 0, 0.4),
+        -5px -5px 15px rgba(255, 255, 255, 0.15),
+        inset 2px 2px 5px rgba(0, 0, 0, 0.25),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.35);
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -729,12 +766,11 @@ body.light-theme .tab.active {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 50%;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
-    border-radius: 25px 25px 0 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    border-radius: 25px;
     z-index: 2;
-    opacity: 0.7;
     pointer-events: none;
 }
 
@@ -752,10 +788,12 @@ body.light-theme .tab.active {
     width: fit-content;
     max-width: 50%;
     padding: 8px 15px;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.3) 0%, rgba(255, 255,255, 0.2) 100%);
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
     box-shadow: 
-        0 5px 10px rgba(0, 0, 0, 0.3),
-        inset 0 1px 3px rgba(255, 255, 255, 0.5);
+        5px 5px 15px rgba(0, 0, 0, 0.4),
+        -5px -5px 15px rgba(255, 255, 255, 0.15),
+        inset 2px 2px 5px rgba(0, 0, 0, 0.25),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.35);
 }
 
 /* Ensure the content inside the typing indicator doesn't force it to stretch */
@@ -814,6 +852,7 @@ body.light-theme .tab.active {
 
 .message.bot {
     align-self: flex-start;
+    background: linear-gradient(145deg, #606060, #404040);
     color: #E0E0E0;
 }
 
@@ -833,7 +872,7 @@ body.light-theme .tab.active {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: linear-gradient(225deg, #606060, #B0B0B0);
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
     border-radius: 25px;
     padding: 10px 15px;
     box-shadow: 
@@ -846,7 +885,7 @@ body.light-theme .tab.active {
 /* ByteChat Live Messaging Type Your Message Bar */
 #user-input {
     flex: 1;
-    background: linear-gradient(145deg, #404040, #606060);
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
     border: none;
     border-radius: 20px;
     padding: 10px 15px;
@@ -859,7 +898,6 @@ body.light-theme .tab.active {
         0 0 10px rgba(29, 78, 216, 0.2);
     transition: box-shadow 0.2s;
 }
-
 #user-input:focus {
     outline: none;
     box-shadow: 
@@ -884,7 +922,7 @@ body.light-theme .tab.active {
     width: 100%;
     height: 100%;
     position: relative;
-    background: linear-gradient(225deg, #606060, #B0B0B0);
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
     border-radius: 80px;
     box-shadow: 
         inset 5px 5px 10px rgba(0, 0, 0, 0.3),
@@ -908,9 +946,21 @@ body.light-theme .tab.active {
     position: absolute;
     top: 20px;
     right: 20px;
-    padding: 6px;
+    padding: 6px 10px;
     font-size: 0.85em;
     z-index: 1002;
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
+    box-shadow: 
+        5px 5px 10px rgba(0, 0, 0, 0.3),
+        -5px -5px 10px rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 10px;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    text-shadow: 0 0 12px rgba(30, 58, 138, 0.9);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    animation: glow 4s infinite ease-in-out;
+    cursor: pointer;
 }
 
 /* Close button styling */
@@ -918,21 +968,29 @@ body.light-theme .tab.active {
     position: absolute;
     top: 10px;
     right: 10px;
-    padding: 8px;
+    padding: 8px 12px;
     font-size: 1em;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
-    border: none;
-    border-radius: 50%;
-    color: white;
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
     box-shadow: 
-        0 5px 10px rgba(0, 0, 0, 0.3),
-        inset 0 2px 4px rgba(255, 255, 255, 0.5);
+        5px 5px 10px rgba(0, 0, 0, 0.3),
+        -5px -5px 10px rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 10px;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    text-shadow: 0 0 12px rgba(30, 58, 138, 0.9);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    animation: glow 4s infinite ease-in-out;
     display: none;
     z-index: 1002;
+    cursor: pointer;
 }
 
 .close-button:hover {
-    background: linear-gradient(135deg, #1E3A8A, #162E6F);
+    box-shadow: 
+        3px 3px 18px rgba(30, 58, 138, 1.0),
+        -3px -3px 18px rgba(255, 255, 255, 0.4);
+    transform: translateY(2px);
 }
 
 /* Show close button when chat is expanded */
@@ -948,7 +1006,7 @@ body.light-theme .tab.active {
 /* Expanded chat styling */
 .chat-window.chat-expanded {
     position: fixed;
-    top: 50%;
+    top: 20%; /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------Added to scale the expand message widget to 20% */
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100vw;
@@ -964,6 +1022,7 @@ body.light-theme .tab.active {
         inset -5px -5px 10px rgba(255, 255, 255, 0.2);
     background: linear-gradient(to top right, #4A4A4A, #D3D3D3);
     filter: none !important;
+    zoom: 0.2; /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------Added to scale the tab bar to 20% */
 }
 
 .chat-window.chat-expanded .chat-container {
@@ -989,7 +1048,7 @@ body.light-theme .tab.active {
     bottom: 105px;
     left: 15px;
     z-index: 1000;
-    background: linear-gradient(225deg, #606060, #B0B0B0);
+    background: linear-gradient(225deg, #606060, #B0B0B0); /* Frosted gradient */
     border: 1.5px solid rgba(255, 255, 255, 0.2);
     border-radius: 37.5px;
     box-shadow: 
@@ -1009,9 +1068,9 @@ body.light-theme .tab.active {
     position: absolute;
     top: 5px;
     right: 5px;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 225, 255, 0.3) 100%);
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
     border: none;
-    border-radius: 50%;
+    border-radius: 10px;
     color: #E0E0E0;
     font-size: 12px;
     width: 20px;
@@ -1021,13 +1080,17 @@ body.light-theme .tab.active {
     justify-content: center;
     cursor: pointer;
     box-shadow: 
-        0 5px 10px rgba(0, 0, 0, 0.3),
-        inset 0 2px 4px rgba(255, 255, 255, 0.5);
-    transition: background 0.2s;
+        5px 5px 10px rgba(0, 0, 0, 0.3),
+        -5px -5px 10px rgba(255, 255, 255, 0.2);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    animation: glow 4s infinite ease-in-out;
 }
 
 .emoji-close-btn:hover {
-    background: linear-gradient(135deg, #1E3A8A, #162E6F);
+    box-shadow: 
+        3px 3px 18px rgba(30, 58, 138, 1.0),
+        -3px -3px 18px rgba(255, 255, 255, 0.4);
+    transform: translateY(2px);
 }
 
 .emoji-category-container {
@@ -1035,7 +1098,7 @@ body.light-theme .tab.active {
     gap: 5px;
     margin-bottom: 10px;
     flex-wrap: wrap;
-    background: linear-gradient(225deg, #606060, #B0B0B0);
+    background: linear-gradient(225deg, #606060, #B0B0B0); /* Frosted gradient */
     border-radius: 15px;
     padding: 5px;
     box-shadow: 
@@ -1044,7 +1107,7 @@ body.light-theme .tab.active {
 }
 
 .emoji-tab {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
     border: none;
     border-radius: 10px;
     padding: 5px 10px;
@@ -1052,21 +1115,24 @@ body.light-theme .tab.active {
     font-family: 'Orbitron', 'Arial', sans-serif;
     cursor: pointer;
     box-shadow: 
-        0 5px 10px rgba(0, 0, 0, 0.3),
-        inset 0 2px 4px rgba(255, 255, 255, 0.5);
-    transition: background 0.2s, transform 0.2s;
+        5px 5px 10px rgba(0, 0, 0, 0.3),
+        -5px -5px 10px rgba(255, 255,  Eugenol 0.2);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    animation: glow 4s infinite ease-in-out;
 }
 
 .emoji-tab:hover {
-    background: linear-gradient(135deg, #1E3A8A, #162E6F);
-    transform: translateY(-2px);
+    box-shadow: 
+        3px 3px 18px rgba(30, 58, 138, 1.0),
+        -3px -3px 18px rgba(255, 255, 255, 0.4);
+    transform: translateY(2px);
 }
 
 .emoji-tab.active {
     background: linear-gradient(145deg, #1E3A8A, #162E6F);
     box-shadow: 
-        0 5px 10px rgba(0, 0, 0, 0.3),
-        inset 0 2px 4px rgba(255, 255, 255, 0.5),
+        5px 5px 10px rgba(0, 0, 0, 0.3),
+        -5px -5px 10px rgba(255, 255, 255, 0.2),
         0 0 15px rgba(29, 78, 216, 0.9);
 }
 
@@ -1074,7 +1140,7 @@ body.light-theme .tab.active {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
-    background: linear-gradient(225deg, #606060, #B0B0B0);
+    background: linear-gradient(225deg, #606060, #B0B0B0); /* Frosted gradient */
     border-radius: 15px;
     padding: 10px;
     box-shadow: 
@@ -1083,20 +1149,23 @@ body.light-theme .tab.active {
 }
 
 .emoji-option {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
     border: none;
     border-radius: 10px;
     font-size: 24px;
     padding: 5px;
     cursor: pointer;
     box-shadow: 
-        0 5px 10px rgba(0, 0, 0, 0.3),
-        inset 0 2px 4px rgba(255, 255, 255, 0.5);
-    transition: background 0.2s, transform 0.2s;
+        5px 5px 10px rgba(0, 0, 0, 0.3),
+        -5px -5px 10px rgba(255, 255, 255, 0.2);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    animation: glow 4s infinite ease-in-out;
 }
 
 .emoji-option:hover {
-    background: linear-gradient(135deg, #1E3A8A, #162E6F);
+    box-shadow: 
+        3px 3px 18px rgba(30, 58, 138, 1.0),
+        -3px -3px 18px rgba(255, 255, 255, 0.4);
     transform: scale(1.1);
 }
 
@@ -1114,7 +1183,7 @@ body.light-theme .tab.active {
 
 /* Quick Access Tools Widget (Column 1, Row 1) */
 .widget[style*="grid-column: 1 / 2"][style*="grid-row: 1 / 2"] h3 {
-    font-size: 1.5em;
+    font-size: 2.5em;
     margin-bottom: 10px;
 }
 
@@ -1176,15 +1245,13 @@ body.light-theme .tab.active {
     overflow: hidden;
 }
 
-
-
 /* Graph (General Graph Styles Used in Dashboard Tab) */
 .graph {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    height: 80px;
-    margin-top: 10px;
+    height: 100px;
+    margin-top: 150px;
 }
 
 .graph .bar {
@@ -1237,95 +1304,6 @@ body.light-theme .tab.active {
 
 .widget[style*="grid-column: 3 / 5"][style*="grid-row: 2 / 3"] .response-time-graph .bar::after {
     font-size: 1em;
-}
-
-/* Sliding Widget (System Updates) */
-.sliding-widget .slider-container {
-    position: relative;
-    height: 330px;
-    overflow: hidden;
-    padding-top: 45px;
-}
-
-.sliding-widget .slide {
-    position: absolute;
-    top: 15px;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    text-shadow: 0 0 18px rgba(29, 78, 216, 0.9);
-    animation: 
-        glow 4s infinite ease-in-out,
-        breathe 2.5s infinite ease-in-out;
-}
-
-.sliding-widget .slide.active {
-    opacity: 1;
-}
-
-/* System Updates Feed */
-.update-feed {
-    padding: 8px;
-    background: rgba(255, 275, 255, 0.05);
-    border-radius: 8px;
-}
-
-.update-feed p {
-    margin: 3px 0;
-    font-size: 0.8em;
-}
-
-/* Progress Bar (Chat Support 2 Widget) */
-.progress-bar {
-    width: 0;
-    height: 20px;
-    background: linear-gradient(145deg, #1E3A8A, #162E6F);
-    border-radius: 10px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: width 1s ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.8em;
-    color: #E0E0E0;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-/* Ticket Search for Chat Support */
-.search-bar {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 0 10px 8px;
-    background: linear-gradient(145deg, #404040, #606060);
-    border: none;
-    border-radius: 15px;
-    padding: 8px 12px;
-    color: #E0E0E0;
-    font-family: 'Orbitron', 'Arial', sans-serif;
-    font-size: 0.9em;
-    box-shadow: 
-        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.15);
-}
-
-.ticket-list {
-    max-height: 80px;
-    overflow-y: auto;
-    padding: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.ticket-list p {
-    margin: 3px 0;
-    font-size: 0.8em;
-}
-
-.ticket-list a {
-    color: #1e90ff;
-    text-decoration: underline;
 }
 
 /* Ticket Status Overview */
@@ -1659,11 +1637,47 @@ body.light-theme .tab.active {
         breathe 2.5s infinite ease-in-out;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Transfer Money Feature (New Rule for P2P Tab) */
 .transfer-money-container {
     margin-top: 20px;
     padding: 15px;
-    background: linear-gradient(225deg, #606060, #B0B0B0);
+    background: linear-gradient(145deg, #B0B0B0, #2d2c2c,); /* Updated to match the brighter widget background */
     border-radius: 15px;
     box-shadow: 
         inset 2px 2px 5px rgba(0, 0, 0, 0.3),
@@ -1780,21 +1794,26 @@ body.light-theme .tab.active {
 
 /* Active P2P Connections Widget - Updated 2-Column Layout rounded */
 .active-p2p-connections {
-    display: flex;
-    flex-direction: column;
-    height: 550px;
-    box-sizing: border-box;
-    overflow: hidden;
-    background: linear-gradient(225deg, #606060, #B0B0B0);
-    border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+    border-radius: 80px;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
     box-shadow: 
-        12px 12px 24px rgba(0, 0, 0, 0.4),
-        -12px -12px 24px rgba(255, 252, 255, 0.15),
-        inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.25),
-        inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.35),
-        0 0 30px rgba(29, 78, 216, 0.7);
-    transition: box-shadow 0.3s ease-in-out;
+        18px 18px 36px rgba(0, 0, 0, 0.4),
+        -18px -18px 36px rgba(255, 255, 255, 0.15),
+        inset 6px 6px 15px rgba(0, 0, 0, 0.25),
+        inset -6px -6px 15px rgba(255, 255, 255, 0.35),
+        0 0 60px rgba(29, 78, 216, 0.7);
+    padding: 40px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.5s ease-in-out;
+    overflow: auto;
+    opacity: 0;
+    transform: scale(0.8);
+    will-change: transform, opacity;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 .active-p2p-connections .p2p-transfer-wrapper {
@@ -1810,7 +1829,7 @@ body.light-theme .tab.active {
     flex: 1;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(145deg, #808080, #606060);
+    background: linear-gradient(145deg, #B0B0B0, #808080); /* Frosted gradient */
     border-radius: 50px;
     padding: 20px;
     box-shadow: 
@@ -1826,7 +1845,7 @@ body.light-theme .tab.active {
     flex: 1;
     display: flex;
     flex-direction: column;
-    background: linear-gradient(145deg, #808080, #606060);
+    background: linear-gradient(145deg, #B0B0B0, #808080); /* Frosted gradient */
     border-radius: 50px;
     padding: 20px;
     font-size: 20;
@@ -2013,6 +2032,8 @@ body.light-theme .tab.active {
     flex-wrap: wrap;
 }
 
+
+/* Base styles for all buttons (updating border-radius to match tabs) */
 .active-p2p-connections .p2p-send-form .p2p-send-button,
 .active-p2p-connections .p2p-send-form .cancel-button,
 .active-p2p-connections .p2p-send-form .request-button,
@@ -2020,13 +2041,9 @@ body.light-theme .tab.active {
 .active-p2p-connections .confirmation-prompt .cancel-button,
 .active-p2p-connections .request-prompt .request-confirm-button,
 .active-p2p-connections .request-prompt .request-cancel-button {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 250, 0.3) 100%);
-    box-shadow: 
-        0 18px 36px rgba(0, 0, 0, 0.5),
-        inset 0 4.5px 9px rgba(255, 255, 255, 0.6);
     border: none;
     padding: 10px 20px;
-    border-radius: 24px;
+    border-radius: 15px; /* Updated to match .action-button */
     color: #E0E0E0;
     font-family: 'Orbitron', 'Arial', sans-serif;
     font-size: 1em;
@@ -2039,11 +2056,12 @@ body.light-theme .tab.active {
     align-items: center;
     justify-content: center;
     gap: 9px;
-    text-shadow: 0 0 18px rgba(29, 78, 216, 0.9);
-    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    text-shadow: 0 0 18px rgba(30, 58, 138, 0.9);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
     animation: glow 4s infinite ease-in-out;
 }
 
+/* Glossy overlay for all buttons (updating border-radius to match tabs) */
 .active-p2p-connections .p2p-send-form .p2p-send-button::after,
 .active-p2p-connections .p2p-send-form .cancel-button::after,
 .active-p2p-connections .p2p-send-form .request-button::after,
@@ -2055,62 +2073,90 @@ body.light-theme .tab.active {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 50%;
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
-    border-radius: 18px 18px 0 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    border-radius: 15px; /* Updated to match .action-button */
     z-index: 2;
-    opacity: 0.7;
     pointer-events: none;
-    animation: gloss 2.5s infinite alternate;
 }
 
-.active-p2p-connections .p2p-send-form .p2p-send-button:hover,
-.active-p2p-connections .p2p-send-form .cancel-button:hover,
-.active-p2p-connections .p2p-send-form .request-button:hover,
-.active-p2p-connections .confirmation-prompt .confirm-button:hover,
-.active-p2p-connections .confirmation-prompt .cancel-button:hover,
-.active-p2p-connections .request-prompt .request-confirm-button:hover,
-.active-p2p-connections .request-prompt .request-cancel-button:hover {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0.4) 100%);
-    transform: translateY(-3px);
+/* Send Money Button (matches Dashboard tab style) */
+.active-p2p-connections .p2p-send-form .p2p-send-button {
+    background: linear-gradient(145deg, #606060, #404040); /* Matches .action-button */
     box-shadow: 
-        0 12px 24px rgba(0, 0, 0, 0.5),
-        inset 0 3px 6px rgba(255, 255, 255, 0.6),
-        0 0 30px rgba(29, 78, 216, 0.9);
+        7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        -7.5px -7.5px 15px rgba(255, 255, 255, 0.2); /* Matches .action-button */
 }
 
-.active-p2p-connections .p2p-send-form .p2p-send-button:active,
-.active-p2p-connections .p2p-send-form .cancel-button:active,
-.active-p2p-connections .p2p-send-form .request-button:active,
-.active-p2p-connections .confirmation-prompt .confirm-button:active,
-.active-p2p-connections .confirmation-prompt .cancel-button:active,
-.active-p2p-connections .request-prompt .request-confirm-button:active,
-.active-p2p-connections .request-prompt .request-cancel-button:active {
-    transform: translateY(3px);
+.active-p2p-connections .p2p-send-form .p2p-send-button:hover {
     box-shadow: 
-        0 6px 12px rgba(0, 0, 0, 0.5),
-        inset 0 3px 6px rgba(255, 255, 255, 0.6);
+        4.5px 4.5px 27px rgba(30, 58, 138, 1.0),
+        -4.5px -4.5px 27px rgba(255, 255, 255, 0.4); /* Matches .action-button:hover */
+    transform: translateY(3px); /* Matches .action-button:hover */
 }
 
+.active-p2p-connections .p2p-send-form .p2p-send-button:active {
+    transform: translateY(3px) scale(0.98); /* Matches .action-button:active */
+    box-shadow: 
+        3px 3px 12px rgba(0, 0, 0, 0.5),
+        inset 3px 3px 7.5px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 7.5px rgba(255, 255, 255, 0.2); /* Matches .action-button:active */
+}
+
+/* Cancel Button (matches Dashboard tab style) */
 .active-p2p-connections .p2p-send-form .cancel-button,
 .active-p2p-connections .confirmation-prompt .cancel-button,
 .active-p2p-connections .request-prompt .request-cancel-button {
-    background: linear-gradient(135deg, rgba(50, 50, 50, 0.5) 0%, rgba(200, 200, 200, 0.3) 100%);
+    background: linear-gradient(145deg, #606060, #404040); /* Matches .action-button */
+    box-shadow: 
+        7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        -7.5px -7.5px 15px rgba(255, 255, 255, 0.2); /* Matches .action-button */
 }
 
 .active-p2p-connections .p2p-send-form .cancel-button:hover,
 .active-p2p-connections .confirmation-prompt .cancel-button:hover,
 .active-p2p-connections .request-prompt .request-cancel-button:hover {
-    background: linear-gradient(135deg, rgba(50, 50, 50, 0.6) 0%, rgba(200, 200, 200, 0.4) 100%);
+    box-shadow: 
+        4.5px 4.5px 27px rgba(30, 58, 138, 1.0),
+        -4.5px -4.5px 27px rgba(255, 255, 255, 0.4); /* Matches .action-button:hover */
+    transform: translateY(3px); /* Matches .action-button:hover */
 }
 
+.active-p2p-connections .p2p-send-form .cancel-button:active,
+.active-p2p-connections .confirmation-prompt .cancel-button:active,
+.active-p2p-connections .request-prompt .request-cancel-button:active {
+    transform: translateY(3px) scale(0.98); /* Matches .action-button:active */
+    box-shadow: 
+        3px 3px 12px rgba(0, 0, 0, 0.5),
+        inset 3px 3px 7.5px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 7.5px rgba(255, 255, 255, 0.2); /* Matches .action-button:active */
+}
+
+/* Request Payment Button (matches P2P selected tab style) */
 .active-p2p-connections .p2p-send-form .request-button {
-    background: linear-gradient(135deg, rgba(0, 50, 100, 0.5) 0%, rgba(150, 200, 255, 0.3) 100%);
+    background: linear-gradient(145deg, #1E3A8A, #162E6F); /* Matches selected tab blue */
+    box-shadow: 
+        7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
+        0 0 27px rgba(30, 58, 138, 1.0); /* Adds blue glow to match selected tab */
 }
 
 .active-p2p-connections .p2p-send-form .request-button:hover {
-    background: linear-gradient(135deg, rgba(0, 50, 100, 0.6) 0%, rgba(150, 200, 255, 0.4) 100%);
+    background: linear-gradient(145deg, #2B4BA5, #233F8A); /* Slightly brighter blue */
+    box-shadow: 
+        4.5px 4.5px 27px rgba(30, 58, 138, 1.0),
+        -4.5px -4.5px 27px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(30, 58, 138, 1.0); /* Stronger glow */
+    transform: translateY(3px); /* Matches .action-button:hover */
+}
+
+.active-p2p-connections .p2p-send-form .request-button:active {
+    transform: translateY(3px) scale(0.98); /* Matches .action-button:active */
+    box-shadow: 
+        3px 3px 12px rgba(0, 0, 0, 0.5),
+        inset 3px 3px 7.5px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 7.5px rgba(255, 255, 255, 0.2); /* Matches .action-button:active */
 }
 
 .active-p2p-connections .p2p-send-form .repeat-toggle {
@@ -2174,7 +2220,7 @@ body.light-theme .tab.active {
     top: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(145deg, #808080, #606060); /* Match the container background */
+    background: linear-gradient(145deg, #B0B0B0, #808080); /* Frosted gradient */
     z-index: 1; /* Ensure it stays above the scrolling list */
     padding: 5px 10px; /* Add padding for better spacing */
     border-radius: 8px 8px 0 0; /* Rounded top corners to blend with container */
@@ -2288,7 +2334,7 @@ body.light-theme .tab.active {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.8);
-    background: linear-gradient(225deg, #606060, #B0B0B0);
+    background: linear-gradient(145deg, #B0B0B0, #808080); /* Frosted gradient */
     border-radius: 15px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 
@@ -2415,6 +2461,93 @@ body.light-theme .tab.active {
 }
 
 
+
+
+
+
+
+/* Confirmation Prompt Yes Button (matches Request Payment button) */
+.active-p2p-connections .confirmation-prompt .confirm-button {
+    background: linear-gradient(145deg, #1E3A8A, #162E6F);
+    box-shadow: 
+        7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
+        0 0 27px rgba(30, 58, 138, 1.0);
+}
+
+.active-p2p-connections .confirmation-prompt .confirm-button:hover {
+    background: linear-gradient(145deg, #2B4BA5, #233F8A);
+    box-shadow: 
+        4.5px 4.5px 27px rgba(30, 58, 138, 1.0),
+        -4.5px -4.5px 27px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(30, 58, 138, 1.0);
+    transform: translateY(3px);
+}
+
+.active-p2p-connections .confirmation-prompt .confirm-button:active {
+    transform: translateY(3px) scale(0.98);
+    box-shadow: 
+        3px 3px 12px rgba(0, 0, 0, 0.5),
+        inset 3px 3px 7.5px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 7.5px rgba(255, 255, 255, 0.2);
+}
+
+
+
+
+
+/* Request Prompt Confirm Button (matches Request Payment button) */
+.active-p2p-connections .request-prompt .request-confirm-button {
+    background: linear-gradient(145deg, #1E3A8A, #162E6F);
+    box-shadow: 
+        7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
+        0 0 27px rgba(30, 58, 138, 1.0);
+}
+
+.active-p2p-connections .request-prompt .request-confirm-button:hover {
+    background: linear-gradient(145deg, #2B4BA5, #233F8A);
+    box-shadow: 
+        4.5px 4.5px 27px rgba(30, 58, 138, 1.0),
+        -4.5px -4.5px 27px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(30, 58, 138, 1.0);
+    transform: translateY(3px);
+}
+
+.active-p2p-connections .request-prompt .request-confirm-button:active {
+    transform: translateY(3px) scale(0.98);
+    box-shadow: 
+        3px 3px 12px rgba(0, 0, 0, 0.5),
+        inset 3px 3px 7.5px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 7.5px rgba(255, 255, 255, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* ==========================================================================
    ==========================================================================
    ==========================================================================
@@ -2442,6 +2575,8 @@ body.light-theme .tab.active {
     height: 100%;
 }
 
+
+/* Q&A FLIP CARDS OUTER STYLE */
 .qna-widget {
     background: linear-gradient(225deg, #606060, #B0B0B0);
     border-radius: 30px;
@@ -2684,9 +2819,9 @@ body.light-theme .tab.active {
 /* Progress Bar for File Upload Progress */
 .progress-bar {
     width: 100%;
-    height: 15px;
+    height: 35px;
     background: linear-gradient(145deg, #404040, #606060);
-    border-radius: 8px;
+    border-radius: 40px;
     box-shadow: 
         inset 2px 2px 5px rgba(0, 0, 0, 0.4),
         inset -2px -2px 5px rgba(255, 255, 255, 0.15);
@@ -2698,7 +2833,7 @@ body.light-theme .tab.active {
     height: 100%;
     background: linear-gradient(145deg, #1E3A8A, #162E6F);
     color: #E0E0E0;
-    font-size: 0.7em;
+    font-size: 2.7em;
     line-height: 15px;
     text-align: center;
     transition: width 1s ease-in-out;
@@ -3013,142 +3148,273 @@ body.light-theme .tab.active {
 
 
 
-/* Bot Chat Widget */
-.bot-chat .bot-chat-container {
-    display: flex;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Bot Chat Widget Outer Window (Single Outer Layer) */
+.bot-chat-window {
+    filter: none !important;
+    opacity: 1 !important;
+    transition: filter 0.3s ease;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
+    border-radius: 80px; /* Matches Q&A widget */
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+        0 0 30px rgba(29, 78, 216, 0.7); /* Glowing blue shadow */
+    padding: 40px; /* Matches Q&A widget's outer padding */
+    border: 2px solid rgba(29, 78, 216, 0.5); /* Blue glowing border for divider effect */
+    overflow: auto;
+    z-index: 2;
+    min-width: 0;
+    min-height: 0;
+    box-sizing: border-box;
+    display: flex; /* Ensure the inner container stretches properly */
     flex-direction: column;
-    height: calc(100% - 60px); /* Account for h3 */
-    gap: 10px;
 }
 
-/* Bot Chat Widget BackGround*/
-.bot-chat #bot-chat-box {
-    flex: 1;
+.bot-chat-window:hover,
+.bot-chat-window:focus-within {
+    filter: none !important;
+    opacity: 1 !important;
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+        0 0 60px rgba(70, 120, 255, 1); /* Enhanced glow on hover */
+}
+
+.dashboard-container.blurred .bot-chat-window {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* Inner Container for Chat */
+.bot-chat-window .bot-chat-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Ensure it takes up available space */
+    height: 100%;
+    max-height: calc(100% - 60px);
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
+    border-radius: 50px; /* Matches Q&A widget */
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+        0 0 30px rgba(29, 78, 216, 0.7); /* Subtle inner shadow */
+    padding: 30px; /* Matches Q&A widget */
+}
+
+/* Style the Title Inside the Inner Container */
+.bot-chat-container h3 {
+    margin: 0 0 20px 0;
+    padding: 0;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 3em; /* Matches Q&A widget */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Chat Box Background and Height */
+.bot-chat-window .bot-chat-box {
+    flex: 1 1 auto;
     overflow-y: auto;
-    padding: 10px;
+    padding: 45px; /* Matches Q&A widget */
     background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2), inset -5px -5px 10px rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin-bottom: 0;
     display: flex;
-    justify-content: flex-end; /* Align messages to the bottom */
     flex-direction: column;
-    max-height: 325px;
+    justify-content: flex-end;
+    min-height: 200px; /* Adjusted for smaller widget size */
+    max-height: 325px; /* Matches original Dashboard widget max-height */
 }
 
-/* Bot Chat Widget ////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-#bot-chat-box .message {
-    padding: 10px; /* Adds a gap inside the message bubble */
-}
-/* Bot Chat Wighet #@////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-#bot-chat-box .message .content {
-    padding: 0 10px; /* Adds a gap only around the message text */
-}
-
-/*???????????????????????????????????????????*/
-.bot-chat .message {
+/* Message Styling */
+.bot-chat-window .message {
     max-width: 70%;
-    padding: 12px 20px;
+    padding: 12px 20px; /* Matches Q&A widget */
     border-radius: 25px;
     word-wrap: break-word;
-    font-size: 1em !important;
+    font-size: 18px !important;
     line-height: 1.4;
     margin: 10px 0;
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient for bot messages */
     box-shadow: 
-        0 10px 20px rgba(0, 0, 0, 0.5),
-        inset 0 2px 6px rgba(255, 255, 255, 0.6);
+        5px 5px 15px rgba(0, 0, 0, 0.4),
+        -5px -5px 15px rgba(255, 255, 255, 0.15),
+        inset 2px 2px 5px rgba(0, 0, 0, 0.25),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.35);
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
     flex-shrink: 0;
-    display: inline-block;
     display: flex;
     flex-direction: column;
     filter: none !important;
     opacity: 1 !important;
 }
 
-/* BotChat Bot Grey Message Bubble*/
-.bot-chat .message.bot {
-    max-width: 70%;
-    padding: 12px 20px;
+/* Add the frosted glass overlay effect to messages */
+.bot-chat-window .message::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
     border-radius: 25px;
-    word-wrap: break-word;
-    font-size: 1em !important;
-    line-height: 1.4;
-    margin: 10px 0;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
-    box-shadow: 
-        0 10px 20px rgba(0, 0, 0, 0.5),
-        inset 0 2px 6px rgba(255, 255, 255, 0.6);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-    display: inline-block;
-    display: flex;
-    flex-direction: column;
-    filter: none !important;
-    opacity: 1 !important;
-    margin-left: 30px; /* Add a gap on the left for bot messages */
-    margin-right: 40px; /* Ensure the bot message doesn't stretch too far to the right */
-    margin-bottom: 20px;
+    z-index: 2;
+    pointer-events: none;
 }
 
-/* BotChat User Blue Message Bubble*/
-.bot-chat .message.user {
-    background: linear-gradient(145deg, #1E3A8A, #162E6F); /* Glossy blue for user */
+/* Override text-shadow for chat messages to make text sharper */
+.bot-chat-window .message .content,
+.bot-chat-window .message .timestamp {
+    text-shadow: none !important;
+}
+
+/* Bot Message Styling GREY BUBBLES*/
+.bot-chat-window .message.bot {
+    align-self: flex-start;
+    background: linear-gradient(145deg, #606060, #404040);
+    margin-left: 30px;
+    margin-right: 40px;
+    margin-bottom: 2px;
+    border-radius: 25px; /* Reverted to original smaller size */
+    font-size: 1em !important; /* Reverted to original smaller font size */
+}
+
+/* User Message Styling BLUE BUBBLE*/
+.bot-chat-window .message.user {
     align-self: flex-end;
-    color: #ffffff;
-    margin-right: 30px; /* Add a gap on the right for user messages */
-    margin-left: 40px; /* Ensure the user message doesn't stretch too far to the left */
-    margin-bottom: 20px;
+    background: linear-gradient(145deg, #1E3A8A, #162E6F);
+    color: #E0E0E0;
+    margin-right: 3px;
+    margin-left: 40px;
+    margin-bottom: 2px;
+    line-height: 1;
+    font-size: 1em !important; /* Reverted to original smaller font size */
+    border-radius: 25px; /* Reverted to original smaller size */
 }
 
-.bot-chat .message .username,
-.bot-chat .message .content {
+/* Username and Content Styling */
+.bot-chat-window .message .username,
+.bot-chat-window .message .content {
     display: inline-block;
 }
 
-.bot-chat .message .username {
+.bot-chat-window .message .username {
     font-weight: bold;
     font-size: 0.9em;
 }
 
-.bot-chat .message .content {
+.bot-chat-window .message .content {
     font-size: 1em;
 }
 
-.bot-chat .message .timestamp {
+/* Timestamp Styling */
+.bot-chat-window .message .timestamp {
     font-size: 0.8em;
     color: whitesmoke;
     align-self: flex-end;
-    margin-top: 2px;
+    margin-top: 20px; /* Matches Q&A widget */
 }
 
-.bot-chat .input-container {
-    display: flex;
-    gap: 10px;
-}
-
-.bot-chat #bot-user-input {
-    flex: 1;
-    padding: 8px;
-    border-radius: 10px;
-    border: none;
-    background: #4a4a4a;
-    color: #ffffff;
-    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2), inset -5px -5px 10px rgba(255, 255, 255, 0.1);
-}
-
-.bot-chat #bot-user-input:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-#bot-chat-box .message.user .username {
+/* Align Username for User Messages */
+.bot-chat-window .bot-chat-box .message.user .username {
     align-self: flex-end;
     text-align: right;
-    margin-right: 5px; /* Adds a small gap between the username and timestamp */
+    margin-right: 5px;
+}
+
+/* Input Container */
+.bot-chat-window .bot-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(145deg, #808080, #606060); /* Matches Q&A widget */
+    border-radius: 25px;
+    padding: 10px 15px; /* Matches Q&A widget */
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.3),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+        0 0 20px rgba(29, 78, 216, 0.7);
+    margin-top: 10px;
+}
+
+/* Input Field */
+.bot-chat-window .bot-input-container input {
+    flex: 1;
+    background: linear-gradient(145deg, #606060, #404040); /* Matches Q&A widget */
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px; /* Matches Q&A widget */
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15),
+        0 0 10px rgba(29, 78, 216, 0.2);
+    transition: box-shadow 0.2s;
+}
+
+.bot-chat-window .bot-input-container input:focus {
+    outline: none;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15),
+        0 0 20px rgba(29, 78, 216, 0.7);
+}
+
+/* Placeholder Styling */
+.bot-chat-window .bot-input-container input::placeholder {
+    color: #A0A0A0;
+    opacity: 0.8;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+}
+
+/* First Message Animation */
+.bot-chat-window .bot-chat-box .message:first-child {
+    animation: bubbleUp 0.5s ease-out forwards;
 }
 
 
@@ -3309,9 +3575,9 @@ body.light-theme .tab.active {
     opacity: 1 !important;
     transition: filter 0.3s ease;
     width: 100%;
-    max-height: 1550px;
+    height: 100%;
     position: relative;
-    background: linear-gradient(225deg, #606060, #B0B0B0);
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
     border-radius: 80px;
     box-shadow: 
         inset 5px 5px 10px rgba(0, 0, 0, 0.3),
@@ -3329,7 +3595,7 @@ body.light-theme .tab.active {
     flex-direction: column;
     height: 100%;
     max-height: calc(100% - 60px);
-    background: linear-gradient(225deg, #606060, #B0B0B0);
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
     border-radius: 50px;
     box-shadow: 
         inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
@@ -3357,7 +3623,7 @@ body.light-theme .tab.active {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: linear-gradient(225deg, #606060, #B0B0B0);
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
     border-radius: 25px;
     padding: 10px 15px;
     box-shadow: 
@@ -3370,7 +3636,7 @@ body.light-theme .tab.active {
 /* P2P BytChat Live Messesing Type Your Message Bar Color */
 #p2p-user-input {
     flex: 1;
-    background: linear-gradient(145deg, #404040, #606060);
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
     border: none;
     border-radius: 20px;
     padding: 10px 15px;
@@ -3466,17 +3732,22 @@ body.light-theme .tab.active {
     position: absolute;
     top: 10px;
     right: 10px;
-    padding: 8px;
+    padding: 8px 12px;
     font-size: 1em;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
-    border: none;
-    border-radius: 50%;
-    color: white;
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
     box-shadow: 
-        0 5px 10px rgba(0, 0, 0, 0.3),
-        inset 0 2px 4px rgba(255, 255, 255, 0.5);
+        5px 5px 10px rgba(0, 0, 0, 0.3),
+        -5px -5px 10px rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 10px;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    text-shadow: 0 0 12px rgba(30, 58, 138, 0.9);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    animation: glow 4s infinite ease-in-out;
     display: none;
     z-index: 1002;
+    cursor: pointer;
 }
 
 .p2p-close-button#p2p-close-chat:hover {
@@ -3489,7 +3760,7 @@ body.light-theme .tab.active {
 
 .p2p-chat-window.p2p-chat-expanded {
     position: fixed;
-    top: 50%;
+    top: 20%; /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------Added to scale the expand message widget to 20% */
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100vw;
@@ -3505,6 +3776,7 @@ body.light-theme .tab.active {
         inset -5px -5px 10px rgba(255, 255, 255, 0.2);
     background: linear-gradient(to top right, #4A4A4A, #D3D3D3);
     filter: none !important;
+    zoom: 0.2; /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------Added to scale the tab bar to 20% */
 }
 
 .p2p-chat-window.p2p-chat-expanded .p2p-chat-container {
@@ -3638,154 +3910,195 @@ body.light-theme .tab.active {
    ==========================================================================
    ========================================================================== */
 
-/* Bot Chat Widget */
-.qna-bot-chat .qna-bot-chat-container {
-    display: flex;
+/* Q&A Bot Chat Widget Outer Window (Single Outer Layer) */
+.qna-bot-chat-window {
+    filter: none !important;
+    opacity: 1 !important;
+    transition: filter 0.3s ease;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
+    border-radius: 80px; /* Matches the ByteChat widget */
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+        0 0 30px rgba(29, 78, 216, 0.7); /* Glowing blue shadow */
+    padding: 40px; /* Matches ByteChat's outer padding */
+    border: 2px solid rgba(29, 78, 216, 0.5); /* Blue glowing border for divider effect */
+    overflow: auto;
+    z-index: 2;
+    min-width: 0;
+    min-height: 0;
+    box-sizing: border-box;
+    display: flex; /* Ensure the inner container stretches properly */
     flex-direction: column;
-    height: calc(100% - 60px); /* Account for h3 */
-    gap: 10px;
 }
 
-/* Bot Chat Widget BackGround and HIGHT*/
-.qna-bot-chat #qna-bot-chat-box {
-    flex: 1;
+.qna-bot-chat-window:hover,
+.qna-bot-chat-window:focus-within {
+    filter: none !important;
+    opacity: 1 !important;
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+        0 0 60px rgba(70, 120, 255, 1); /* Enhanced glow on hover */
+}
+
+.dashboard-container.blurred .qna-bot-chat-window {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* Inner Container for Chat */
+.qna-bot-chat-window .qna-bot-chat-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Ensure it takes up available space */
+    height: 100%;
+    max-height: calc(100% - 60px); /* Preserve existing max-height */
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
+    border-radius: 50px; /* Matches ByteChat's inner border-radius */
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+        0 0 30px rgba(29, 78, 216, 0.7); /* Subtle inner shadow */
+    padding: 30px; /* Matches ByteChat's inner padding */
+}
+
+/* Style the Title Inside the Inner Container */
+.qna-bot-chat-container h3 {
+    margin: 0 0 20px 0;
+    padding: 0;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 3em; /* Matches ByteChat's larger title size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Chat Box Background and Height */
+.qna-bot-chat-window #qna-bot-chat-box {
+    flex: 1 1 auto;
     overflow-y: auto;
-    padding: 10px;
+    padding: 45px; /* Preserve existing padding */
     background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2), inset -5px -5px 10px rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin-bottom: 0;
     display: flex;
-    justify-content: flex-end; /* Align messages to the bottom */
     flex-direction: column;
-    max-height: 1050px;
+    justify-content: flex-end;
+    min-height: 300px; /* Preserve existing min-height */
+    max-height: 1050px; /* Preserve existing max-height */
 }
 
-/* Bot Chat Widget ////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-#qna-bot-chat-box .message {
-    padding: 10px; /* Adds a gap inside the message bubble */
-}
-/* Bot Chat Wighet #@////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
-#qna-bot-chat-box .message .content {
-    padding: 0 10px; /* Adds a gap only around the message text */
-}
-
-/*???????????????????????????????????????????*/
-.qna-bot-chat .message {
+/* Message Styling */
+.qna-bot-chat-window .message {
     max-width: 70%;
-    padding: 12px 20px;
+    padding: 12px 20px; /* Preserve existing padding */
     border-radius: 25px;
     word-wrap: break-word;
     font-size: 1em !important;
     line-height: 1.4;
     margin: 10px 0;
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient for bot messages */
     box-shadow: 
-        0 10px 20px rgba(0, 0, 0, 0.5),
-        inset 0 2px 6px rgba(255, 255, 255, 0.6);
+        5px 5px 15px rgba(0, 0, 0, 0.4),
+        -5px -5px 15px rgba(255, 255, 255, 0.15),
+        inset 2px 2px 5px rgba(0, 0, 0, 0.25),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.35);
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
     flex-shrink: 0;
-    display: inline-block;
     display: flex;
     flex-direction: column;
     filter: none !important;
     opacity: 1 !important;
 }
 
-/* BotChat Bot Grey Message Bubble*/
-.qna-bot-chat .message.bot {
-    max-width: 70%;
-    padding: 12px 20px;
-    border-radius: 35px;
-    word-wrap: break-word;
-    font-size: 35px !important;
-    line-height: 1.4;
-    margin: 10px 0;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
-    box-shadow: 
-        0 10px 20px rgba(0, 0, 0, 0.5),
-        inset 0 2px 6px rgba(255, 255, 255, 0.6);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-    display: inline-block;
-    display: flex;
-    flex-direction: column;
-    filter: none !important;
-    opacity: 1 !important;
-    margin-left: 35px; /* Add a gap on the left for bot messages */
-    margin-right: 40px; /* Ensure the bot message doesn't stretch too far to the right */
+/* Add the frosted glass overlay effect to messages */
+.qna-bot-chat-window .message::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    border-radius: 25px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Override text-shadow for chat messages to make text sharper */
+.qna-bot-chat-window .message .content,
+.qna-bot-chat-window .message .timestamp {
+    text-shadow: none !important;
+}
+
+/* Bot Message Styling */
+.qna-bot-chat-window .message.bot {
+    align-self: flex-start;
+    background: linear-gradient(145deg, #606060, #404040);
+    margin-left: 35px;
+    margin-right: 40px;
     margin-bottom: 35px;
+    border-radius: 35px; /* Matches user message bubble size */
+    font-size: 35px !important; /* Matches user message font size */
 }
 
-/* BotChat User Blue Message Bubble*/
-.qna-bot-chat .message.user {
-    background: linear-gradient(145deg, #1E3A8A, #162E6F); /* Glossy blue for user */
+/* User Message Styling */
+.qna-bot-chat-window .message.user {
     align-self: flex-end;
-    color: #ffffff;
-    margin-right: 30px; /* Add a gap on the right for user messages */
-    margin-left: 40px; /* Ensure the user message doesn't stretch too far to the left */
+    background: linear-gradient(145deg, #1E3A8A, #162E6F);
+    color: #E0E0E0;
+    margin-right: 30px;
+    margin-left: 40px;
     margin-bottom: 25px;
     line-height: 1.4;
     font-size: 35px !important;
     border-radius: 35px;
 }
 
-.qna-bot-chat .message .username,
-.qna-bot-chat .message .content {
+/* Username and Content Styling */
+.qna-bot-chat-window .message .username,
+.qna-bot-chat-window .message .content {
     display: inline-block;
 }
 
-.qna-bot-chat .message .username {
+.qna-bot-chat-window .message .username {
     font-weight: bold;
     font-size: 0.9em;
 }
 
-.qna-bot-chat .message .content {
+.qna-bot-chat-window .message .content {
     font-size: 1em;
 }
 
-.qna-bot-chat .message .timestamp {
+/* Timestamp Styling */
+.qna-bot-chat-window .message .timestamp {
     font-size: 0.8em;
     color: whitesmoke;
     align-self: flex-end;
     margin-top: 20px;
 }
 
-.qna-bot-chat .input-container {
-    display: flex;
-    gap: 10px;
-}
-
-.qna-bot-chat #qna-bot-user-input {
-    flex: 1;
-    padding: 8px;
-    border-radius: 10px;
-    border: none;
-    background: #4a4a4a;
-    color: #ffffff;
-    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2), inset -5px -5px 10px rgba(255, 255, 255, 0.1);
-}
-
-.qna-bot-chat #qna-bot-user-input:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-#qna-bot-chat-box .message.user .username {
+/* Align Username for User Messages */
+.qna-bot-chat-window #qna-bot-chat-box .message.user .username {
     align-self: flex-end;
     text-align: right;
-    margin-right: 5px; /* Adds a small gap between the username and timestamp */
+    margin-right: 5px;
 }
 
-.qna-bot-input-container{
+/* Input Container */
+.qna-bot-chat-window .qna-bot-input-container {
     display: flex;
     align-items: center;
     gap: 10px;
-    background: linear-gradient(225deg, #606060, #B0B0B0);
+    background: linear-gradient(145deg, #808080, #606060);
     border-radius: 25px;
-    padding: 10px 15px;
+    padding: 10px 15px; /* Preserve existing padding */
     box-shadow: 
         inset 2px 2px 5px rgba(0, 0, 0, 0.3),
         inset -2px -2px 5px rgba(255, 255, 255, 0.2),
@@ -3793,9 +4106,42 @@ body.light-theme .tab.active {
     margin-top: 10px;
 }
 
+/* Input Field */
+.qna-bot-chat-window #qna-bot-user-input {
+    flex: 1;
+    background: linear-gradient(145deg, #606060, #404040);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px; /* Preserve existing padding */
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15),
+        0 0 10px rgba(29, 78, 216, 0.2);
+    transition: box-shadow 0.2s;
+}
 
+.qna-bot-chat-window #qna-bot-user-input:focus {
+    outline: none;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15),
+        0 0 20px rgba(29, 78, 216, 0.7);
+}
 
+/* Placeholder Styling */
+.qna-bot-chat-window #qna-bot-user-input::placeholder {
+    color: #A0A0A0;
+    opacity: 0.8;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+}
 
+/* First Message Animation */
+.qna-bot-chat-window #qna-bot-chat-box .message:first-child {
+    animation: bubbleUp 0.5s ease-out forwards;
+}
 
 
 
