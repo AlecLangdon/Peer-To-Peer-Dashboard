@@ -1,0 +1,38 @@
+[
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[14:14 PM]",
+    "status": "Sent",
+    "messageId": "ByteBot-[14:14 PM]-Hello! How can I assist you today, User?",
+    "chatType": "p2p"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[14:15 PM]",
+    "status": "Sent",
+    "messageId": "ByteBot-[14:15 PM]-Hello! How can I assist you today, User?",
+    "chatType": "p2p"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[14:16 PM]",
+    "status": "Sent",
+    "messageId": "User-1744488973097-hi",
+    "chatType": "p2p"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "🤝",
+    "timestamp": "[14:16 PM]",
+    "status": "Sent",
+    "messageId": "User-1744488978536-🤝",
+    "chatType": "p2p"
+  }
+]

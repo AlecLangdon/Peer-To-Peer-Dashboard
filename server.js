@@ -1,5 +1,4 @@
 // server.js
-
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
@@ -40,7 +39,7 @@ app.post('/upload', upload.single('file'), (req, res) => {
     res.json({ success: true, filePath });
 });
 
-// Load messages from messages.json or initialize an empty array
+// Load messages from messages.json or initialize an empty array (shared history)
 let messages = [];
 const messagesFilePath = path.join(__dirname, 'messages.json');
 if (fs.existsSync(messagesFilePath)) {
@@ -98,14 +97,14 @@ function saveTransfers() {
 io.on('connection', (socket) => {
     console.log('A user connected:', socket.id);
 
-    // Send existing messages to the new user
+    // Send existing messages to the new user (shared history)
     socket.emit('chatHistory', messages);
 
     // Send existing transfers to the new user
     socket.emit('p2pTransactionHistory', transfers);
     console.log('Sent p2pTransactionHistory to client:', transfers);
 
-    // Handle new messages
+    // Handle new messages (shared history)
     socket.on('sendMessage', (messageData) => {
         const messageId = messages.length;
         messages.push(messageData);
@@ -114,7 +113,7 @@ io.on('connection', (socket) => {
         console.log('Message received and broadcasted:', messageData, 'Message ID:', messageId);
     });
 
-    // Handle file uploads
+    // Handle file uploads (shared history)
     socket.on('uploadFile', (fileData) => {
         console.log('Received uploadFile event:', fileData);
         const fileId = Date.now() + '-' + Math.random().toString(36).substr(2, 9);
@@ -137,7 +136,7 @@ io.on('connection', (socket) => {
         console.log('File message stored and broadcasted:', fileMessage, 'Message ID:', messageId);
     });
 
-    // Handle message editing
+    // Handle message editing (shared history)
     socket.on('editMessage', ({ messageId, newContent }) => {
         if (messages[messageId] && messages[messageId].type !== 'file') {
             messages[messageId].content = newContent;
@@ -147,7 +146,7 @@ io.on('connection', (socket) => {
         }
     });
 
-    // Handle message deletion
+    // Handle message deletion (shared history)
     socket.on('deleteMessage', ({ messageId }) => {
         if (messages[messageId]) {
             messages[messageId] = null;
@@ -157,7 +156,7 @@ io.on('connection', (socket) => {
         }
     });
 
-    // Handle typing events
+    // Handle typing events (shared history)
     socket.on('typing', (data) => {
         socket.broadcast.emit('userTyping', data);
         console.log(`${data.userName} is typing...`);
@@ -178,7 +177,7 @@ io.on('connection', (socket) => {
             amount: transactionData.amount,
             timestamp: transactionData.timestamp,
             note: transactionData.note,
-            date: transactionData.date || new Date().toISOString(), // Ensure date is set
+            date: transactionData.date || new Date().toISOString(),
             transactionId: transactionData.transactionId || (Date.now() + '-' + Math.random().toString(36).substr(2, 9))
         };
         transfers.push(transaction);
@@ -199,7 +198,7 @@ io.on('connection', (socket) => {
             amount: requestData.amount,
             timestamp: requestData.timestamp,
             note: requestData.note,
-            date: requestData.date || new Date().toISOString(), // Ensure date is set
+            date: requestData.date || new Date().toISOString(),
             transactionId: requestData.transactionId || (Date.now() + '-' + Math.random().toString(36).substr(2, 9))
         };
         transfers.push(transaction);

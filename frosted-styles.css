@@ -1,4 +1,4 @@
-/* frosted-styles.css */
+/* styles.css */
 
 /* ==========================================================================
    ==========================================================================
@@ -12,7 +12,31 @@
    ==========================================================================
    ==========================================================================
    ========================================================================== */
-   html, body {
+
+
+
+   .dashboard-container {
+    zoom: 0.2; /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------Added to scale the tab bar to 20% */
+}
+
+/* Ensure the parent container allows for overflow */
+.tab-content-container {
+    overflow: visible !important;
+}
+
+/* Ensure body and main allow scrolling if needed */
+body, main {
+    overflow: auto;
+}
+
+
+
+
+
+
+
+
+html, body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -23,7 +47,19 @@ main {
 }
 
 body {
-    background: linear-gradient(to top right, #4A4A4A, #D3D3D3); /* Frosted gradient */
+    background: linear-gradient(145deg, #606060,#404040,#606060,#404040); /* Frosted gradient */
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    text-shadow: 0 0 10px #1d4ed8cc;
+    margin: 0;
+    min-height: 100vh;
+    transition: background 0.1s ease;
+    overflow: auto; /* Already added for dashboard scaling */
+}
+
+/* FROSTED BACKGROUND
+body {
+    background: linear-gradient(to top right, #4A4A4A, #D3D3D3); 
     color: #E0E0E0;
     font-family: 'Orbitron', 'Arial', sans-serif;
     text-shadow: 0 0 10px rgba(29, 78, 216, 0.8);
@@ -31,7 +67,8 @@ body {
     min-height: 100vh;
     transition: background 0.3s ease;
 }
-
+    
+/* FROSTED THEME */
 body.light-theme {
     background: linear-gradient(to top right, #D3D3D3, #FFFFFF);
     color: #333;
@@ -51,6 +88,7 @@ body.light-theme {
         inset 4.5px 4.5px 12px rgba(0, 0, 0, 0.25),
         inset -4.5px -4.5px 12px rgba(255, 255, 255, 0.35);
     position: relative;
+    zoom: 0.2; /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------Added to scale the tab bar to 20% */
 }
 
 .logo::after {
@@ -66,11 +104,12 @@ body.light-theme {
 }
 
 /* Dashboard Heading */
+/* FROSTED Dashboard Heading*/ 
 .dashboard-heading {
     text-align: center;
     font-size: 5.25em;
     color: #E0E0E0;
-    background: linear-gradient(145deg, #B0B0B0, #808080); /* Frosted gradient */
+    background: linear-gradient(145deg, #B0B0B0, #808080); 
     border-radius: 30px;
     border: 1.5px solid rgba(255, 255, 255, 0.2);
     box-shadow: 
@@ -85,6 +124,7 @@ body.light-theme {
     position: relative;
     text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
     animation: glow 4s infinite ease-in-out;
+    zoom: 0.2; /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------Added to scale the tab bar to 20% */
 }
 
 .dashboard-heading::after {
@@ -137,43 +177,6 @@ body.light-theme {
     }
 }
 
-@keyframes pop {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    75% {
-        transform: scale(0.95);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-@keyframes widget-pop {
-    0% {
-        opacity: 0;
-        transform: scale(0.8);
-    }
-    50% {
-        opacity: 0.7;
-        transform: scale(1.05);
-    }
-    75% {
-        transform: scale(0.95);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-@keyframes barFill {
-    0% { height: 0; }
-    100% { height: var(--bar-height); }
-}
 
 /* ==========================================================================
    ==========================================================================
@@ -192,7 +195,7 @@ body.light-theme {
     width: 100%;
     max-width: 3600px;
     margin: 0 auto;
-    overflow: hidden;
+    overflow: visible !important; /* Already adjusted for dashboard scaling */
 }
 
 .tab-content {
@@ -225,6 +228,7 @@ body.light-theme {
         inset 6px 6px 15px rgba(0, 0, 0, 0.25),
         inset -6px -6px 15px rgba(255, 255, 255, 0.35),
         0 0 60px rgba(29, 78, 216, 0.7);
+    zoom: 0.2; /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------Added to scale the tab bar to 20% */
 }
 
 body.light-theme .tab-bar {
@@ -311,6 +315,22 @@ body.light-theme .tab.active {
     animation: pop 0.4s ease-out;
 }
 
+/* Pop Animation Keyframes */
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1); /* Slightly scale up for the "pop" effect */
+    }
+    75% {
+        transform: scale(0.95); /* Slight bounce back */
+    }
+    100% {
+        transform: scale(1); /* Return to normal size */
+    }
+}
+
 /* ==========================================================================
    ==========================================================================
    ==========================================================================
@@ -325,15 +345,15 @@ body.light-theme .tab.active {
 /* Widget */
 .widget {
     background: linear-gradient(145deg, #B0B0B0, #808080); /* Frosted gradient */
-    border-radius: 45px;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 80px;
+    border: 1.5px solid #ffffff33;
     box-shadow: 
-        18px 18px 36px rgba(0, 0, 0, 0.4),
-        -18px -18px 36px rgba(255, 255, 255, 0.15),
-        inset 6px 6px 15px rgba(0, 0, 0, 0.25),
-        inset -6px -6px 15px rgba(255, 255, 255, 0.35),
-        0 0 60px rgba(29, 78, 216, 0.7);
-    padding: 45px;
+        18px 18px 36px #00000066,
+        -18px -18px 36px #ffffff26,
+        inset 6px 6px 15px #00000040,
+        inset -6px -6px 15px #ffffff59,
+        0 0 60px #1d4ed8b3;
+    padding: 40px;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.5s ease-in-out;
     overflow: auto;
     opacity: 0;
@@ -360,6 +380,49 @@ body.light-theme .tab.active {
     align-self: flex-start;
 }
 
+/* Hover effect for all widgets */
+.widget:hover {
+    box-shadow: 
+        9px 9px 27px #00000080,
+        -9px -9px 27px #ffffff40,
+        inset 4.5px 4.5px 12px #0000004d,
+        inset -4.5px -4.5px 12px #ffffff66,
+        0 0 120px #4678ff, /* Larger, brighter glow */
+        0 0 30px #4678ff; /* Secondary, more concentrated glow */
+    opacity: 0.98;
+    z-index: 2; /* Bring the widget forward on hover */
+}
+
+/* Special handling for chat window to prevent opacity and filter changes */
+.widget.chat-window:hover {
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+/* Widget Pop Animation Keyframes */
+@keyframes widget-pop {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.05); /* Slightly overshoot for the "pop" effect */
+    }
+    75% {
+        transform: scale(0.95); /* Slight bounce back */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* Settle at normal size */
+    }
+}
+
+/* Widget Pop Animation for Active Tab */
+.tab-content.active .widget {
+    animation: widget-pop 0.5s ease-out forwards;
+}
+
 body.light-theme .widget {
     background: linear-gradient(145deg, #D0D0D0, #A0A0A0);
     box-shadow: 
@@ -369,29 +432,6 @@ body.light-theme .widget {
         inset -6px -6px 15px rgba(255, 255, 255, 0.4),
         0 0 60px rgba(0, 0, 0, 0.3);
     border: 1.5px solid rgba(0, 0, 0, 0.1);
-}
-
-.widget:hover {
-    box-shadow: 
-        9px 9px 27px rgba(0, 0, 0, 0.5),
-        -9px -9px 27px rgba(255, 255, 255, 0.25),
-        inset 4.5px 4.5px 12px rgba(0, 0, 0, 0.3),
-        inset -4.5px -4.5px 12px rgba(255, 255, 255, 0.4),
-        0 0 75px rgba(29, 78, 216, 0.9);
-    transform: scale(1.05);
-    opacity: 0.98;
-    z-index: 2;
-}
-
-/* Ensure chat window doesn't get opacity change on hover */
-.widget.chat-window:hover {
-    opacity: 1 !important;
-    filter: none !important;
-}
-
-/* Widget Pop Animation for Active Tab */
-.tab-content.active .widget {
-    animation: widget-pop 0.5s ease-out forwards;
 }
 
 /* Stagger the animation for each widget */
@@ -456,6 +496,7 @@ body.light-theme .widget {
     margin: 7.5px;
 }
 
+
 .action-button::after {
     content: '';
     position: absolute;
@@ -469,23 +510,12 @@ body.light-theme .widget {
     pointer-events: none;
 }
 
-body.light-theme .action-button {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-    text-shadow: 0 0 7.5px rgba(0, 0, 0, 0.3);
-}
 
 .action-button:hover {
     box-shadow: 
         4.5px 4.5px 27px rgba(30, 58, 138, 1.0),
         -4.5px -4.5px 27px rgba(255, 255, 255, 0.4);
     transform: translateY(3px);
-}
-
-body.light-theme .action-button:hover {
-    box-shadow: 
-        4.5px 4.5px 27px rgba(0, 0, 0, 0.3),
-        -4.5px -4.5px 27px rgba(255, 255, 255, 0.5);
 }
 
 .action-button:active {
@@ -542,18 +572,6 @@ body.light-theme .action-button:hover {
     transform: translateY(3px);
 }
 
-body.light-theme .read-more-btn {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-    text-shadow: 0 0 7.5px rgba(0, 0, 0, 0.3);
-}
-
-body.light-theme .read-more-btn:hover {
-    box-shadow: 
-        4.5px 4.5px 27px rgba(0, 0, 0, 0.3),
-        -4.5px -4.5px 27px rgba(255, 255, 255, 0.5);
-}
-
 .read-more-btn:active {
     transform: translateY(3px) scale(0.98);
     box-shadow: 
@@ -607,7 +625,7 @@ body.light-theme .read-more-btn:hover {
    =============================================================== ██  ██ ===
    =============================================================== ██  ██ ===
    Section 4: Dashboard Tab Styles =============================== ██████ ===
-   Dashboard Tab Styles (Including Widgets)======================     ██ ===
+   Dashboard Tab Styles ==========================================     ██ ===
    ===============================================================     ██ ===
    ==========================================================================
    ==========================================================================
@@ -624,11 +642,6 @@ body.light-theme .read-more-btn:hover {
     transition: filter 0.5s ease-in-out;
     position: relative;
     z-index: 1;
-    opacity: 0;
-}
-
-.dashboard-container.fade {
-    opacity: 1;
 }
 
 /* Blur the dashboard when the overlay is active */
@@ -667,14 +680,14 @@ body.light-theme .read-more-btn:hover {
     display: block;
 }
 
-/* Chat Container (ByteChat Live Messaging Widget) */
+/* ByteChat Live Messaging Around (ByteChat Live Messaging Widget) */
 .chat-container {
     display: flex;
     flex-direction: column;
     height: 100%;
     max-height: calc(100% - 60px);
     background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
-    border-radius: 22.5px;
+    border-radius: 50px;
     box-shadow: 
         inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
         inset -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
@@ -682,13 +695,20 @@ body.light-theme .read-more-btn:hover {
     padding: 30px;
 }
 
-body.light-theme .chat-container {
-    background: linear-gradient(145deg, #A0A0A0, #808080);
+/* SKUEMORPHIC ByteChat Live Messaging Around (ByteChat Live Messaging Widget) 
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: calc(100% - 60px);
+    background: linear-gradient(225deg, #606060, #B0B0B0);
+    border-radius: 50px;
     box-shadow: 
-        inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.15),
-        inset -7.5px -7.5px 15px rgba(255, 255, 255, 0.4),
-        0 0 45px rgba(0, 0, 0, 0.3);
-}
+        inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        inset -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
+        0 0 45px rgba(29, 78, 216, 0.7);
+    padding: 30px;
+}*/
 
 .chat-container h3 {
     margin-bottom: 15px;
@@ -700,7 +720,7 @@ body.light-theme .chat-container {
     margin-top: 0;
 }
 
-/* Chat Box (Inside ByteChat Live Messaging) */
+/*ByteChat Live Messaging BackGround*/
 #chat-box {
     flex: 1 1 auto;
     overflow-y: auto;
@@ -714,11 +734,7 @@ body.light-theme .chat-container {
     max-height: 100%;
 }
 
-body.light-theme #chat-box {
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-/* Chat Messages */
+/* ByteChat Live Messaging Bot Message Grey Bubble */
 .message {
     max-width: 70%;
     padding: 12px 20px;
@@ -744,6 +760,7 @@ body.light-theme #chat-box {
     opacity: 1 !important;
 }
 
+/* ByteChat Live Messaging All Bubble Top Shade ????????????????????????????????????????????????????????????????*/
 .message::after {
     content: '';
     position: absolute;
@@ -789,26 +806,12 @@ body.light-theme #chat-box {
     margin-right: 8px;
 }
 
+/* ByteChat Live Messaging User Blue Bubble */
 .message.user {
     align-self: flex-end;
     background: linear-gradient(145deg, #1E3A8A, #162E6F);
     color: #E0E0E0;
     max-width: 80%;
-}
-
-body.light-theme .message.user {
-    background: linear-gradient(145deg, #3b82f6, #2563eb);
-}
-
-.message.bot {
-    align-self: flex-start;
-    background: linear-gradient(145deg, #606060, #404040);
-    color: #E0E0E0;
-}
-
-body.light-theme .message.bot,
-body.light-theme .message.typing-indicator {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
 }
 
 .message .avatar {
@@ -847,6 +850,12 @@ body.light-theme .message.typing-indicator {
     transform: rotate(180deg);
 }
 
+.message.bot {
+    align-self: flex-start;
+    background: linear-gradient(145deg, #606060, #404040);
+    color: #E0E0E0;
+}
+
 .message-actions {
     display: flex;
     flex-direction: row;
@@ -859,7 +868,6 @@ body.light-theme .message.typing-indicator {
     font-size: 0.75em;
 }
 
-/* Input Container (ByteChat Live Messaging) */
 .input-container {
     display: flex;
     align-items: center;
@@ -874,14 +882,7 @@ body.light-theme .message.typing-indicator {
     margin-top: 10px;
 }
 
-body.light-theme .input-container {
-    background: linear-gradient(145deg, #A0A0A0, #808080);
-    box-shadow: 
-        inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-        0 0 20px rgba(0, 0, 0, 0.3);
-}
-
+/* ByteChat Live Messaging Type Your Message Bar */
 #user-input {
     flex: 1;
     background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
@@ -897,12 +898,6 @@ body.light-theme .input-container {
         0 0 10px rgba(29, 78, 216, 0.2);
     transition: box-shadow 0.2s;
 }
-
-body.light-theme #user-input {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-}
-
 #user-input:focus {
     outline: none;
     box-shadow: 
@@ -920,7 +915,6 @@ body.light-theme #user-input {
     font-family: 'Orbitron', 'Arial', sans-serif;
 }
 
-/* Chat Window (ByteChat Live Messaging) */
 .chat-window {
     filter: none !important;
     opacity: 1 !important;
@@ -929,24 +923,16 @@ body.light-theme #user-input {
     height: 100%;
     position: relative;
     background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
-    border-radius: 20px;
+    border-radius: 80px;
     box-shadow: 
         inset 5px 5px 10px rgba(0, 0, 0, 0.3),
         inset -5px -5px 10px rgba(255, 255, 255, 0.2),
         0 0 30px rgba(29, 78, 216, 0.7);
-    padding: 20px;
+    padding: 40px;
     overflow: auto;
     z-index: 2;
     min-width: 0;
     min-height: 0;
-}
-
-body.light-theme .chat-window {
-    background: linear-gradient(145deg, #A0A0A0, #808080);
-    box-shadow: 
-        inset 5px 5px 10px rgba(0, 0, 0, 0.15),
-        inset -5px -5px 10px rgba(255, 255, 255, 0.4),
-        0 0 30px rgba(0, 0, 0, 0.3);
 }
 
 .chat-window:hover,
@@ -955,7 +941,7 @@ body.light-theme .chat-window {
     opacity: 1 !important;
 }
 
-/* Expand Button (ByteChat Live Messaging) */
+/* Expand button styling */
 .expand-button {
     position: absolute;
     top: 20px;
@@ -977,26 +963,7 @@ body.light-theme .chat-window {
     cursor: pointer;
 }
 
-body.light-theme .expand-button {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-.expand-button:hover {
-    box-shadow: 
-        3px 3px 18px rgba(30, 58, 138, 1.0),
-        -3px -3px 18px rgba(255, 255, 255, 0.4);
-    transform: translateY(2px);
-}
-
-body.light-theme .expand-button:hover {
-    box-shadow: 
-        3px 3px 18px rgba(0, 0, 0, 0.3),
-        -3px -3px 18px rgba(255, 255, 255, 0.5);
-}
-
-/* Close Button (ByteChat Live Messaging) */
+/* Close button styling */
 .close-button {
     position: absolute;
     top: 10px;
@@ -1019,23 +986,11 @@ body.light-theme .expand-button:hover {
     cursor: pointer;
 }
 
-body.light-theme .close-button {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
 .close-button:hover {
     box-shadow: 
         3px 3px 18px rgba(30, 58, 138, 1.0),
         -3px -3px 18px rgba(255, 255, 255, 0.4);
     transform: translateY(2px);
-}
-
-body.light-theme .close-button:hover {
-    box-shadow: 
-        3px 3px 18px rgba(0, 0, 0, 0.3),
-        -3px -3px 18px rgba(255, 255, 255, 0.5);
 }
 
 /* Show close button when chat is expanded */
@@ -1051,7 +1006,7 @@ body.light-theme .close-button:hover {
 /* Expanded chat styling */
 .chat-window.chat-expanded {
     position: fixed;
-    top: 50%;
+    top: 20%; /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------Added to scale the expand message widget to 20% */
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100vw;
@@ -1067,6 +1022,7 @@ body.light-theme .close-button:hover {
         inset -5px -5px 10px rgba(255, 255, 255, 0.2);
     background: linear-gradient(to top right, #4A4A4A, #D3D3D3);
     filter: none !important;
+    zoom: 0.2; /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------Added to scale the tab bar to 20% */
 }
 
 .chat-window.chat-expanded .chat-container {
@@ -1087,7 +1043,6 @@ body.light-theme .close-button:hover {
     content: "\f066";
 }
 
-/* Emoji Picker (ByteChat Live Messaging) */
 #emoji-picker {
     position: absolute;
     bottom: 105px;
@@ -1131,22 +1086,11 @@ body.light-theme .close-button:hover {
     animation: glow 4s infinite ease-in-out;
 }
 
-body.light-theme .emoji-close-btn {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-}
-
 .emoji-close-btn:hover {
     box-shadow: 
         3px 3px 18px rgba(30, 58, 138, 1.0),
         -3px -3px 18px rgba(255, 255, 255, 0.4);
     transform: translateY(2px);
-}
-
-body.light-theme .emoji-close-btn:hover {
-    box-shadow: 
-        3px 3px 18px rgba(0, 0, 0, 0.3),
-        -3px -3px 18px rgba(255, 255, 255, 0.5);
 }
 
 .emoji-category-container {
@@ -1177,22 +1121,11 @@ body.light-theme .emoji-close-btn:hover {
     animation: glow 4s infinite ease-in-out;
 }
 
-body.light-theme .emoji-tab {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-}
-
 .emoji-tab:hover {
     box-shadow: 
         3px 3px 18px rgba(30, 58, 138, 1.0),
         -3px -3px 18px rgba(255, 255, 255, 0.4);
     transform: translateY(2px);
-}
-
-body.light-theme .emoji-tab:hover {
-    box-shadow: 
-        3px 3px 18px rgba(0, 0, 0, 0.3),
-        -3px -3px 18px rgba(255, 255, 255, 0.5);
 }
 
 .emoji-tab.active {
@@ -1201,10 +1134,6 @@ body.light-theme .emoji-tab:hover {
         5px 5px 10px rgba(0, 0, 0, 0.3),
         -5px -5px 10px rgba(255, 255, 255, 0.2),
         0 0 15px rgba(29, 78, 216, 0.9);
-}
-
-body.light-theme .emoji-tab.active {
-    background: linear-gradient(145deg, #3b82f6, #2563eb);
 }
 
 .emoji-category {
@@ -1233,21 +1162,11 @@ body.light-theme .emoji-tab.active {
     animation: glow 4s infinite ease-in-out;
 }
 
-body.light-theme .emoji-option {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-}
-
 .emoji-option:hover {
     box-shadow: 
         3px 3px 18px rgba(30, 58, 138, 1.0),
         -3px -3px 18px rgba(255, 255, 255, 0.4);
     transform: scale(1.1);
-}
-
-body.light-theme .emoji-option:hover {
-    box-shadow: 
-        3px 3px 18px rgba(0, 0, 0, 0.3),
-        -3px -3px 18px rgba(255, 255, 255, 0.5);
 }
 
 /* Ensure file links are clickable */
@@ -1264,7 +1183,7 @@ body.light-theme .emoji-option:hover {
 
 /* Quick Access Tools Widget (Column 1, Row 1) */
 .widget[style*="grid-column: 1 / 2"][style*="grid-row: 1 / 2"] h3 {
-    font-size: 1.5em;
+    font-size: 2.5em;
     margin-bottom: 10px;
 }
 
@@ -1280,7 +1199,7 @@ body.light-theme .emoji-option:hover {
     align-self: flex-start;
 }
 
-/* Need More Help? Widget (Column 1, Row 4) */
+/* Need More Help? widget in column 1, row 4 */
 .widget[style*="grid-column: 1 / 2"][style*="grid-row: 4 / 5"] {
     display: flex;
     flex-direction: column;
@@ -1301,12 +1220,12 @@ body.light-theme .emoji-option:hover {
 .widget[style*="grid-column: 1 / 2"][style*="grid-row: 4 / 5"] .button-container .action-button {
     display: inline-flex;
     min-width: 90px;
-    padding: 10px 15px;
+    padding: 8px 16px;
     font-size: 12px;
     margin: 5px 0;
 }
 
-/* Need More Help? 2 Widget (Column 1, Row 3) */
+/* Need More Help? 2 widget in column 1, row 3 */
 .widget[style*="grid-column: 1 / 2"][style*="grid-row: 3 / 4"] {
     display: flex;
     flex-direction: column;
@@ -1319,99 +1238,11 @@ body.light-theme .emoji-option:hover {
     align-self: flex-start;
 }
 
-/* ByteChat Live Messaging Widget (Columns 2-5, Rows 3-4) */
+/* ByteChat Live Messaging widget */
 .widget[style*="grid-column: 2 / 6"][style*="grid-row: 3 / 5"] {
     height: 100%;
     box-sizing: border-box;
     overflow: hidden;
-}
-
-/* Support Metrics Widget (Columns 2-3, Row 1) */
-#support-metrics {
-    margin-bottom: 40px;
-}
-
-/* Circle Graph (Support Metrics) */
-.circle-graph {
-    position: relative;
-    width: 180px;
-    height: 180px;
-    margin: 15px auto;
-}
-
-#circle-1, #storage-circle, #cloud-circle {
-    width: 180px;
-    height: 180px;
-    --percent: 75%;
-    background: conic-gradient(
-        #FFD700 0% 75%,
-        transparent 75% 100%
-    );
-}
-
-#circle-2 {
-    width: 144px;
-    height: 144px;
-    --percent: 62.5%;
-    background: conic-gradient(
-        #00CED1 0% 62.5%,
-        transparent 62.5% 100%
-    );
-}
-
-#circle-3 {
-    width: 108px;
-    height: 108px;
-    --percent: 50%;
-    background: conic-gradient(
-        #6A5ACD 0% 50%,
-        transparent 50% 100%
-    );
-}
-
-.center-circle {
-    width: 72px;
-    height: 72px;
-    background: linear-gradient(145deg, #404040, #606060); /* Frosted gradient */
-    box-shadow: 
-        inset 3px 3px 8px rgba(0, 0, 0, 0.4),
-        inset -3px -3px 8px rgba(255, 255, 255, 0.15);
-    flex-direction: column;
-    font-size: 0.9em;
-    text-align: center;
-}
-
-.center-circle i {
-    font-size: 1.5em;
-    margin-bottom: 5px;
-}
-
-.circle-label {
-    font-size: 1.2em;
-    color: #E0E0E0;
-    text-shadow: none;
-}
-
-.graph-legend {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-top: 8px;
-}
-
-.graph-legend p {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 1em;
-    margin: 5px 0;
-}
-
-.legend-color {
-    width: 15px;
-    height: 15px;
-    display: inline-block;
-    border-radius: 5px;
 }
 
 /* Graph (General Graph Styles Used in Dashboard Tab) */
@@ -1419,8 +1250,8 @@ body.light-theme .emoji-option:hover {
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    height: 80px;
-    margin-top: 10px;
+    height: 100px;
+    margin-top: 150px;
 }
 
 .graph .bar {
@@ -1430,6 +1261,11 @@ body.light-theme .emoji-option:hover {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     height: 0;
     animation: barFill 1.5s ease-out forwards;
+}
+
+@keyframes barFill {
+    0% { height: 0; }
+    100% { height: var(--bar-height); }
 }
 
 /* Response Time Graph (Support Analytics) */
@@ -1454,7 +1290,7 @@ body.light-theme .emoji-option:hover {
     color: #E0E0E0;
 }
 
-/* Support Analytics Widget (Columns 3-4, Row 2) */
+/* Support Analytics widget in columns 3-4, row 2 */
 .widget[style*="grid-column: 3 / 5"][style*="grid-row: 2 / 3"] .response-time-graph {
     height: 180px;
     margin-bottom: 2px;
@@ -1468,114 +1304,6 @@ body.light-theme .emoji-option:hover {
 
 .widget[style*="grid-column: 3 / 5"][style*="grid-row: 2 / 3"] .response-time-graph .bar::after {
     font-size: 1em;
-}
-
-/* Sliding Widget (System Updates) */
-.sliding-widget .slider-container {
-    position: relative;
-    height: 330px;
-    overflow: hidden;
-    padding-top: 45px;
-}
-
-.sliding-widget .slide {
-    position: absolute;
-    top: 15px;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    text-shadow: 0 0 18px rgba(29, 78, 216, 0.9);
-    animation: 
-        glow 4s infinite ease-in-out,
-        breathe 2.5s infinite ease-in-out;
-}
-
-.sliding-widget .slide.active {
-    opacity: 1;
-}
-
-/* System Updates Feed */
-.update-feed {
-    padding: 8px;
-    background: rgba(255, 275, 255, 0.05);
-    border-radius: 8px;
-}
-
-.update-feed p {
-    margin: 3px 0;
-    font-size: 0.8em;
-}
-
-/* Progress Bar (Chat Support 2 Widget) */
-.progress-bar {
-    width: 100%;
-    height: 15px;
-    background: linear-gradient(145deg, #404040, #606060); /* Frosted gradient */
-    border-radius: 8px;
-    box-shadow: 
-        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.15);
-    overflow: hidden;
-    margin: 5px 0;
-}
-
-/* Chat Support 2 Widget (Column 1, Row 1) */
-.widget[style*="grid-column: 1 / 2"][style*="grid-row: 1 / 2"] .progress-bar {
-    height: 25px;
-    margin-bottom: 15px;
-}
-
-.progress {
-    height: 100%;
-    background: linear-gradient(145deg, #1E3A8A, #162E6F);
-    color: #E0E0E0;
-    font-size: 0.7em;
-    line-height: 15px;
-    text-align: center;
-    transition: width 1s ease-in-out;
-}
-
-.widget[style*="grid-column: 1 / 2"][style*="grid-row: 1 / 2"] .progress {
-    height: 100%;
-    line-height: 25px;
-    font-size: 0.9em;
-}
-
-/* Ticket Search for Chat Support */
-.search-bar {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 0 10px 8px;
-    background: linear-gradient(145deg, #404040, #606060); /* Frosted gradient */
-    border: none;
-    border-radius: 15px;
-    padding: 8px 12px;
-    color: #E0E0E0;
-    font-family: 'Orbitron', 'Arial', sans-serif;
-    font-size: 0.9em;
-    box-shadow: 
-        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.15);
-}
-
-.ticket-list {
-    max-height: 80px;
-    overflow-y: auto;
-    padding: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.ticket-list p {
-    margin: 3px 0;
-    font-size: 0.8em;
-}
-
-.ticket-list a {
-    color: #1e90ff;
-    text-decoration: underline;
 }
 
 /* Ticket Status Overview */
@@ -1596,7 +1324,7 @@ body.light-theme .emoji-option:hover {
    =============================================================== ██████ ===
    =============================================================== ██     ===
    Section 5: P2P Tab Styles ===================================== ██████ ===
-   P2P Tab Styles (Including Widgets)===========================     ██ ===
+   P2P Tab Styles ================================================     ██ ===
    =============================================================== ██████ ===
    ==========================================================================
    ==========================================================================
@@ -1608,7 +1336,19 @@ body.light-theme .emoji-option:hover {
     grid-template-rows: repeat(4, 1fr);
     gap: 80px;
     padding: 70px;
-    height: 100%;
+    height: 100%; /* Ensure the container takes the full height of its parent */
+    box-sizing: border-box;
+}
+
+/* P2P Tab Specific Grid Layout */
+#p2p .dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 300px 600px 500px 400px; /* Fixed heights for each row */
+    gap: 80px;
+    padding: 70px;
+    height: 100; /* Allow the container to size based on content */
+    min-height: 100%; /* Ensure it takes at least the full viewport height */
     box-sizing: border-box;
 }
 
@@ -1663,23 +1403,23 @@ body.light-theme .emoji-option:hover {
 
 /* P2P Section Title (Used by P2P Frequently Asked Questions) */
 .p2p-section-title {
-    margin-bottom: 20px;
-    margin-top: 0;
+    margin-bottom: 20px; /* Keeps the spacing below to prevent overlap */
+    margin-top: 0; /* Ensure no extra margin above the title */
     display: flex;
     align-items: center;
     gap: 12px;
     color: #E0E0E0;
-    font-size: 2.5em;
+    font-size: 2.5em; /* Matches Q&A title size */
     text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
     animation: glow 4s infinite ease-in-out;
-    padding-left: 20px;
+    padding-left: 20px; /* Matches Q&A title padding */
 }
 
 /* P2P Network Insights Widget */
 .p2p-insights-container {
-    background: linear-gradient(145deg, #B0B0B0, #808080); /* Frosted gradient */
+    background: linear-gradient(225deg, #606060, #B0B0B0);
     border-radius: 30px;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 
         12px 12px 24px rgba(0, 0, 0, 0.4),
         -12px -12px 24px rgba(255, 252, 255, 0.15),
@@ -1690,17 +1430,9 @@ body.light-theme .emoji-option:hover {
     display: flex;
     flex-direction: column;
     transition: box-shadow 0.3s ease-in-out;
-}
-
-body.light-theme .p2p-insights-container {
-    background: linear-gradient(145deg, #D0D0D0, #A0A0A0);
-    box-shadow: 
-        12px 12px 24px rgba(0, 0, 0, 0.2),
-        -12px -12px 24px rgba(255, 255, 255, 0.5),
-        inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.15),
-        inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.4),
-        0 0 30px rgba(0, 0, 0, 0.3);
-    border: 1.5px solid rgba(0, 0, 0, 0.1);
+    height: 980px;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .p2p-insights-container:hover {
@@ -1713,19 +1445,10 @@ body.light-theme .p2p-insights-container {
         0 0 15px rgba(70, 120, 255, 1);
 }
 
-body.light-theme .p2p-insights-container:hover {
-    box-shadow: 
-        6px 6px 18px rgba(0, 0, 0, 0.3),
-        -6px -6px 18px rgba(255, 255, 255, 0.5),
-        inset 3px 3px 6px rgba(0, 0, 0, 0.2),
-        inset -3px -3px 6px rgba(255, 255, 255, 0.5),
-        0 0 60px rgba(0, 0, 0, 0.5);
-}
-
 /* Specific title style for P2P Network Insights */
 .p2p-insights-title {
-    margin-bottom: 20px;
-    margin-top: 0;
+    margin-bottom: 20px; /* Keeps the spacing below to prevent overlap */
+    margin-top: 0; /* Ensure no extra margin above the title */
     display: flex;
     align-items: center;
     gap: 12px;
@@ -1784,68 +1507,48 @@ body.light-theme .p2p-insights-container:hover {
 .p2p-qna-grid-container {
     display: flex;
     flex-direction: column;
-    padding: 20px;
-   }
-   
-   /* P2P Q&A Grid */
-   .p2p-qna-grid {
+    padding: 20px; /* Reduced padding to fit the nested grid */
+}
+
+/* P2P Q&A Grid */
+.p2p-qna-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-rows: repeat(2, 1fr); /* 2 rows */
+    gap: 20px; /* Smaller gap between the nested widgets */
     height: 100%;
-   }
-   
-   .p2p-qna-widget {
-    background: linear-gradient(145deg, #B0B0B0, #808080); /* Frosted gradient */
+}
+
+.p2p-qna-widget {
+    background: linear-gradient(225deg, #606060, #B0B0B0);
     border-radius: 30px;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 
-    12px 12px 24px rgba(0, 0, 0, 0.4),
-    -12px -12px 24px rgba(255, 252, 255, 0.15),
-    inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.25),
-    inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.35),
-    0 0 30px rgba(29, 78, 216, 0.7);
+        12px 12px 24px rgba(0, 0, 0, 0.4),
+        -12px -12px 24px rgba(255, 252, 255, 0.15),
+        inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.25),
+        inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.35),
+        0 0 30px rgba(29, 78, 216, 0.7);
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
     transition: box-shadow 0.3s ease-in-out;
-    perspective: 1000px;
-   }
-   
-   body.light-theme .p2p-qna-widget {
-    background: linear-gradient(145deg, #D0D0D0, #A0A0A0);
+    perspective: 1000px; /* Add perspective for 3D effect */
+}
+
+.p2p-qna-widget:hover {
     box-shadow: 
-    12px 12px 24px rgba(0, 0, 0, 0.2),
-    -12px -12px 24px rgba(255, 255, 255, 0.5),
-    inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.15),
-    inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.4),
-    0 0 30px rgba(0, 0, 0, 0.3);
-    border: 1.5px solid rgba(0, 0, 0, 0.1);
-   }
-   
-   .p2p-qna-widget:hover {
-    box-shadow: 
-    6px 6px 18px rgba(0, 0, 0, 0.5),
-    -6px -6px 18px rgba(255, 255, 255, 0.25),
-    inset 3px 3px 6px rgba(0, 0, 0, 0.3),
-    inset -3px -3px 6px rgba(255, 255, 255, 0.4),
-    0 0 60px rgba(70, 120, 255, 1),
-    0 0 15px rgba(70, 120, 255, 1);
-   }
-   
-   body.light-theme .p2p-qna-widget:hover {
-    box-shadow: 
-    6px 6px 18px rgba(0, 0, 0, 0.3),
-    -6px -6px 18px rgba(255, 255, 255, 0.5),
-    inset 3px 3px 6px rgba(0, 0, 0, 0.2),
-    inset -3px -3px 6px rgba(255, 255, 255, 0.5),
-    0 0 60px rgba(0, 0, 0, 0.5);
-   }
-   
-   .p2p-qna-widget h3 {
+        6px 6px 18px rgba(0, 0, 0, 0.5),
+        -6px -6px 18px rgba(255, 255, 255, 0.25),
+        inset 3px 3px 6px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 6px rgba(255, 255, 255, 0.4),
+        0 0 60px rgba(70, 120, 255, 1),
+        0 0 15px rgba(70, 120, 255, 1);
+}
+
+.p2p-qna-widget h3 {
     font-size: 3em;
     margin-bottom: 10px;
     text-align: center;
@@ -1854,37 +1557,37 @@ body.light-theme .p2p-insights-container:hover {
     justify-content: center;
     width: auto;
     padding: 0 10px;
-   }
-   
-   /* Style for the P2P Frequently Asked Questions number */
-   .p2p-qna-number {
+}
+
+/* Style for the P2P Frequently Asked Questions number */
+.p2p-qna-number {
     margin-right: 8px;
     font-weight: bold;
     color: #E0E0E0;
     text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
-   }
-   
-   /* Card flip styles */
-   .p2p-qna-card {
+}
+
+/* Card flip styles */
+.p2p-qna-card {
     width: 100%;
     height: 100%;
     position: relative;
-   }
-   
-   .p2p-qna-card-inner {
+}
+
+.p2p-qna-card-inner {
     position: relative;
     width: 100%;
     height: 100%;
     transform-style: preserve-3d;
-    transition: transform 0.6s ease;
-   }
-   
-   .p2p-qna-card.flipped .p2p-qna-card-inner {
+    transition: transform 0.6s ease; /* Smooth flip animation */
+}
+
+.p2p-qna-card.flipped .p2p-qna-card-inner {
     transform: rotateY(180deg);
-   }
-   
-   .p2p-qna-card-front,
-   .p2p-qna-card-back {
+}
+
+.p2p-qna-card-front,
+.p2p-qna-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -1894,1178 +1597,106 @@ body.light-theme .p2p-insights-container:hover {
     justify-content: center;
     align-items: center;
     border-radius: 30px;
-    background: linear-gradient(145deg, #B0B0B0, #808080); /* Frosted gradient */
+    background: linear-gradient(225deg, #606060, #B0B0B0);
     box-shadow: 
-    inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.25),
-    inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.35);
-   }
-   
-   body.light-theme .p2p-qna-card-front,
-   body.light-theme .p2p-qna-card-back {
-    background: linear-gradient(145deg, #D0D0D0, #A0A0A0);
-    box-shadow: 
-    inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.15),
-    inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.4);
-   }
-   
-   .p2p-qna-card-front {
+        inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.25),
+        inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.35);
+}
+
+.p2p-qna-card-front {
     transform: rotateY(0deg);
     cursor: pointer;
-   }
-   
-   .p2p-qna-card-back {
+}
+
+.p2p-qna-card-back {
     transform: rotateY(180deg);
     cursor: pointer;
-   }
-   
-   /* Remove cursor from .p2p-qna-toggle since the entire card is now clickable */
-   .p2p-qna-toggle {
-    transition: color 0.3s ease;
-   }
-   
-   .p2p-qna-toggle:hover {
-    color: #1E3A8A;
-   }
-   
-   /* Specific rule for P2P Q&A answers */
-   .p2p-qna-card-back .p2p-qna-answer {
+}
+
+/* Remove cursor from .p2p-qna-toggle since the entire card is now clickable */
+.p2p-qna-toggle {
+    transition: color 0.3s ease; /* Keep the hover color transition */
+}
+
+.p2p-qna-toggle:hover {
+    color: #1E3A8A; /* Change color on hover to indicate interactivity */
+}
+
+/* Specific rule for P2P Q&A answers */
+.p2p-qna-card-back .p2p-qna-answer {
     margin-top: 10px;
-    font-size: 2.5em;
-    line-height: 1.2;
+    font-size: 2.5em; /* Increased to 2.5em as per your update */
+    line-height: 1.2; /* Added to improve readability with larger text */
     text-align: center;
     background: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
-    padding: 12px;
+    padding: 12px; /* Increased from 8px to 12px to give more space */
     text-shadow: 0 0 18px rgba(29, 78, 216, 0.9);
     animation: 
-    glow 4s infinite ease-in-out,
-    breathe 2.5s infinite ease-in-out;
-   }
-   
-   /* Transfer Money Feature (P2P Tab) */
-   .transfer-money-container {
+        glow 4s infinite ease-in-out,
+        breathe 2.5s infinite ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Transfer Money Feature (New Rule for P2P Tab) */
+.transfer-money-container {
     margin-top: 20px;
     padding: 15px;
-    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
+    background: linear-gradient(145deg, #B0B0B0, #2d2c2c,); /* Updated to match the brighter widget background */
     border-radius: 15px;
     box-shadow: 
-    inset 2px 2px 5px rgba(0, 0, 0, 0.3),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.2),
-    0 0 20px rgba(29, 78, 216, 0.7);
-   }
-   
-   body.light-theme .transfer-money-container {
-    background: linear-gradient(145deg, #A0A0A0, #808080);
-    box-shadow: 
-    inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-    0 0 20px rgba(0, 0, 0, 0.3);
-   }
-   
-   .transfer-money-container h4 {
-    margin: 0 0 10px 0;
-    font-size: 1.5em;
-    color: #E0E0E0;
-    text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
-    animation: glow 4s infinite ease-in-out;
-   }
-   
-   .transfer-money-container .peer-select {
-    width: 100%;
-    max-width: 300px;
-    background: linear-gradient(145deg, #404040, #606060); /* Frosted gradient */
-    border: none;
-    border-radius: 15px;
-    padding: 8px 12px;
-    color: #E0E0E0;
-    font-family: 'Orbitron', 'Arial', sans-serif;
-    font-size: 1em;
-    box-shadow: 
-    inset 2px 2px 5px rgba(0, 0, 0, 0.4),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.15),
-    0 0 10px rgba(29, 78, 216, 0.2);
-    margin-bottom: 10px;
-    transition: box-shadow 0.2s;
-   }
-   
-   body.light-theme .transfer-money-container .peer-select {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-    box-shadow: 
-    inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-    0 0 10px rgba(0, 0, 0, 0.2);
-   }
-   
-   .transfer-money-container .peer-select:focus {
-    outline: none;
-    box-shadow: 
-    inset 2px 2px 5px rgba(0, 0, 0, 0.4),
-    inset -2px -2px 5px rgba(255, 255, 257, 0.15),
-    0 0 20px rgba(29, 78, 216, 0.7);
-   }
-   
-   body.light-theme .transfer-money-container .peer-select:focus {
-    box-shadow: 
-    inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-    0 0 20px rgba(0, 0, 0, 0.5);
-   }
-   
-   /* Transfer Money Input */
-   .transfer-money-container .money-input {
-    width: 100%;
-    max-width: 300px;
-    background: linear-gradient(145deg, #404040, #606060); /* Frosted gradient */
-    border: none;
-    border-radius: 15px;
-    padding: 8px 12px;
-    color: #E0E0E0;
-    font-family: 'Orbitron', 'Arial', sans-serif;
-    font-size: 1em;
-    box-shadow: 
-    inset 2px 2px 5px rgba(0, 0, 0, 0.4),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.15),
-    0 0 10px rgba(29, 78, 216, 0.2);
-    margin-bottom: 10px;
-    transition: box-shadow 0.2s;
-   }
-   
-   body.light-theme .transfer-money-container .money-input {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-    box-shadow: 
-    inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-    0 0 10px rgba(0, 0, 0, 0.2);
-   }
-   
-   .transfer-money-container .money-input:focus {
-    outline: none;
-    box-shadow: 
-    inset 2px 2px 5px rgba(0, 0, 0, 0.4),
-    inset -2px -2px 5px rgba(255, 255, 257, 0.15),
-    0 0 20px rgba(29, 78, 216, 0.7);
-   }
-   
-   body.light-theme .transfer-money-container .money-input:focus {
-    box-shadow: 
-    inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-    0 0 20px rgba(0, 0, 0, 0.5);
-   }
-   
-   /* Transfer Money Button */
-   .transfer-money-container .action-button {
-    margin-top: 10px;
-   }
-   
-   /* Transaction Log for P2P Tab */
-   .transaction-log {
-    padding: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    max-height: 200px;
-    overflow-y: auto;
-   }
-   
-   .transaction-log p {
-    margin: 3px 0;
-    font-size: 0.9em;
-   }
-   
-   /* Active P2P Connections Widget (2-Column Layout) */
-   .active-p2p-connections {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    height: 100%;
-    box-sizing: border-box;
-   }
-   
-   /* P2P Connection Item */
-   .p2p-connection-item {
-    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
-    border-radius: 15px;
-    padding: 15px;
-    box-shadow: 
-    inset 2px 2px 5px rgba(0, 0, 0, 0.3),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.2),
-    0 0 20px rgba(29, 78, 216, 0.7);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-   }
-   
-   body.light-theme .p2p-connection-item {
-    background: linear-gradient(145deg, #A0A0A0, #808080);
-    box-shadow: 
-    inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-    0 0 20px rgba(0, 0, 0, 0.3);
-   }
-   
-   .p2p-connection-item h4 {
-    margin: 0;
-    font-size: 1.5em;
-    color: #E0E0E0;
-    text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
-    animation: glow 4s infinite ease-in-out;
-   }
-   
-   .p2p-connection-item p {
-    margin: 5px 0;
-    font-size: 1em;
-    text-shadow: 0 0 18px rgba(29, 78, 216, 0.9);
-    animation: 
-    glow 4s infinite ease-in-out,
-    breathe 2.5s infinite ease-in-out;
-   }
-   
-   /* P2P Connection Actions */
-   .p2p-connection-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: auto;
-   }
-   
-   .p2p-connection-actions .action-button {
-    flex: 1;
-   }
-   
-   /* ==========================================================================
-    ==========================================================================
-    ==========================================================================
-    =============================================================== ██████ ===
-    =============================================================== ██ ===
-    Section 6: Chatbot Tab Styles ================================= ██████ ===
-    Chatbot Tab Styles (Including Widgets)======================= ██ ===
-    =============================================================== ██████ ===
-    ==========================================================================
-    ==========================================================================
-    ========================================================================== */
-   /* Chatbot Tab Specific Grid Layout */
-   #chatbot .dashboard-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 80px;
-    padding: 70px;
-    height: 100%;
-    box-sizing: border-box;
-   }
-   
-   /* Personality Toggle for Chatbot Support */
-   .personality-toggle {
-    display: flex;
-    gap: 8px;
-    margin: 5px 0;
-   }
-   
-   .toggle-option {
-    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
-    border: none;
-    border-radius: 10px;
-    padding: 6px 12px;
-    color: #E0E0E0;
-    font-family: 'Orbitron', 'Arial', sans-serif;
-    font-size: 0.9em;
-    cursor: pointer;
-    box-shadow: 
-    5px 5px 10px rgba(0, 0, 0, 0.3),
-    -5px -5px 10px rgba(255, 255, 255, 0.2);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    animation: glow 4s infinite ease-in-out;
-   }
-   
-   body.light-theme .toggle-option {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-   }
-   
-   .toggle-option:hover {
-    box-shadow: 
-    3px 3px 18px rgba(30, 58, 138, 1.0),
-    -3px -3px 18px rgba(255, 255, 255, 0.4);
-    transform: translateY(2px);
-   }
-   
-   body.light-theme .toggle-option:hover {
-    box-shadow: 
-    3px 3px 18px rgba(0, 0, 0, 0.3),
-    -3px -3px 18px rgba(255, 255, 255, 0.5);
-   }
-   
-   .toggle-option.active {
-    background: linear-gradient(145deg, #1E3A8A, #162E6F);
-   }
-   
-   body.light-theme .toggle-option.active {
-    background: linear-gradient(145deg, #3b82f6, #2563eb);
-   }
-   
-   /* FAQ for Knowledge Base */
-   .faq-item {
-    margin: 5px 0;
-   }
-   
-   .faq-question {
-    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
-    border: none;
-    border-radius: 10px;
-    padding: 8px;
-    width: 100%;
-    text-align: left;
-    color: #E0E0E0;
-    font-family: 'Orbitron', 'Arial', sans-serif;
-    font-size: 0.9em;
-    cursor: pointer;
-    box-shadow: 
-    5px 5px 10px rgba(0, 0, 0, 0.3),
-    -5px -5px 10px rgba(255, 255, 255, 0.2);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    animation: glow 4s infinite ease-in-out;
-   }
-   
-   body.light-theme .faq-question {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-   }
-   
-   .faq-question:hover {
-    box-shadow: 
-    3px 3px 18px rgba(30, 58, 138, 1.0),
-    -3px -3px 18px rgba(255, 255, 255, 0.4);
-    transform: translateY(2px);
-   }
-   
-   body.light-theme .faq-question:hover {
-    box-shadow: 
-    3px 3px 18px rgba(0, 0, 0, 0.3),
-    -3px -3px 18px rgba(255, 255, 255, 0.5);
-   }
-   
-   .faq-answer {
-    display: block;
-    padding: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    margin-top: 3px;
-    font-size: 0.9em;
-   }
-   
-   /* ==========================================================================
-    ==========================================================================
-    ==========================================================================
-    =============================================================== ██████ ===
-    =============================================================== ██ ===
-    Section 7: Cloud Storage Tab Styles =========================== ██████ ===
-    Cloud Storage Tab Styles (Including Widgets)================= ██ ===
-    =============================================================== ██████ ===
-    ==========================================================================
-    ==========================================================================
-    ========================================================================== */
-   /* Cloud Storage Tab Specific Grid Layout */
-   #cloud-storage .dashboard-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 80px;
-    padding: 70px;
-    height: 100%;
-    box-sizing: border-box;
-   }
-   
-   /* File List for Cloud Storage Tab */
-   .file-list {
-    padding: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    max-height: 300px;
-    overflow-y: auto;
-   }
-   
-   .file-list p {
-    margin: 5px 0;
-    font-size: 1em;
-   }
-   
-   .file-list a {
-    color: #1e90ff;
-    text-decoration: underline;
-   }
-   
-   /* Storage Usage Widget */
-   .storage-usage-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-   }
-   
-   /* ==========================================================================
-    ==========================================================================
-    ==========================================================================
-    =============================================================== ██████ ===
-    =============================================================== ██ ===
-    Section 8: Settings Tab Styles ================================ ██████ ===
-    Settings Tab Styles (Including Widgets)====================== ██ ===
-    =============================================================== ██████ ===
-    ==========================================================================
-    ==========================================================================
-    ========================================================================== */
-   /* Settings Tab Specific Grid Layout */
-   #settings .dashboard-container {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    gap: 80px;
-    padding: 70px;
-    height: 100%;
-    box-sizing: border-box;
-   }
-   
-   /* Settings Form */
-   .settings-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px;
-   }
-   
-   .settings-form label {
-    font-size: 1.2em;
-    color: #E0E0E0;
-    text-shadow: 0 0 18px rgba(29, 78, 216, 0.9);
-    animation: 
-    glow 4s infinite ease-in-out,
-    breathe 2.5s infinite ease-in-out;
-   }
-   
-   .settings-form input,
-   .settings-form select {
-    background: linear-gradient(145deg, #404040, #606060); /* Frosted gradient */
-    border: none;
-    border-radius: 15px;
-    padding: 8px 12px;
-    color: #E0E0E0;
-    font-family: 'Orbitron', 'Arial', sans-serif;
-    font-size: 1em;
-    box-shadow: 
-    inset 2px 2px 5px rgba(0, 0, 0, 0.4),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.15),
-    0 0 10px rgba(29, 78, 216, 0.2);
-    transition: box-shadow 0.2s;
-   }
-   
-   body.light-theme .settings-form input,
-   body.light-theme .settings-form select {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-    box-shadow: 
-    inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-    0 0 10px rgba(0, 0, 0, 0.2);
-   }
-   
-   .settings-form input:focus,
-   .settings-form select:focus {
-    outline: none;
-    box-shadow: 
-    inset 2px 2px 5px rgba(0, 0, 0, 0.4),
-    inset -2px -2px 5px rgba(255, 255, 257, 0.15),
-    0 0 20px rgba(29, 78, 216, 0.7);
-   }
-   
-   body.light-theme .settings-form input:focus,
-   body.light-theme .settings-form select:focus {
-    box-shadow: 
-    inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-    inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-    0 0 20px rgba(0, 0, 0, 0.5);
-   }
-   
-   /* ==========================================================================
-    ==========================================================================
-    ==========================================================================
-    =============================================================== ██████ ===
-    =============================================================== ██ ===
-    Section 9: Mini Widget Previews (Across Tabs) ================= ██████ ===
-    Mini Widget Previews (Used in Dashboard, P2P, etc.) =========== ██ ===
-    =============================================================== ██████ ===
-    ==========================================================================
-    ==========================================================================
-    ========================================================================== */
-   /* Mini Widget Preview Container */
-   .mini-widget-preview {
-    background: linear-gradient(145deg, #B0B0B0, #808080); /* Frosted gradient */
-    border-radius: 30px;
-    border: 1.5px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 
-    12px 12px 24px rgba(0, 0, 0, 0.4),
-    -12px -12px 24px rgba(255, 252, 255, 0.15),
-    inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.25),
-    inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.35),
-    0 0 30px rgba(29, 78, 216, 0.7);
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
-   }
-   
-   body.light-theme .mini-widget-preview {
-    background: linear-gradient(145deg, #D0D0D0, #A0A0A0);
-    box-shadow: 
-    12px 12px 24px rgba(0, 0, 0, 0.2),
-    -12px -12px 24px rgba(255, 255, 255, 0.5),
-    inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.15),
-    inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.4),
-    0 0 30px rgba(0, 0, 0, 0.3);
-    border: 1.5px solid rgba(0, 0, 0, 0.1);
-   }
-   
-   .mini-widget-preview:hover {
-    box-shadow: 
-    6px 6px 18px rgba(0, 0, 0, 0.5),
-    -6px -6px 18px rgba(255, 255, 255, 0.25),
-    inset 3px 3px 6px rgba(0, 0, 0, 0.3),
-    inset -3px -3px 6px rgba(255, 255, 255, 0.4),
-    0 0 60px rgba(70, 120, 255, 1),
-    0 0 15px rgba(70, 120, 255, 1);
-   }
-   
-   body.light-theme .mini-widget-preview:hover {
-    box-shadow: 
-    6px 6px 18px rgba(0, 0, 0, 0.3),
-    -6px -6px 18px rgba(255, 255, 255, 0.5),
-    inset 3px 3px 6px rgba(0, 0, 0, 0.2),
-    inset -3px -3px 6px rgba(255, 255, 255, 0.5),
-    0 0 60px rgba(0, 0, 0, 0.5);
-   }
-   
-   .mini-widget-preview h4 {
-    margin: 0 0 10px 0;
-    font-size: 1.5em;
-    color: #E0E0E0;
-    text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
-    animation: glow 4s infinite ease-in-out;
-   }
-   
-   .mini-widget-preview p {
-    margin: 5px 0;
-    font-size: 1em;
-    text-shadow: 0 0 18px rgba(29, 78, 216, 0.9);
-    animation: 
-    glow 4s infinite ease-in-out,
-    breathe 2.5s infinite ease-in-out;
-   }
-   
-   /* Mini Widget Grid (Used in P2P Tab) */
-   .mini-widget-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    padding: 15px;
-   }
-   
-   /* ==========================================================================
-    ==========================================================================
-    ==========================================================================
-    =============================================================== ██████ ===
-    =============================================================== ██ ===
-    Section 10: Mobile Responsiveness ============================= ██████ ===
-    Mobile Responsiveness (Applies Across All Tabs) =============== ██ ===
-    =============================================================== ██████ ===
-    ==========================================================================
-    ==========================================================================
-    ========================================================================== */
-   /* Media query for smaller screens */
-   @media (max-width: 768px) {
-    .dashboard-container {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 40px;
-    padding: 30px;
-    }
-   
-    /* P2P Tab Grid Adjustment */
-    #p2p .dashboard-container {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 40px;
-    padding: 30px;
-    }
-   
-    /* Chatbot Tab Grid Adjustment */
-    #chatbot .dashboard-container {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 40px;
-    padding: 30px;
-    }
-   
-    /* Cloud Storage Tab Grid Adjustment */
-    #cloud-storage .dashboard-container {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 40px;
-    padding: 30px;
-    }
-   
-    /* Settings Tab Grid Adjustment */
-    #settings .dashboard-container {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 40px ;
-    padding: 30px;
-    }
-   
-    .widget {
-    border-radius: 20px;
-    padding: 20px;
-    }
-   
-    .widget h3 {
-    font-size: 1.5em;
-    }
-   
-    .widget p {
-    font-size: 1em;
-    }
-   
-    .action-button {
-    padding: 6px 12px;
-    font-size: 10px;
-    min-width: 70px;
-    }
-   
-    .circle-graph {
-    width: 120px;
-    height: 120px;
-    }
-   
-    #circle-1, #storage-circle, #cloud-circle {
-    width: 120px;
-    height: 120px;
-    }
-   
-    #circle-2 {
-    width: 96px;
-    height: 96px;
-    }
-   
-    #circle-3 {
-    width: 72px;
-    height: 72px;
-    }
-   
-    .center-circle {
-    width: 48px;
-    height: 48px;
-    font-size: 0.6em;
-    }
-   
-    .center-circle i {
-    font-size: 1em;
-    margin-bottom: 3px;
-    }
-   
-    .circle-label {
-    font-size: 0.8em;
-    }
-   
-    .graph-legend p {
-    font-size: 0.7em;
-    }
-   
-    .legend-color {
-    width: 10px;
-    height: 10px;
-    border-radius: 3px;
-    }
-   
-    /* Adjust Need More Help? widget for smaller screens */
-    .widget[style*="grid-column: 1 / 2"][style*="grid-row: 4 / 5"] {
-    display: block;
-    }
-   
-    .widget[style*="grid-column: 1 / 2"][style*="grid-row: 4 / 5"] .button-container {
-    margin-top: 10px;
-    }
-   
-    .chat-window {
-    grid-column: span 1;
-    width: 100%;
-    height: 400px;
-    }
-   
-    #emoji-picker {
-    bottom: 60px;
-    left: 5px;
-    width: 90%;
-    max-height: 200px;
-    }
-   
-    .chat-window.chat-expanded {
-    width: 100vw;
-    height: 100vh;
-    max-width: 1200px;
-    max-height: 800px;
-    padding: 20px;
-    }
-   
-    .chat-window.chat-expanded .chat-container {
-    max-height: calc(100% - 40px);
-    }
-   
-    /* Ensure toast notifications are visible on smaller screens */
-    .toast {
-    bottom: 10px;
-    right: 10px;
-    padding: 10px 20px;
-    font-size: 0.9em;
-    }
-   
-    /* P2P Q&A Grid Adjustment */
-    .p2p-qna-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 15px;
-    }
-   
-    /* Mini Widget Grid Adjustment */
-    .mini-widget-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-    }
-   
-    /* Active P2P Connections Adjustment */
-    .active-p2p-connections {
-    grid-template-columns: 1fr;
-    gap: 15px;
-    }
-   }
-
-   /* ==========================================================================
-   ==========================================================================
-   ==========================================================================
-   =============================================================== ██████ ===
-   =============================================================== ██     ===
-   Section 11: Light Theme Adjustments =========================== ██████ ===
-   Light Theme Adjustments (Applies Across All Tabs) =============     ██ ===
-   =============================================================== ██████ ===
-   ==========================================================================
-   ==========================================================================
-   ========================================================================== */
-/* Light Theme Adjustments for General Elements */
-body.light-theme .widget {
-    background: linear-gradient(145deg, #D0D0D0, #A0A0A0);
-    box-shadow: 
-        18px 18px 36px rgba(0, 0, 0, 0.2),
-        -18px -18px 36px rgba(255, 255, 255, 0.5),
-        inset 6px 6px 15px rgba(0, 0, 0, 0.15),
-        inset -6px -6px 15px rgba(255, 255, 255, 0.4),
-        0 0 60px rgba(0, 0, 0, 0.3);
-    border: 1.5px solid rgba(0, 0, 0, 0.1);
-}
-
-body.light-theme .chat-container {
-    background: linear-gradient(145deg, #A0A0A0, #808080);
-    box-shadow: 
-        inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.15),
-        inset -7.5px -7.5px 15px rgba(255, 255, 255, 0.4),
-        0 0 45px rgba(0, 0, 0, 0.3);
-}
-
-body.light-theme #chat-box {
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-body.light-theme .message.user {
-    background: linear-gradient(145deg, #3b82f6, #2563eb);
-}
-
-body.light-theme .message.bot,
-body.light-theme .message.typing-indicator {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-}
-
-body.light-theme .input-container {
-    background: linear-gradient(145deg, #A0A0A0, #808080);
-    box-shadow: 
-        inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-        0 0 20px rgba(0, 0, 0, 0.3);
-}
-
-body.light-theme #user-input {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-}
-
-body.light-theme .chat-window {
-    background: linear-gradient(145deg, #A0A0A0, #808080);
-    box-shadow: 
-        inset 5px 5px 10px rgba(0, 0, 0, 0.15),
-        inset -5px -5px 10px rgba(255, 255, 255, 0.4),
-        0 0 30px rgba(0, 0, 0, 0.3);
-}
-
-body.light-theme .expand-button {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-body.light-theme .expand-button:hover {
-    box-shadow: 
-        3px 3px 18px rgba(0, 0, 0, 0.3),
-        -3px -3px 18px rgba(255, 255, 255, 0.5);
-}
-
-body.light-theme .close-button {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-}
-
-body.light-theme .close-button:hover {
-    box-shadow: 
-        3px 3px 18px rgba(0, 0, 0, 0.3),
-        -3px -3px 18px rgba(255, 255, 255, 0.5);
-}
-
-body.light-theme .emoji-close-btn {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-}
-
-body.light-theme .emoji-close-btn:hover {
-    box-shadow: 
-        3px 3px 18px rgba(0, 0, 0, 0.3),
-        -3px -3px 18px rgba(255, 255, 255, 0.5);
-}
-
-body.light-theme .emoji-tab {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-}
-
-body.light-theme .emoji-tab:hover {
-    box-shadow: 
-        3px 3px 18px rgba(0, 0, 0, 0.3),
-        -3px -3px 18px rgba(255, 255, 255, 0.5);
-}
-
-body.light-theme .emoji-tab.active {
-    background: linear-gradient(145deg, #3b82f6, #2563eb);
-}
-
-body.light-theme .emoji-option {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-}
-
-body.light-theme .emoji-option:hover {
-    box-shadow: 
-        3px 3px 18px rgba(0, 0, 0, 0.3),
-        -3px -3px 18px rgba(255, 255, 255, 0.5);
-}
-
-body.light-theme .action-button {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-    text-shadow: 0 0 7.5px rgba(0, 0, 0, 0.3);
-}
-
-body.light-theme .action-button:hover {
-    box-shadow: 
-        4.5px 4.5px 27px rgba(0, 0, 0, 0.3),
-        -4.5px -4.5px 27px rgba(255, 255, 255, 0.5);
-}
-
-body.light-theme .read-more-btn {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-    text-shadow: 0 0 7.5px rgba(0, 0, 0, 0.3);
-}
-
-body.light-theme .read-more-btn:hover {
-    box-shadow: 
-        4.5px 4.5px 27px rgba(0, 0, 0, 0.3),
-        -4.5px -4.5px 27px rgba(255, 255, 255, 0.5);
-}
-
-/* Light Theme for P2P Tab */
-body.light-theme .p2p-insights-container {
-    background: linear-gradient(145deg, #D0D0D0, #A0A0A0);
-    box-shadow: 
-        12px 12px 24px rgba(0, 0, 0, 0.2),
-        -12px -12px 24px rgba(255, 255, 255, 0.5),
-        inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.15),
-        inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.4),
-        0 0 30px rgba(0, 0, 0, 0.3);
-    border: 1.5px solid rgba(0, 0, 0, 0.1);
-}
-
-body.light-theme .p2p-insights-container:hover {
-    box-shadow: 
-        6px 6px 18px rgba(0, 0, 0, 0.3),
-        -6px -6px 18px rgba(255, 255, 255, 0.5),
-        inset 3px 3px 6px rgba(0, 0, 0, 0.2),
-        inset -3px -3px 6px rgba(255, 255, 255, 0.5),
-        0 0 60px rgba(0, 0, 0, 0.5);
-}
-
-body.light-theme .p2p-qna-widget {
-    background: linear-gradient(145deg, #D0D0D0, #A0A0A0);
-    box-shadow: 
-        12px 12px 24px rgba(0, 0, 0, 0.2),
-        -12px -12px 24px rgba(255, 255, 255, 0.5),
-        inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.15),
-        inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.4),
-        0 0 30px rgba(0, 0, 0, 0.3);
-    border: 1.5px solid rgba(0, 0, 0, 0.1);
-}
-
-body.light-theme .p2p-qna-widget:hover {
-    box-shadow: 
-        6px 6px 18px rgba(0, 0, 0, 0.3),
-        -6px -6px 18px rgba(255, 255, 255, 0.5),
-        inset 3px 3px 6px rgba(0, 0, 0, 0.2),
-        inset -3px -3px 6px rgba(255, 255, 255, 0.5),
-        0 0 60px rgba(0, 0, 0, 0.5);
-}
-
-body.light-theme .p2p-qna-card-front,
-body.light-theme .p2p-qna-card-back {
-    background: linear-gradient(145deg, #D0D0D0, #A0A0A0);
-    box-shadow: 
-        inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.15),
-        inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.4);
-}
-
-body.light-theme .p2p-connection-item {
-    background: linear-gradient(145deg, #A0A0A0, #808080);
-    box-shadow: 
-        inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-        0 0 20px rgba(0, 0, 0, 0.3);
-}
-
-body.light-theme .transfer-money-container {
-    background: linear-gradient(145deg, #A0A0A0, #808080);
-    box-shadow: 
-        inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-        0 0 20px rgba(0, 0, 0, 0.3);
-}
-
-body.light-theme .transfer-money-container .peer-select,
-body.light-theme .transfer-money-container .money-input {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-    box-shadow: 
-        inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-        0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-body.light-theme .transfer-money-container .peer-select:focus,
-body.light-theme .transfer-money-container .money-input:focus {
-    box-shadow: 
-        inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-        0 0 20px rgba(0, 0, 0, 0.5);
-}
-
-/* Light Theme for Chatbot Tab */
-body.light-theme .toggle-option {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-}
-
-body.light-theme .toggle-option:hover {
-    box-shadow: 
-        3px 3px 18px rgba(0, 0, 0, 0.3),
-        -3px -3px 18px rgba(255, 255, 255, 0.5);
-}
-
-body.light-theme .toggle-option.active {
-    background: linear-gradient(145deg, #3b82f6, #2563eb);
-}
-
-body.light-theme .faq-question {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-}
-
-body.light-theme .faq-question:hover {
-    box-shadow: 
-        3px 3px 18px rgba(0, 0, 0, 0.3),
-        -3px -3px 18px rgba(255, 255, 255, 0.5);
-}
-
-/* Light Theme for Settings Tab */
-body.light-theme .settings-form input,
-body.light-theme .settings-form select {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-    box-shadow: 
-        inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-        0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-body.light-theme .settings-form input:focus,
-body.light-theme .settings-form select:focus {
-    box-shadow: 
-        inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-        0 0 20px rgba(0, 0, 0, 0.5);
-}
-
-/* Light Theme for Mini Widgets (Across Tabs) */
-body.light-theme .mini-widget-preview {
-    background: linear-gradient(145deg, #D0D0D0, #A0A0A0);
-    box-shadow: 
-        12px 12px 24px rgba(0, 0, 0, 0.2),
-        -12px -12px 24px rgba(255, 255, 255, 0.5),
-        inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.15),
-        inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.4),
-        0 0 30px rgba(0, 0, 0, 0.3);
-    border: 1.5px solid rgba(0, 0, 0, 0.1);
-}
-
-body.light-theme .mini-widget-preview:hover {
-    box-shadow: 
-        6px 6px 18px rgba(0, 0, 0, 0.3),
-        -6px -6px 18px rgba(255, 255, 255, 0.5),
-        inset 3px 3px 6px rgba(0, 0, 0, 0.2),
-        inset -3px -3px 6px rgba(255, 255, 255, 0.5),
-        0 0 60px rgba(0, 0, 0, 0.5);
-}
-
-/* ==========================================================================
-   ==========================================================================
-   ==========================================================================
-   =============================================================== ██████ ===
-   =============================================================== ██     ===
-   Section 12: Additional Styles and Tweaks ====================== ██████ ===
-   Additional Styles and Tweaks (Ensures All Elements are Styled)=     ██ ===
-   =============================================================== ██████ ===
-   ==========================================================================
-   ==========================================================================
-   ========================================================================== */
-/* Ensure placeholder text is styled consistently */
-#user-input::placeholder,
-.transfer-money-container .money-input::placeholder,
-.settings-form input::placeholder {
-    color: #A0A0A0;
-    opacity: 0.8;
-    font-family: 'Orbitron', 'Arial', sans-serif;
-}
-
-body.light-theme #user-input::placeholder,
-body.light-theme .transfer-money-container .money-input::placeholder,
-body.light-theme .settings-form input::placeholder {
-    color: #666;
-}
-
-/* Ensure all links are styled with the frosted aesthetic */
-a {
-    color: #1e90ff;
-    text-decoration: underline;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #4da8ff;
-    text-shadow: 0 0 10px rgba(29, 78, 216, 0.8);
-}
-
-/* Style for disabled buttons */
-.action-button:disabled,
-.toggle-option:disabled,
-.faq-question:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-    box-shadow: 
-        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.15);
-    transform: none;
-}
-
-/* Ensure all scrollbars have a frosted look */
-::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: linear-gradient(145deg, #404040, #606060);
-    border-radius: 10px;
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.4);
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(145deg, #1E3A8A, #162E6F);
-    border-radius: 10px;
-    box-shadow: 
-        2px 2px 5px rgba(0, 0, 0, 0.3),
-        -2px -2px 5px rgba(255, 255, 255, 0.2);
-}
-
-body.light-theme ::-webkit-scrollbar-track {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.15);
-}
-
-body.light-theme ::-webkit-scrollbar-thumb {
-    background: linear-gradient(145deg, #3b82f6, #2563eb);
-    box-shadow: 
-        2px 2px 5px rgba(0, 0, 0, 0.15),
-        -2px -2px 5px rgba(255, 255, 255, 0.4);
-}
-
-/* Ensure text selection has a frosted look */
-::selection {
-    background: rgba(29, 78, 216, 0.5);
-    color: #E0E0E0;
-    text-shadow: none;
-}
-
-body.light-theme ::selection {
-    background: rgba(59, 130, 246, 0.5);
-    color: #333;
-}
-
-/* Ensure focus states are consistent */
-:focus {
-    outline: none;
-    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.3),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.2),
         0 0 20px rgba(29, 78, 216, 0.7);
 }
 
-body.light-theme :focus {
-    box-shadow: 
-        0 0 20px rgba(0, 0, 0, 0.5);
+.transfer-money-container h4 {
+    margin: 0 0 10px 0;
+    font-size: 1.5em;
+    color: #E0E0E0;
+    text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
+    animation: glow 4s infinite ease-in-out;
 }
 
-/* Fix for any potential overflow issues in widgets */
-.widget {
-    overflow: hidden;
-}
-
-.widget[style*="grid-column: 2 / 6"][style*="grid-row: 3 / 5"] {
-    overflow: visible;
-}
-
-/* Ensure all text inputs have consistent styling */
-input[type="text"],
-input[type="number"],
-select {
-    background: linear-gradient(145deg, #404040, #606060); /* Frosted gradient */
+.transfer-money-container .peer-select {
+    width: 100%;
+    max-width: 300px;
+    background: linear-gradient(145deg, #404040, #606060);
     border: none;
     border-radius: 15px;
     padding: 8px 12px;
@@ -3076,23 +1707,11 @@ select {
         inset 2px 2px 5px rgba(0, 0, 0, 0.4),
         inset -2px -2px 5px rgba(255, 255, 255, 0.15),
         0 0 10px rgba(29, 78, 216, 0.2);
+    margin-bottom: 10px;
     transition: box-shadow 0.2s;
 }
 
-body.light-theme input[type="text"],
-body.light-theme input[type="number"],
-body.light-theme select {
-    background: linear-gradient(145deg, #9ca3af, #6b7280);
-    color: #333;
-    box-shadow: 
-        inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-        0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus,
-select:focus {
+.transfer-money-container .peer-select:focus {
     outline: none;
     box-shadow: 
         inset 2px 2px 5px rgba(0, 0, 0, 0.4),
@@ -3100,11 +1719,2544 @@ select:focus {
         0 0 20px rgba(29, 78, 216, 0.7);
 }
 
-body.light-theme input[type="text"]:focus,
-body.light-theme input[type="number"]:focus,
-body.light-theme select:focus {
+/* Transfer Money Input */
+.transfer-money-container .money-input {
+    width: 100%;
+    max-width: 300px;
+    background: linear-gradient(145deg, #404040, #606060);
+    border: none;
+    border-radius: 15px;
+    padding: 8px 12px;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
     box-shadow: 
-        inset 2px 2px 5px rgba(0, 0, 0, 0.15),
-        inset -2px -2px 5px rgba(255, 255, 255, 0.4),
-        0 0 20px rgba(0, 0, 0, 0.5);
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15),
+        0 0 10px rgba(29, 78, 216, 0.2);
+    margin-bottom: 10px;
+    transition: box-shadow 0.2s;
 }
+
+.transfer-money-container .money-input:focus {
+    outline: none;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 257, 0.15),
+        0 0 20px rgba(29, 78, 216, 0.7);
+}
+
+.transfer-money-container .money-input::placeholder {
+    color: #A0A0A0;
+    opacity: 0.8;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+}
+
+/* Ensure Select Peer dropdown matches Payment Method dropdown */
+.active-p2p-connections .p2p-send-form .peer-select,
+.active-p2p-connections .p2p-send-form select:first-of-type {
+    background: linear-gradient(145deg, #404040, #606060);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15),
+        0 0 10px rgba(29, 78, 216, 0.2);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.active-p2p-connections .p2p-send-form .peer-select:focus,
+.active-p2p-connections .p2p-send-form select:first-of-type:focus {
+    outline: none;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 257, 0.15),
+        0 0 20px rgba(29, 78, 216, 0.7);
+}
+
+/* Transfer Money Activity List */
+.transfer-money-container .activity-list {
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.transfer-money-container .activity-list p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+/* Active P2P Connections Widget - Updated 2-Column Layout rounded */
+.active-p2p-connections {
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient /*------------------------------------------------------------------------------------------------------------------------------------------------------*/
+    border-radius: 80px;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        18px 18px 36px rgba(0, 0, 0, 0.4),
+        -18px -18px 36px rgba(255, 255, 255, 0.15),
+        inset 6px 6px 15px rgba(0, 0, 0, 0.25),
+        inset -6px -6px 15px rgba(255, 255, 255, 0.35),
+        0 0 60px rgba(29, 78, 216, 0.7);
+    padding: 40px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.5s ease-in-out;
+    overflow: auto;
+    opacity: 0;
+    transform: scale(0.8);
+    will-change: transform, opacity;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.active-p2p-connections .p2p-transfer-wrapper {
+    display: flex;
+    flex-direction: row;
+    height: calc(100% - 60px);
+    width: 100%;
+    gap: 20px;
+    overflow: hidden;
+}
+
+.active-p2p-connections .p2p-left-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(145deg, #B0B0B0, #808080); /* Frosted gradient */
+    border-radius: 50px;
+    padding: 20px;
+    box-shadow: 
+        inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        inset -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
+        0 0 45px rgba(29, 78, 216, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    overflow-y: auto;
+    min-height: 0;
+}
+
+.active-p2p-connections .p2p-right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(145deg, #B0B0B0, #808080); /* Frosted gradient */
+    border-radius: 50px;
+    padding: 20px;
+    font-size: 20;
+    box-shadow: 
+        inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        inset -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
+        0 0 45px rgba(29, 78, 216, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    min-height: 0;
+}
+
+.active-p2p-connections .transaction-log {
+    flex: 1;
+    overflow: visible;
+    position: relative;
+    max-height: 100%;
+    min-height: 0;
+}
+
+/* RECENT TRANSFERS HIGHT TRANSACTIONS **************************************************************************************************************/
+/* RECENT TRANSFERS HIGHT TRANSACTIONS **************************************************************************************************************/
+/* RECENT TRANSFERS HIGHT TRANSACTIONS **************************************************************************************************************/
+/* RECENT TRANSFERS HIGHT TRANSACTIONS **************************************************************************************************************/
+.active-p2p-connections .transaction-log ul#transaction-list {
+    list-style: none;
+    padding: 20px 0 0 0;
+    margin: 40px 0 0 0;
+    max-height: 920px;
+    overflow-y: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: auto;
+    min-height: 0;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    font-size: 28px;
+}
+
+.active-p2p-connections:hover {
+    box-shadow: 
+        6px 6px 18px rgba(0, 0, 0, 0.5),
+        -6px -6px 18px rgba(255, 255, 255, 0.25),
+        inset 3px 3px 6px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 6px rgba(255, 255, 255, 0.4),
+        0 0 60px rgba(70, 120, 255, 1),
+        0 0 15px rgba(70, 120, 255, 1);
+}
+
+.active-p2p-connections .peer-list {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.active-p2p-connections .peer-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    transition: background 0.2s ease-in-out;
+}
+
+.active-p2p-connections .peer-info:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.active-p2p-connections .peer-info i {
+    font-size: 2em;
+    color: #E0E0E0;
+    text-shadow: 0 0 10px rgba(29, 78, 216, 0.8);
+}
+
+.active-p2p-connections .peer-meta {
+    flex: 1;
+}
+
+.active-p2p-connections .peer-meta h4 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #E0E0E0;
+    text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
+}
+
+.active-p2p-connections .peer-meta p {
+    margin: 5px 0 0;
+    font-size: 0.9em;
+    position: relative;
+    padding-left: 20px;
+    color: #E0E0E0; /* Revert text color */
+}
+
+.active-p2p-connections .peer-meta .peer-status::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.active-p2p-connections .peer-meta .peer-status.online::before {
+    background: #0F0;
+    box-shadow: 0 0 10px #0F0;
+}
+
+.active-p2p-connections .peer-meta .peer-status.offline::before {
+    background: #F00;
+    box-shadow: 0 0 10px #F00;
+}
+
+.active-p2p-connections .p2p-send-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.active-p2p-connections .p2p-send-form .soft-label {
+    font-size: 1em;
+    color: #E0E0E0;
+    text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
+}
+
+.active-p2p-connections .repeat-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.active-p2p-connections .p2p-send-form .amount-input,
+.active-p2p-connections .p2p-send-form .method-select,
+.active-p2p-connections .p2p-send-form .note-input,
+.active-p2p-connections .request-prompt .request-amount-input,
+.active-p2p-connections .request-prompt .request-note-input {
+    width: 100%;
+    background: linear-gradient(145deg, #404040, #606060);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15),
+        0 0 10px rgba(29, 0, 216, 0.2);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.active-p2p-connections .p2p-send-form .amount-input:focus,
+.active-p2p-connections .p2p-send-form .method-select:focus,
+.active-p2p-connections .p2p-send-form .note-input:focus,
+.active-p2p-connections .request-prompt .request-amount-input:focus,
+.active-p2p-connections .request-prompt .request-note-input:focus {
+    outline: none;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 257, 0.15),
+        0 0 20px rgba(29, 78, 216, 0.7);
+}
+
+.active-p2p-connections .p2p-send-form .amount-input::placeholder,
+.active-p2p-connections .p2p-send-form .note-input::placeholder,
+.active-p2p-connections .request-prompt .request-amount-input::placeholder,
+.active-p2p-connections .request-prompt .request-note-input::placeholder {
+    color: #A0A0A0;
+    opacity: 0.8;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+}
+
+.active-p2p-connections .p2p-send-form .form-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+
+/* Base styles for all buttons (updating border-radius to match tabs) */
+.active-p2p-connections .p2p-send-form .p2p-send-button,
+.active-p2p-connections .p2p-send-form .cancel-button,
+.active-p2p-connections .p2p-send-form .request-button,
+.active-p2p-connections .confirmation-prompt .confirm-button,
+.active-p2p-connections .confirmation-prompt .cancel-button,
+.active-p2p-connections .request-prompt .request-confirm-button,
+.active-p2p-connections .request-prompt .request-cancel-button {
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px; /* Updated to match .action-button */
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    min-width: 120px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    text-shadow: 0 0 18px rgba(30, 58, 138, 0.9);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    animation: glow 4s infinite ease-in-out;
+}
+
+/* Glossy overlay for all buttons (updating border-radius to match tabs) */
+.active-p2p-connections .p2p-send-form .p2p-send-button::after,
+.active-p2p-connections .p2p-send-form .cancel-button::after,
+.active-p2p-connections .p2p-send-form .request-button::after,
+.active-p2p-connections .confirmation-prompt .confirm-button::after,
+.active-p2p-connections .confirmation-prompt .cancel-button::after,
+.active-p2p-connections .request-prompt .request-confirm-button::after,
+.active-p2p-connections .request-prompt .request-cancel-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    border-radius: 15px; /* Updated to match .action-button */
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Send Money Button (matches Dashboard tab style) */
+.active-p2p-connections .p2p-send-form .p2p-send-button {
+    background: linear-gradient(145deg, #606060, #404040); /* Matches .action-button */
+    box-shadow: 
+        7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        -7.5px -7.5px 15px rgba(255, 255, 255, 0.2); /* Matches .action-button */
+}
+
+.active-p2p-connections .p2p-send-form .p2p-send-button:hover {
+    box-shadow: 
+        4.5px 4.5px 27px rgba(30, 58, 138, 1.0),
+        -4.5px -4.5px 27px rgba(255, 255, 255, 0.4); /* Matches .action-button:hover */
+    transform: translateY(3px); /* Matches .action-button:hover */
+}
+
+.active-p2p-connections .p2p-send-form .p2p-send-button:active {
+    transform: translateY(3px) scale(0.98); /* Matches .action-button:active */
+    box-shadow: 
+        3px 3px 12px rgba(0, 0, 0, 0.5),
+        inset 3px 3px 7.5px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 7.5px rgba(255, 255, 255, 0.2); /* Matches .action-button:active */
+}
+
+/* Cancel Button (matches Dashboard tab style) */
+.active-p2p-connections .p2p-send-form .cancel-button,
+.active-p2p-connections .confirmation-prompt .cancel-button,
+.active-p2p-connections .request-prompt .request-cancel-button {
+    background: linear-gradient(145deg, #606060, #404040); /* Matches .action-button */
+    box-shadow: 
+        7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        -7.5px -7.5px 15px rgba(255, 255, 255, 0.2); /* Matches .action-button */
+}
+
+.active-p2p-connections .p2p-send-form .cancel-button:hover,
+.active-p2p-connections .confirmation-prompt .cancel-button:hover,
+.active-p2p-connections .request-prompt .request-cancel-button:hover {
+    box-shadow: 
+        4.5px 4.5px 27px rgba(30, 58, 138, 1.0),
+        -4.5px -4.5px 27px rgba(255, 255, 255, 0.4); /* Matches .action-button:hover */
+    transform: translateY(3px); /* Matches .action-button:hover */
+}
+
+.active-p2p-connections .p2p-send-form .cancel-button:active,
+.active-p2p-connections .confirmation-prompt .cancel-button:active,
+.active-p2p-connections .request-prompt .request-cancel-button:active {
+    transform: translateY(3px) scale(0.98); /* Matches .action-button:active */
+    box-shadow: 
+        3px 3px 12px rgba(0, 0, 0, 0.5),
+        inset 3px 3px 7.5px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 7.5px rgba(255, 255, 255, 0.2); /* Matches .action-button:active */
+}
+
+/* Request Payment Button (matches P2P selected tab style) */
+.active-p2p-connections .p2p-send-form .request-button {
+    background: linear-gradient(145deg, #1E3A8A, #162E6F); /* Matches selected tab blue */
+    box-shadow: 
+        7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
+        0 0 27px rgba(30, 58, 138, 1.0); /* Adds blue glow to match selected tab */
+}
+
+.active-p2p-connections .p2p-send-form .request-button:hover {
+    background: linear-gradient(145deg, #2B4BA5, #233F8A); /* Slightly brighter blue */
+    box-shadow: 
+        4.5px 4.5px 27px rgba(30, 58, 138, 1.0),
+        -4.5px -4.5px 27px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(30, 58, 138, 1.0); /* Stronger glow */
+    transform: translateY(3px); /* Matches .action-button:hover */
+}
+
+.active-p2p-connections .p2p-send-form .request-button:active {
+    transform: translateY(3px) scale(0.98); /* Matches .action-button:active */
+    box-shadow: 
+        3px 3px 12px rgba(0, 0, 0, 0.5),
+        inset 3px 3px 7.5px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 7.5px rgba(255, 255, 255, 0.2); /* Matches .action-button:active */
+}
+
+.active-p2p-connections .p2p-send-form .repeat-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.active-p2p-connections .p2p-send-form .repeat-toggle label {
+    font-size: 0.9em;
+    color: #E0E0E0;
+    text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
+}
+
+.active-p2p-connections .p2p-send-form .repeat-toggle .repeat-checkbox {
+    appearance: none;
+    width: 40px;
+    height: 20px;
+    background: linear-gradient(145deg, #404040, #606060);
+    border-radius: 20px;
+    position: relative;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15);
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.active-p2p-connections .p2p-send-form .repeat-toggle .repeat-checkbox::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(145deg, #606060, #B0B0B0);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out;
+}
+
+.active-p2p-connections .p2p-send-form .repeat-toggle .repeat-checkbox:checked {
+    background: linear-gradient(145deg, #1E3A8A, #162E6F);
+}
+
+.active-p2p-connections .p2p-send-form .repeat-toggle .repeat-checkbox:checked::before {
+    transform: translateX(20px);
+}
+
+.active-p2p-connections .transaction-log h4 {
+    margin: 0;
+    font-size: 2.2em;
+    color: #dce5f2;
+    text-shadow: 
+        0 0 6px rgba(173, 216, 255, 0.8),
+        0 0 14px rgba(173, 216, 255, 0.6),
+        0 0 28px rgba(173, 216, 255, 0.4);
+    animation: glow 4s infinite ease-in-out;
+    position: absolute; /* Fix the title at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(145deg, #B0B0B0, #808080); /* Frosted gradient */
+    z-index: 1; /* Ensure it stays above the scrolling list */
+    padding: 5px 10px; /* Add padding for better spacing */
+    border-radius: 8px 8px 0 0; /* Rounded top corners to blend with container */
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.3),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.2); /* Subtle inset shadow for skeuomorphic effect */
+}
+
+.active-p2p-connections .transaction-log ul {
+    list-style: none;
+    padding: 0;
+    margin: 40px 0 0 0; /* Add margin-top to account for the fixed h4 height */
+    height: calc(100% - 40px); /* Adjust height to fit within the container, accounting for h4 */
+    max-height: calc(100% - 40px); /* Ensure the list doesn't overflow */
+    overflow-y: auto; /* Enable scrolling for the list */
+    box-sizing: border-box; /* Ensure padding/margins are included in height */
+    display: flex;
+    flex-direction: column; /* Stack transactions from top to bottom */
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list li.sent span {
+    display: block;
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list li.requested span {
+    display: block;
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list li.sent .transaction-line-1 {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list li.sent .transaction-line-2 {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list li.requested .transaction-line-1 {
+    font-weight: 600;
+    color: #ffcc00;
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list li.requested .transaction-line-2 {
+    font-size: 0.9em;
+    color: rgba(255, 204, 0, 0.7);
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list::-webkit-scrollbar {
+    width: 8px; /* Ensure scroll bar is visible in WebKit browsers */
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list::-webkit-scrollbar-thumb {
+    background: #888; /* Style the scroll bar thumb */
+    border-radius: 4px;
+}
+
+.active-p2p-connections .transaction-log ul#transaction-list::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Hover effect for the scroll bar thumb */
+}
+
+.active-p2p-connections .transaction-log li {
+    padding: 10px;
+    background: rgba(21, 220, 81, 0.05); /* Green tint for sent transactions */
+    border-radius: 8px;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    color: #E0E0E0;
+    display: flex;
+    flex-direction: column; /* Change to column for dual-line display */
+    transition: background 0.2s ease-in-out;
+}
+
+/* Style for the first line (e.g., "User sent $78 to John Doe at 11:24 PM") */
+.active-p2p-connections .transaction-log li .transaction-line-1 {
+    font-weight: bold;
+    margin-bottom: 4px; /* Space between the two lines */
+}
+
+/* Style for the second line (e.g., "$78 sent to John Doe – 2:24:25 PM") */
+.active-p2p-connections .transaction-log li .transaction-line-2 {
+    font-size: 0.85em;
+    color: #BBB; /* Slightly lighter color for the second line */
+}
+
+.active-p2p-connections .transaction-log li.received {
+    background: rgba(255, 215, 0, 0.05); /* Yellow tint for received transactions */
+}
+
+.active-p2p-connections .transaction-log li:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.active-p2p-connections .transaction-log li strong {
+    color: #1E90FF;
+    font-weight: bold;
+}
+
+/* Confirmation and Request Prompts */
+.active-p2p-connections .confirmation-prompt,
+.active-p2p-connections .request-prompt {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: linear-gradient(145deg, #B0B0B0, #808080); /* Frosted gradient */
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        12px 12px 24px rgba(0, 0, 0, 0.4),
+        -12px -12px 24px rgba(255, 252, 255, 0.15),
+        inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.25),
+        inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.35),
+        0 0 30px rgba(29, 78, 216, 0.7);
+    padding: 20px;
+    z-index: 1001;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.active-p2p-connections .confirmation-prompt.show,
+.active-p2p-connections .request-prompt.show {
+    display: flex;
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.active-p2p-connections .confirmation-prompt p,
+.active-p2p-connections .request-prompt p {
+    font-size: 1.2em;
+    text-align: center;
+    color: #E0E0E0;
+    text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
+    margin: 0;
+}
+
+.active-p2p-connections .confirmation-prompt .confirmation-buttons,
+.active-p2p-connections .request-prompt .request-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Toast Notification */
+.active-p2p-connections .p2p-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #1E3A8A, #162E6F);
+    color: #E0E0E0;
+    padding: 15px 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        5px 5px 15px rgba(0, 0, 0, 0.4),
+        -5px -5px 15px rgba(255, 255, 255, 0.15),
+        inset 2px 2px 5px rgba(0, 0, 0, 0.25),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.35),
+        0 0 20px rgba(29, 78, 216, 0.7);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1003;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.active-p2p-connections .p2p-toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.active-p2p-connections .p2p-toast.success {
+    border-left: 4px solid #0F0;
+}
+
+.active-p2p-connections .p2p-toast.cancel {
+    border-left: 4px solid #F00;
+}
+
+.active-p2p-connections .p2p-toast.request {
+    border-left: 4px solid #FFD700;
+}
+
+.active-p2p-connections .p2p-toast .close-toast {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
+    border: none;
+    border-radius: 50%;
+    color: #E0E0E0;
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 
+        0 5px 10px rgba(0, 0, 0, 0.3),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    transition: background 0.2s;
+}
+
+.active-p2p-connections .p2p-toast .close-toast:hover {
+    background: linear-gradient(135deg, #1E3A8A, #162E6F);
+}
+
+/* Confirmation Stamp */
+.active-p2p-connections .confirmation-stamp {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    color: #0F0;
+    font-size: 5em;
+    z-index: 1002;
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.active-p2p-connections .confirmation-stamp.show {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+
+
+
+
+
+
+/* Confirmation Prompt Yes Button (matches Request Payment button) */
+.active-p2p-connections .confirmation-prompt .confirm-button {
+    background: linear-gradient(145deg, #1E3A8A, #162E6F);
+    box-shadow: 
+        7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
+        0 0 27px rgba(30, 58, 138, 1.0);
+}
+
+.active-p2p-connections .confirmation-prompt .confirm-button:hover {
+    background: linear-gradient(145deg, #2B4BA5, #233F8A);
+    box-shadow: 
+        4.5px 4.5px 27px rgba(30, 58, 138, 1.0),
+        -4.5px -4.5px 27px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(30, 58, 138, 1.0);
+    transform: translateY(3px);
+}
+
+.active-p2p-connections .confirmation-prompt .confirm-button:active {
+    transform: translateY(3px) scale(0.98);
+    box-shadow: 
+        3px 3px 12px rgba(0, 0, 0, 0.5),
+        inset 3px 3px 7.5px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 7.5px rgba(255, 255, 255, 0.2);
+}
+
+
+
+
+
+/* Request Prompt Confirm Button (matches Request Payment button) */
+.active-p2p-connections .request-prompt .request-confirm-button {
+    background: linear-gradient(145deg, #1E3A8A, #162E6F);
+    box-shadow: 
+        7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
+        0 0 27px rgba(30, 58, 138, 1.0);
+}
+
+.active-p2p-connections .request-prompt .request-confirm-button:hover {
+    background: linear-gradient(145deg, #2B4BA5, #233F8A);
+    box-shadow: 
+        4.5px 4.5px 27px rgba(30, 58, 138, 1.0),
+        -4.5px -4.5px 27px rgba(255, 255, 255, 0.4),
+        0 0 30px rgba(30, 58, 138, 1.0);
+    transform: translateY(3px);
+}
+
+.active-p2p-connections .request-prompt .request-confirm-button:active {
+    transform: translateY(3px) scale(0.98);
+    box-shadow: 
+        3px 3px 12px rgba(0, 0, 0, 0.5),
+        inset 3px 3px 7.5px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 7.5px rgba(255, 255, 255, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   ==========================================================================
+   ==========================================================================
+   ============================================================== ███████ ===
+   ============================================================== ██      ===
+   Section 6: Q&A Tab Styles ==================================== ███████ ===
+   Q&A Tab Styles =============================================== ██   ██ ===
+   ============================================================== ███████ ===
+   ==========================================================================
+   ==========================================================================
+   ========================================================================== */
+/* Q&A Grid Container */
+.qna-grid-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px; /* Reduced padding to fit the nested grid */
+}
+
+/* Q&A Grid (Frequently Asked Questions Widget) */
+.qna-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-rows: repeat(3, 1fr); /* 3 rows */
+    gap: 20px; /* Smaller gap between the nested widgets */
+    height: 100%;
+}
+
+
+/* Q&A FLIP CARDS OUTER STYLE */
+.qna-widget {
+    background: linear-gradient(225deg, #606060, #B0B0B0);
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        12px 12px 24px rgba(0, 0, 0, 0.4),
+        -12px -12px 24px rgba(255, 252, 255, 0.15),
+        inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.25),
+        inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.35),
+        0 0 30px rgba(29, 78, 216, 0.7);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    transition: box-shadow 0.3s ease-in-out;
+    perspective: 1000px; /* Add perspective for 3D effect */
+}
+
+.qna-widget:hover {
+    box-shadow: 
+        6px 6px 18px rgba(0, 0, 0, 0.5),
+        -6px -6px 18px rgba(255, 255, 255, 0.25),
+        inset 3px 3px 6px rgba(0, 0, 0, 0.3),
+        inset -3px -3px 6px rgba(255, 255, 255, 0.4),
+        0 0 60px rgba(70, 120, 255, 1),
+        0 0 15px rgba(70, 120, 255, 1);
+}
+
+.qna-widget h3 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    padding: 0 10px;
+}
+
+/* Style for the Frequently Asked Questions title in Q&A tab */
+.qna-section-title {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
+    font-size: 2.5em;
+    animation: glow 4s infinite ease-in-out;
+    color: #E0E0E0;
+}
+
+.qna-number {
+    margin-right: 4px;
+    font-weight: bold;
+    color: #E0E0E0;
+    text-shadow: 1.5px 1.5px 4.5px rgba(0, 0, 0, 0.3);
+}
+
+/* Specific adjustments for widgets 1-7 */
+.qna-grid > .qna-widget:nth-child(-n+7) h3 {
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+/* Card flip styles */
+.qna-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.qna-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease; /* Smooth flip animation */
+}
+
+.qna-card.flipped .qna-card-inner {
+    transform: rotateY(180deg);
+}
+
+.qna-card-front,
+.qna-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    background: linear-gradient(225deg, #606060, #B0B0B0);
+    box-shadow: 
+        inset 4.5px 4.5px 9px rgba(0, 0, 0, 0.25),
+        inset -4.5px -4.5px 9px rgba(255, 255, 255, 0.35);
+}
+
+.qna-card-front {
+    transform: rotateY(0deg);
+    cursor: pointer;
+}
+
+.qna-card-back {
+    transform: rotateY(180deg);
+    cursor: pointer;
+}
+
+/* Remove cursor from .qna-toggle since the entire card is now clickable */
+.qna-toggle {
+    transition: color 0.3s ease; /* Keep the hover color transition */
+}
+
+.qna-toggle:hover {
+    color: #1E3A8A; /* Change color on hover to indicate interactivity */
+}
+
+.qna-answer {
+    margin-top: 10px;
+    font-size: 1em;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 8px;
+    text-shadow: 0 0 18px rgba(29, 78, 216, 0.9);
+    animation: 
+        glow 4s infinite ease-in-out,
+        breathe 2.5s infinite ease-in-out;
+}
+
+/* FAQ for Knowledge Base */
+.faq-item {
+    margin: 5px 0;
+}
+
+.faq-question {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    width: 100%;
+    text-align: left;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 0.9em;
+    cursor: pointer;
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.faq-answer {
+    display: block;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-top: 3px;
+    font-size: 0.9em;
+}
+
+/* Personality Toggle for Chatbot Support */
+.personality-toggle {
+    display: flex;
+    gap: 8px;
+    margin: 5px 0;
+}
+
+.toggle-option {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 0.9em;
+    cursor: pointer;
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.3),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5);
+}
+
+.toggle-option.active {
+    background: linear-gradient(145deg, #1E3A8A, #162E6F);
+}
+
+/* QnA Input for QnA Tab */
+.qna-input {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(145deg, #404040, #606060);
+    border: none;
+    border-radius: 15px;
+    padding: 10px 15px;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15);
+    resize: none;
+}
+
+.qna-input:focus {
+    outline: none;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 257, 0.15),
+        0 0 20px rgba(29, 78, 216, 0.7);
+}
+
+/* Question List for QnA Tab */
+.question-list {
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.question-list p {
+    margin: 3px 0;
+    font-size: 0.9em;
+}
+
+/* ==========================================================================
+   ==========================================================================
+   ==========================================================================
+   =============================================================== ██████ ===
+   ===============================================================     ██ ===
+   Section 7: File Transfer, and Security Tab Styles ======    ██  ===
+   File Transfer Tab Styles ======================================   ██   ===
+   ===============================================================  ██    ===
+   =============================================================== ██     ===
+   ==========================================================================
+   ==========================================================================
+   ========================================================================== */
+/* Progress Bar for File Upload Progress */
+.progress-bar {
+    width: 100%;
+    height: 35px;
+    background: linear-gradient(145deg, #404040, #606060);
+    border-radius: 40px;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15);
+    overflow: hidden;
+    margin: 5px 0;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(145deg, #1E3A8A, #162E6F);
+    color: #E0E0E0;
+    font-size: 2.7em;
+    line-height: 15px;
+    text-align: center;
+    transition: width 1s ease-in-out;
+}
+
+/* File Upload Progress widget */
+.widget[style*="grid-column: 1 / 5"][style*="grid-row: 1 / 2"] .progress-bar {
+    height: 25px;
+    margin-bottom: 15px;
+}
+
+.widget[style*="grid-column: 1 / 5"][style*="grid-row: 1 / 2"] .progress {
+    height: 100%;
+    line-height: 25px;
+    font-size: 0.9em;
+}
+
+/* Transfer List for File Transfer Tab */
+.transfer-list {
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.transfer-list p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+/* ==========================================================================
+   Security Tab Styles
+   ========================================================================== */
+/* Alert List for Security Tab */
+.alert-list {
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.alert-list p {
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+/* Firewall Status for Security Tab */
+#firewall-status {
+    color: #0F0;
+}
+
+/* ==========================================================================
+   ==========================================================================
+   ==========================================================================
+   ============================================================== ███████ ===
+   ============================================================== ██   ██ ===
+   Section 8: Media Queries ===================================== ███████ ===
+   Media Queries (Responsive Design for All Tabs)================ ██   ██ ===
+   ============================================================== ███████ ===
+   ==========================================================================
+   ==========================================================================
+   ========================================================================== */
+@media (max-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .chat-window {
+        grid-column: span 1;
+        width: 100%;
+        height: 400px;
+    }
+
+    #emoji-picker {
+        bottom: 60px;
+        left: 5px;
+        width: 90%;
+        max-height: 200px;
+    }
+
+    .chat-window.chat-expanded {
+        width: 100vw;
+        height: 100vh;
+        max-width: 1200px;
+        max-height: 800px;
+        padding: 20px;
+    }
+
+    .chat-window.chat-expanded .chat-container {
+        max-height: calc(100% - 40px);
+    }
+
+    .logo {
+        margin: 30px auto;
+        width: 150px;
+        border-radius: 20px;
+    }
+
+    .dashboard-heading {
+        font-size: 3.5em;
+        padding: 15px 30px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+    }
+
+    .tab-bar {
+        gap: 15px;
+        padding: 15px 30px;
+        border-radius: 20px;
+        margin-bottom: 30px;
+    }
+
+    .tab {
+        padding: 10px 20px;
+        font-size: 14px;
+        min-width: 100px;
+        border-radius: 16px;
+    }
+
+    .widget {
+        border-radius: 20px;
+        padding: 20px;
+    }
+
+    .widget h3 {
+        font-size: 1.5em;
+    }
+
+    .widget p {
+        font-size: 1em;
+    }
+
+    .action-button {
+        padding: 6px 12px;
+        font-size: 10px;
+        min-width: 70px;
+    }
+
+    .graph-legend p {
+        font-size: 0.7em;
+    }
+
+    .legend-color {
+        width: 10px;
+        height: 10px;
+        border-radius: 3px;
+    }
+
+    /* Adjust Need More Help? widget for smaller screens */
+    .widget[style*="grid-column: 1 / 2"][style*="grid-row: 4 / 5"] {
+        display: block;
+    }
+
+    .widget[style*="grid-column: 1 / 2"][style*="grid-row: 4 / 5"] .button-container {
+        margin-top: 10px;
+    }
+
+    .qna-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+    }
+
+    #p2p .qna-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    /* Ensure toast notifications are visible on smaller screens */
+    .toast {
+        bottom: 10px;
+        right: 10px;
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
+/* ==========================================================================
+   ==========================================================================
+   ==========================================================================
+   ============================================================== ███████ ===
+   ============================================================== ██   ██ ===
+   Section 9 Mini Widget Preview ================================ ███████ ===
+   Make Widgets Preview On Main DashBoardy ======================      ██ ===
+   ==============================================================      ██ ===
+   ==========================================================================
+   ==========================================================================
+   ========================================================================== */
+
+   /* P2P Activity Preview Widget */
+.p2p-preview .transaction-log {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    max-height: 100%;
+    min-height: 0;
+}
+
+.p2p-preview .transaction-log ul#p2p-preview-transaction-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 100%;
+    overflow-y: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: auto;
+    min-height: 0;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+}
+
+.p2p-preview .transaction-log ul#p2p-preview-transaction-list li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #606060, #808080);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.p2p-preview .transaction-log ul#p2p-preview-transaction-list li.sent .transaction-line-1 {
+    color: #ffffff; /* White for sent */
+    font-weight: bold;
+}
+
+.p2p-preview .transaction-log ul#p2p-preview-transaction-list li.requested .transaction-line-1 {
+    color: #ffeb3b; /* Yellow for requested */
+    font-weight: bold;
+}
+
+.p2p-preview .transaction-log ul#p2p-preview-transaction-list li .transaction-line-2 {
+    color: #b0b0b0;
+    font-size: 0.9em;
+}
+
+/* FAQ Preview Widget */
+.faq-preview .faq-preview-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: calc(100% - 60px); /* Account for h3 and button */
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.faq-preview .qna-card {
+    perspective: 1000px;
+    height: 80px; /* Fixed height to fit within widget */
+}
+
+.faq-preview .qna-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.faq-preview .qna-card.flipped .qna-card-inner {
+    transform: rotateY(180deg);
+}
+
+.faq-preview .qna-card-front,
+.faq-preview .qna-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #606060, #808080);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), -5px -5px 10px rgba(255, 255, 255, 0.1);
+}
+
+.faq-preview .qna-card-back {
+    transform: rotateY(180deg);
+}
+
+.faq-preview .qna-toggle {
+    margin: 0;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.faq-preview .qna-number {
+    margin-right: 5px;
+}
+
+.faq-preview .qna-answer {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Bot Chat Widget Outer Window (Single Outer Layer) */
+.bot-chat-window {
+    filter: none !important;
+    opacity: 1 !important;
+    transition: filter 0.3s ease;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
+    border-radius: 80px; /* Matches Q&A widget */
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+        0 0 30px rgba(29, 78, 216, 0.7); /* Glowing blue shadow */
+    padding: 40px; /* Matches Q&A widget's outer padding */
+    border: 2px solid rgba(29, 78, 216, 0.5); /* Blue glowing border for divider effect */
+    overflow: auto;
+    z-index: 2;
+    min-width: 0;
+    min-height: 0;
+    box-sizing: border-box;
+    display: flex; /* Ensure the inner container stretches properly */
+    flex-direction: column;
+}
+
+.bot-chat-window:hover,
+.bot-chat-window:focus-within {
+    filter: none !important;
+    opacity: 1 !important;
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+        0 0 60px rgba(70, 120, 255, 1); /* Enhanced glow on hover */
+}
+
+.dashboard-container.blurred .bot-chat-window {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* Inner Container for Chat */
+.bot-chat-window .bot-chat-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Ensure it takes up available space */
+    height: 100%;
+    max-height: calc(100% - 60px);
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
+    border-radius: 50px; /* Matches Q&A widget */
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+        0 0 30px rgba(29, 78, 216, 0.7); /* Subtle inner shadow */
+    padding: 30px; /* Matches Q&A widget */
+}
+
+/* Style the Title Inside the Inner Container */
+.bot-chat-container h3 {
+    margin: 0 0 20px 0;
+    padding: 0;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 3em; /* Matches Q&A widget */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Chat Box Background and Height */
+.bot-chat-window .bot-chat-box {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 45px; /* Matches Q&A widget */
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 200px; /* Adjusted for smaller widget size */
+    max-height: 325px; /* Matches original Dashboard widget max-height */
+}
+
+/* Message Styling */
+.bot-chat-window .message {
+    max-width: 70%;
+    padding: 12px 20px; /* Matches Q&A widget */
+    border-radius: 25px;
+    word-wrap: break-word;
+    font-size: 18px !important;
+    line-height: 1.4;
+    margin: 10px 0;
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient for bot messages */
+    box-shadow: 
+        5px 5px 15px rgba(0, 0, 0, 0.4),
+        -5px -5px 15px rgba(255, 255, 255, 0.15),
+        inset 2px 2px 5px rgba(0, 0, 0, 0.25),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.35);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* Add the frosted glass overlay effect to messages */
+.bot-chat-window .message::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    border-radius: 25px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Override text-shadow for chat messages to make text sharper */
+.bot-chat-window .message .content,
+.bot-chat-window .message .timestamp {
+    text-shadow: none !important;
+}
+
+/* Bot Message Styling GREY BUBBLES*/
+.bot-chat-window .message.bot {
+    align-self: flex-start;
+    background: linear-gradient(145deg, #606060, #404040);
+    margin-left: 30px;
+    margin-right: 40px;
+    margin-bottom: 2px;
+    border-radius: 25px; /* Reverted to original smaller size */
+    font-size: 1em !important; /* Reverted to original smaller font size */
+}
+
+/* User Message Styling BLUE BUBBLE*/
+.bot-chat-window .message.user {
+    align-self: flex-end;
+    background: linear-gradient(145deg, #1E3A8A, #162E6F);
+    color: #E0E0E0;
+    margin-right: 3px;
+    margin-left: 40px;
+    margin-bottom: 2px;
+    line-height: 1;
+    font-size: 1em !important; /* Reverted to original smaller font size */
+    border-radius: 25px; /* Reverted to original smaller size */
+}
+
+/* Username and Content Styling */
+.bot-chat-window .message .username,
+.bot-chat-window .message .content {
+    display: inline-block;
+}
+
+.bot-chat-window .message .username {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.bot-chat-window .message .content {
+    font-size: 1em;
+}
+
+/* Timestamp Styling */
+.bot-chat-window .message .timestamp {
+    font-size: 0.8em;
+    color: whitesmoke;
+    align-self: flex-end;
+    margin-top: 20px; /* Matches Q&A widget */
+}
+
+/* Align Username for User Messages */
+.bot-chat-window .bot-chat-box .message.user .username {
+    align-self: flex-end;
+    text-align: right;
+    margin-right: 5px;
+}
+
+/* Input Container */
+.bot-chat-window .bot-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(145deg, #808080, #606060); /* Matches Q&A widget */
+    border-radius: 25px;
+    padding: 10px 15px; /* Matches Q&A widget */
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.3),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+        0 0 20px rgba(29, 78, 216, 0.7);
+    margin-top: 10px;
+}
+
+/* Input Field */
+.bot-chat-window .bot-input-container input {
+    flex: 1;
+    background: linear-gradient(145deg, #606060, #404040); /* Matches Q&A widget */
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px; /* Matches Q&A widget */
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15),
+        0 0 10px rgba(29, 78, 216, 0.2);
+    transition: box-shadow 0.2s;
+}
+
+.bot-chat-window .bot-input-container input:focus {
+    outline: none;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15),
+        0 0 20px rgba(29, 78, 216, 0.7);
+}
+
+/* Placeholder Styling */
+.bot-chat-window .bot-input-container input::placeholder {
+    color: #A0A0A0;
+    opacity: 0.8;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+}
+
+/* First Message Animation */
+.bot-chat-window .bot-chat-box .message:first-child {
+    animation: bubbleUp 0.5s ease-out forwards;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* FAQ Preview Widget */
+.faq-preview .faq-preview-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: calc(100% - 60px); /* Account for h3 and button */
+    overflow: hidden;
+}
+
+.faq-preview .qna-card {
+    perspective: 1000px;
+    height: 120px; /* Fixed height to fit within widget */
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.faq-preview .qna-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+}
+
+.faq-preview .qna-card.flipped .qna-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front/Back Backround Color*/
+.faq-preview .qna-card-front,
+.faq-preview .qna-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background: linear-gradient(225deg, #B0B0B0, #606060);
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.5),
+        inset 0 2px 6px rgba(255, 255, 255, 0.6);
+}
+
+.faq-preview .qna-card-back {
+    transform: rotateY(180deg);
+    color: #ffffff;
+}
+
+/* Front Card Word Color*/
+.faq-preview .qna-toggle {
+    margin: 0;
+    font-size: 1.2em;
+    cursor: pointer;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.faq-preview .qna-number {
+    margin-right: 5px;
+    color: #ffffff;
+}
+
+/* Back Card Word Color*/
+.faq-preview .qna-answer {
+    margin: 0;
+    font-size: 0.9em;
+    color: white;
+    font-weight: bold;
+}
+
+.faq-preview .qna-card:hover .qna-toggle,
+.faq-preview .qna-card:hover .qna-answer {
+    color:  #1E3A8A;/* Blue text color on hover */
+}
+
+/* FAQ Preview Widget Button */
+.faq-preview .view-all-faqs {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 250, 0.3) 100%);
+    box-shadow: 
+        0 18px 36px rgba(0, 0, 0, 0.5),
+        inset 0 4.5px 9px rgba(255, 255, 255, 0.6);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 24px;
+    color: white;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 18px;
+    min-width: 135px;
+    white-space: nowrap;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.faq-preview .view-all-faqs:hover {
+    background: linear-gradient(145deg, #707070, #909090); /* Slightly lighter gradient on hover */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3), -5px -5px 10px rgba(255, 255, 255, 0.2); /* Enhanced shadow on hover */
+}
+
+/* ==========================================================================
+   ==========================================================================
+   ==========================================================================
+   =========================================================== ██  ██████ ===
+   =========================================================== ██  ██  ██ ===
+   Section 10 P2P ByteChat Widget ============================ ██  ██  ██ ===
+   Make P2P Widget A Twin As On Main DashBoardy ============== ██  ██  ██ ===
+   =========================================================== ██  ██████ ===
+   ==========================================================================
+   ==========================================================================
+   ========================================================================== */
+
+/* P2P BytChat Live Messesing Tittle */
+.p2p-chat-container h3 {
+    margin-bottom: 15px;
+    padding-bottom: 7.5px;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.1);
+    font-size: 2.25em;
+    animation: glow 4s infinite ease-in-out;
+    align-self: flex-start;
+    margin-top: 0;
+}
+
+/* P2P ByteChat Live Messaging Widget Border and roundedness*/
+.p2p-chat-window {
+    filter: none !important;
+    opacity: 1 !important;
+    transition: filter 0.3s ease;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
+    border-radius: 80px;
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+        0 0 30px rgba(29, 78, 216, 0.7);
+    padding: 40px;
+    overflow: auto;
+    z-index: 2;
+    min-width: 0;
+    min-height: 0;
+}
+/* P2P BytChat Live Messesing Whole Color Widget */
+.p2p-chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: calc(100% - 60px);
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
+    border-radius: 50px;
+    box-shadow: 
+        inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        inset -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
+        0 0 45px rgba(29, 78, 216, 0.7);
+    padding: 30px;
+}
+
+/* P2P BytChat Live Messesing Inside Color */
+#p2p-chat-box {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 45px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    min-height: 300px;
+    max-height: 100%;
+}
+
+/* P2P BytChat Live Messesing Outside Type Your Message Bar But Buttons Color */
+.p2p-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
+    border-radius: 25px;
+    padding: 10px 15px;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.3),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+        0 0 20px rgba(29, 78, 216, 0.7);
+    margin-top: 10px;
+}
+
+/* P2P BytChat Live Messesing Type Your Message Bar Color */
+#p2p-user-input {
+    flex: 1;
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15),
+        0 0 10px rgba(29, 78, 216, 0.2);
+    transition: box-shadow 0.2s;
+}
+
+/* P2P BytChat Live Messesing Type Your Message Text Color */
+#p2p-user-input::placeholder {
+    color: #A0A0A0;
+    opacity: 0.8;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+}
+
+/* P2P BytChat Live Messesing File Link Color */
+#p2p-chat-box a.file-link {
+    color: #1e90ff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.p2p-chat-window:hover,
+.p2p-chat-window:focus-within {
+    filter: none !important;
+    opacity: 1 !important;
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+        0 0 60px rgba(70, 120, 255, 1);
+}
+
+.widget.p2p-chat-window:hover {
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+.dashboard-container.blurred .p2p-chat-window {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+.widget[style*="grid-column: 2 / 6"][style*="grid-row: 2 / 4"] {
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* P2P Network Insights Widget */
+.widget[style*="grid-column: 1 / 3"][style*="grid-row: 4 / 9"] {
+    height: 980px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#p2p-chat-box .message:first-child {
+    animation: bubbleUp 0.5s ease-out forwards;
+}
+
+#p2p-user-input:focus {
+    outline: none;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 257, 0.15),
+        0 0 20px rgba(29, 78, 216, 0.7);
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+.p2p-expand-button#p2p-expand-chat {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 6px;
+    font-size: 0.85em;
+    z-index: 1002;
+}
+
+.p2p-chat-window.p2p-chat-expanded .p2p-expand-button#p2p-expand-chat {
+    display: none;
+}
+
+.p2p-chat-window.p2p-chat-expanded .p2p-expand-button#p2p-expand-chat i::before {
+    content: "\f066";
+}
+
+.p2p-close-button#p2p-close-chat {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    font-size: 1em;
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient */
+    box-shadow: 
+        5px 5px 10px rgba(0, 0, 0, 0.3),
+        -5px -5px 10px rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 10px;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    text-shadow: 0 0 12px rgba(30, 58, 138, 0.9);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    animation: glow 4s infinite ease-in-out;
+    display: none;
+    z-index: 1002;
+    cursor: pointer;
+}
+
+.p2p-close-button#p2p-close-chat:hover {
+    background: linear-gradient(135deg, #1E3A8A, #162E6F);
+}
+
+.p2p-chat-window.p2p-chat-expanded .p2p-close-button#p2p-close-chat {
+    display: block;
+}
+
+.p2p-chat-window.p2p-chat-expanded {
+    position: fixed;
+    top: 20%; /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------Added to scale the expand message widget to 20% */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    max-width: 3200px;
+    max-height: 1920px;
+    z-index: 1001;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 
+        0 0 40px rgba(29, 78, 216, 0.9),
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(to top right, #4A4A4A, #D3D3D3);
+    filter: none !important;
+    zoom: 0.2; /* -------------------------------------------------------------------------------------------------------------------------------------------------------------------------Added to scale the tab bar to 20% */
+}
+
+.p2p-chat-window.p2p-chat-expanded .p2p-chat-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.p2p-chat-window.p2p-chat-expanded #p2p-chat-box {
+    min-height: 400px;
+    max-height: calc(100% - 120px);
+    overflow-y: auto;
+}
+
+.p2p-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+    display: none;
+}
+
+.p2p-overlay.active {
+    display: block;
+}
+
+#p2p-emoji-picker {
+    position: absolute;
+    bottom: 105px;
+    left: 15px;
+    z-index: 1000;
+    background: linear-gradient(225deg, #606060, #B0B0B0);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 37.5px;
+    box-shadow: 
+        7.5px 7.5px 22.5px rgba(0, 0, 0, 0.4),
+        -7.5px -7.5px 22.5px rgba(255, 250, 255, 0.15),
+        inset 3px 3px 7.5px rgba(0, 0, 0, 0.25),
+        inset -3px -3px 7.5px rgba(255, 255, 255, 0.35),
+        0 0 45px rgba(29, 78, 216, 0.7);
+    padding: 22.5px;
+    max-height: 450px;
+    overflow-y: auto;
+    display: none;
+    flex-direction: column;
+}
+
+/* Style specifically for the P2P ByteChat Live Messaging widget */
+.p2p-chat-widget {
+    width: 300px; /* Match the width from the second screenshot */
+    max-height: 100px; /* Fixed height to match the compact size in the second screenshot */
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0; /* Prevent the widget from shrinking */
+    flex-grow: 0; /* Prevent the widget from growing */
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden; /* Ensure content doesn't overflow outside the widget */
+}
+
+/* Style for the chat box inside the widget AND THE HIGHT*/
+#p2p-chat-box {
+    flex: 1; /* Take up the available space within the widget */
+    max-height: 1350px; /* Adjust to fit within the widget, leaving space for the header and input */
+    overflow-y: auto; /* Add scrollbar for overflowing messages */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Style for the chat input area to ensure it doesn't affect the widget height */
+.p2p-chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Ensure messages don't cause stretching */
+#p2p-chat-box .message {
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    margin-left: 30px; /* Add a gap on the left for bot messages */
+    margin-right: 40px; /* Ensure the bot message doesn't stretch too far to the right */
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .p2p-chat-window {
+        grid-column: span 1;
+        width: 100%;
+        height: 400px;
+    }
+
+    .p2p-chat-window.p2p-chat-expanded {
+        width: 100vw;
+        height: 100vh;
+        max-width: 1200px;
+        max-height: 800px;
+        padding: 20px;
+    }
+
+    .p2p-chat-window.p2p-chat-expanded .p2p-chat-container {
+        max-height: calc(100% - 40px);
+    }
+
+    #p2p-emoji-picker {
+        bottom: 60px;
+        left: 5px;
+        width: 90%;
+        max-height: 200px;
+    }
+}
+
+/* ==========================================================================
+   ==========================================================================
+   ==========================================================================
+   =============================================================== ██  ██ ===
+   =============================================================== ██  ██ ===
+   Section 11 Q&A Bot Chat Widget ================================ ██  ██ ===
+   Make Q&A Bot Chat & Add It To Q&A Tab ========================= ██  ██ ===
+   =============================================================== ██  ██ ===
+   ==========================================================================
+   ==========================================================================
+   ========================================================================== */
+
+/* Q&A Bot Chat Widget Outer Window (Single Outer Layer) */
+.qna-bot-chat-window {
+    filter: none !important;
+    opacity: 1 !important;
+    transition: filter 0.3s ease;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
+    border-radius: 80px; /* Matches the ByteChat widget */
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+        0 0 30px rgba(29, 78, 216, 0.7); /* Glowing blue shadow */
+    padding: 40px; /* Matches ByteChat's outer padding */
+    border: 2px solid rgba(29, 78, 216, 0.5); /* Blue glowing border for divider effect */
+    overflow: auto;
+    z-index: 2;
+    min-width: 0;
+    min-height: 0;
+    box-sizing: border-box;
+    display: flex; /* Ensure the inner container stretches properly */
+    flex-direction: column;
+}
+
+.qna-bot-chat-window:hover,
+.qna-bot-chat-window:focus-within {
+    filter: none !important;
+    opacity: 1 !important;
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+        0 0 60px rgba(70, 120, 255, 1); /* Enhanced glow on hover */
+}
+
+.dashboard-container.blurred .qna-bot-chat-window {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* Inner Container for Chat */
+.qna-bot-chat-window .qna-bot-chat-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Ensure it takes up available space */
+    height: 100%;
+    max-height: calc(100% - 60px); /* Preserve existing max-height */
+    background: linear-gradient(145deg, #808080, #606060); /* Frosted gradient */
+    border-radius: 50px; /* Matches ByteChat's inner border-radius */
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+        0 0 30px rgba(29, 78, 216, 0.7); /* Subtle inner shadow */
+    padding: 30px; /* Matches ByteChat's inner padding */
+}
+
+/* Style the Title Inside the Inner Container */
+.qna-bot-chat-container h3 {
+    margin: 0 0 20px 0;
+    padding: 0;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 3em; /* Matches ByteChat's larger title size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Chat Box Background and Height */
+.qna-bot-chat-window #qna-bot-chat-box {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 45px; /* Preserve existing padding */
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 300px; /* Preserve existing min-height */
+    max-height: 1050px; /* Preserve existing max-height */
+}
+
+/* Message Styling */
+.qna-bot-chat-window .message {
+    max-width: 70%;
+    padding: 12px 20px; /* Preserve existing padding */
+    border-radius: 25px;
+    word-wrap: break-word;
+    font-size: 1em !important;
+    line-height: 1.4;
+    margin: 10px 0;
+    background: linear-gradient(145deg, #606060, #404040); /* Frosted gradient for bot messages */
+    box-shadow: 
+        5px 5px 15px rgba(0, 0, 0, 0.4),
+        -5px -5px 15px rgba(255, 255, 255, 0.15),
+        inset 2px 2px 5px rgba(0, 0, 0, 0.25),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.35);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* Add the frosted glass overlay effect to messages */
+.qna-bot-chat-window .message::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    border-radius: 25px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Override text-shadow for chat messages to make text sharper */
+.qna-bot-chat-window .message .content,
+.qna-bot-chat-window .message .timestamp {
+    text-shadow: none !important;
+}
+
+/* Bot Message Styling */
+.qna-bot-chat-window .message.bot {
+    align-self: flex-start;
+    background: linear-gradient(145deg, #606060, #404040);
+    margin-left: 35px;
+    margin-right: 40px;
+    margin-bottom: 35px;
+    border-radius: 35px; /* Matches user message bubble size */
+    font-size: 35px !important; /* Matches user message font size */
+}
+
+/* User Message Styling */
+.qna-bot-chat-window .message.user {
+    align-self: flex-end;
+    background: linear-gradient(145deg, #1E3A8A, #162E6F);
+    color: #E0E0E0;
+    margin-right: 30px;
+    margin-left: 40px;
+    margin-bottom: 25px;
+    line-height: 1.4;
+    font-size: 35px !important;
+    border-radius: 35px;
+}
+
+/* Username and Content Styling */
+.qna-bot-chat-window .message .username,
+.qna-bot-chat-window .message .content {
+    display: inline-block;
+}
+
+.qna-bot-chat-window .message .username {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.qna-bot-chat-window .message .content {
+    font-size: 1em;
+}
+
+/* Timestamp Styling */
+.qna-bot-chat-window .message .timestamp {
+    font-size: 0.8em;
+    color: whitesmoke;
+    align-self: flex-end;
+    margin-top: 20px;
+}
+
+/* Align Username for User Messages */
+.qna-bot-chat-window #qna-bot-chat-box .message.user .username {
+    align-self: flex-end;
+    text-align: right;
+    margin-right: 5px;
+}
+
+/* Input Container */
+.qna-bot-chat-window .qna-bot-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(145deg, #808080, #606060);
+    border-radius: 25px;
+    padding: 10px 15px; /* Preserve existing padding */
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.3),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+        0 0 20px rgba(29, 78, 216, 0.7);
+    margin-top: 10px;
+}
+
+/* Input Field */
+.qna-bot-chat-window #qna-bot-user-input {
+    flex: 1;
+    background: linear-gradient(145deg, #606060, #404040);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px; /* Preserve existing padding */
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15),
+        0 0 10px rgba(29, 78, 216, 0.2);
+    transition: box-shadow 0.2s;
+}
+
+.qna-bot-chat-window #qna-bot-user-input:focus {
+    outline: none;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15),
+        0 0 20px rgba(29, 78, 216, 0.7);
+}
+
+/* Placeholder Styling */
+.qna-bot-chat-window #qna-bot-user-input::placeholder {
+    color: #A0A0A0;
+    opacity: 0.8;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+}
+
+/* First Message Animation */
+.qna-bot-chat-window #qna-bot-chat-box .message:first-child {
+    animation: bubbleUp 0.5s ease-out forwards;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Widget Container */
+.circle-graph-3d {
+    position: relative;
+    width: 290px;
+    height: 1450px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    perspective: 10000px;
+}
+
+/* Skeuomorphic Base Disc */
+.circle-3d {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 60%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
+    transform: rotateX(50deg);
+    transform-style: preserve-3d;
+    box-shadow: 
+    0 0 20px 6px rgba(30, 58, 138, 0.9),  /* outer blue glow */
+    inset 0 0 12px rgba(0, 0, 0, 0.2);     /* inner subtle depth */
+}
+
+/* Glowing 3D Filled Segment (Blue) */
+.circle-fill-3d {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+        #1E3A8A 0% var(--percent),
+        transparent var(--percent) 100%
+    ),
+    linear-gradient(135deg, rgba(255,255,255,0.3) 0%, #404040 100%);  /* gray area with lighting effect */
+    transform: translateZ(40px);
+    clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.circle-fill-3d::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+}
+
+/* Label Area */
+.chart-labels {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 11.6px;
+}
+
+/* Glowing Percentage Label */
+.label-filled {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.35em;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 20px;
+    animation: glow 4s infinite ease-in-out;
+}
+
+/* Optional if you want to show the remaining segment label separately */
+.label-remaining {
+    color: #f7d154;
+}
+

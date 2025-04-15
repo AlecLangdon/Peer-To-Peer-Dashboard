@@ -23,7 +23,7 @@ main {
 }
 
    body {
-    background: linear-gradient(to bottom left, #909090, #505050);
+    background: linear-gradient(145deg, #404040,#606060, #404040); /* Frosted gradient */
     color: #E0E0E0;
     font-family: 'Orbitron', 'Arial', sans-serif;
     text-shadow: 0 0 10px rgba(29, 78, 216, 0.8);
@@ -310,7 +310,7 @@ body.light-theme .tab.active {
 /* Widget */
 .widget {
     background: linear-gradient(225deg, #606060, #B0B0B0);
-    border-radius: 45px;
+    border-radius: 80px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 
         24px 24px 48px rgba(0, 0, 0, 0.4),
@@ -318,7 +318,7 @@ body.light-theme .tab.active {
         inset 9px 9px 18px rgba(0, 0, 0, 0.25),
         inset -9px -9px 18px rgba(255, 255, 255, 0.35),
         0 0 60px rgba(29, 78, 216, 0.7);
-    padding: 45px;
+    padding: 40px;
     transition: box-shadow 0.3s ease-in-out, opacity 0.5s ease-in-out;
     overflow: auto;
     opacity: 0; /* Start with opacity 0 for the pop animation */
@@ -330,6 +330,29 @@ body.light-theme .tab.active {
     height: 100%; /* Ensure the widget takes up the full height of its grid area */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
+
+/* .widget { FROSTED
+    background: linear-gradient(145deg, #B0B0B0, #808080);  
+    border-radius: 80px;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        18px 18px 36px rgba(0, 0, 0, 0.4),
+        -18px -18px 36px rgba(255, 255, 255, 0.15),
+        inset 6px 6px 15px rgba(0, 0, 0, 0.25),
+        inset -6px -6px 15px rgba(255, 255, 255, 0.35),
+        0 0 60px rgba(29, 78, 216, 0.7);
+    padding: 45px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, opacity 0.5s ease-in-out;
+    overflow: auto;
+    opacity: 0;
+    transform: scale(0.8);
+    will-change: transform, opacity;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}*/
 
 /* Ensure all widgets (except ByteChat Live Messaging) use flexbox to position buttons at the bottom */
 .widget:not([style*="grid-column: 2 / 6"][style*="grid-row: 3 / 5"]) {
@@ -462,6 +485,7 @@ body.light-theme .tab.active {
     pointer-events: none;
     animation: gloss 2.5s infinite alternate;
 }
+
 
 .action-button:hover {
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.6) 0%, rgba(255, 255, 255, 0.4) 100%);
@@ -643,7 +667,7 @@ body.light-theme .tab.active {
     height: 100%;
     max-height: calc(100% - 60px);
     background: linear-gradient(225deg, #606060, #B0B0B0);
-    border-radius: 22.5px;
+    border-radius: 50px;
     box-shadow: 
         inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
         inset -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
@@ -667,7 +691,7 @@ body.light-theme .tab.active {
     overflow-y: auto;
     padding: 45px;
     background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
+    border-radius: 25px;
     margin-bottom: 0;
     display: flex;
     flex-direction: column-reverse;
@@ -699,7 +723,7 @@ body.light-theme .tab.active {
     opacity: 1 !important;
 }
 
-/* ByteChat Live Messaging All Bubble Top Shade */
+/* ByteChat Live Messaging All Bubble Top Shade ????????????????????????????????????????????????????????????????*/
 .message::after {
     content: '';
     position: absolute;
@@ -861,12 +885,12 @@ body.light-theme .tab.active {
     height: 100%;
     position: relative;
     background: linear-gradient(225deg, #606060, #B0B0B0);
-    border-radius: 20px;
+    border-radius: 80px;
     box-shadow: 
         inset 5px 5px 10px rgba(0, 0, 0, 0.3),
         inset -5px -5px 10px rgba(255, 255, 255, 0.2),
         0 0 30px rgba(29, 78, 216, 0.7);
-    padding: 20px;
+    padding: 40px;
     overflow: auto;
     z-index: 2;
     min-width: 0;
@@ -1152,93 +1176,7 @@ body.light-theme .tab.active {
     overflow: hidden;
 }
 
-/* Support Metrics Widget (Circle Graph) */
-#support-metrics {
-    margin-bottom: 40px;
-}
 
-/* Circle Graph (Support Metrics) */
-.circle-graph {
-    position: relative;
-    width: 180px;
-    height: 180px;
-    margin: 15px auto;
-}
-
-#circle-1, #storage-circle, #cloud-circle {
-    width: 180px;
-    height: 180px;
-    --percent: 75%;
-    background: conic-gradient(
-        #FFD700 0% 75%,
-        transparent 75% 100%
-    );
-}
-
-#circle-2 {
-    width: 144px;
-    height: 144px;
-    --percent: 62.5%;
-    background: conic-gradient(
-        #00CED1 0% 62.5%,
-        transparent 62.5% 100%
-    );
-}
-
-#circle-3 {
-    width: 108px;
-    height: 108px;
-    --percent: 50%;
-    background: conic-gradient(
-        #6A5ACD 0% 50%,
-        transparent 50% 100%
-    );
-}
-
-.center-circle {
-    width: 72px;
-    height: 72px;
-    background: linear-gradient(145deg, #404040, #606060);
-    box-shadow: 
-        inset 3px 3px 8px rgba(0, 0, 0, 0.4),
-        inset -3px -3px 8px rgba(255, 255, 255, 0.15);
-    flex-direction: column;
-    font-size: 0.9em;
-    text-align: center;
-}
-
-.center-circle i {
-    font-size: 1.5em;
-    margin-bottom: 5px;
-}
-
-.circle-label {
-    font-size: 1.2em;
-    color: #E0E0E0;
-    text-shadow: none;
-}
-
-.graph-legend {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    margin-top: 8px;
-}
-
-.graph-legend p {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 1em;
-    margin: 5px 0;
-}
-
-.legend-color {
-    width: 15px;
-    height: 15px;
-    display: inline-block;
-    border-radius: 5px;
-}
 
 /* Graph (General Graph Styles Used in Dashboard Tab) */
 .graph {
@@ -1402,9 +1340,6 @@ body.light-theme .tab.active {
     font-size: 1em;
 }
 
-
-
-
 /* ==========================================================================
    ==========================================================================
    ==========================================================================
@@ -1424,6 +1359,18 @@ body.light-theme .tab.active {
     gap: 80px;
     padding: 70px;
     height: 100%; /* Ensure the container takes the full height of its parent */
+    box-sizing: border-box;
+}
+
+/* P2P Tab Specific Grid Layout */
+#p2p .dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 300px 600px 500px 400px; /* Fixed heights for each row */
+    gap: 80px;
+    padding: 70px;
+    height: 100; /* Allow the container to size based on content */
+    min-height: 100%; /* Ensure it takes at least the full viewport height */
     box-sizing: border-box;
 }
 
@@ -1505,6 +1452,9 @@ body.light-theme .tab.active {
     display: flex;
     flex-direction: column;
     transition: box-shadow 0.3s ease-in-out;
+    height: 980px;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .p2p-insights-container:hover {
@@ -1828,7 +1778,7 @@ body.light-theme .tab.active {
     font-size: 1em;
 }
 
-/* Active P2P Connections Widget - Updated 2-Column Layout */
+/* Active P2P Connections Widget - Updated 2-Column Layout rounded */
 .active-p2p-connections {
     display: flex;
     flex-direction: column;
@@ -1836,7 +1786,7 @@ body.light-theme .tab.active {
     box-sizing: border-box;
     overflow: hidden;
     background: linear-gradient(225deg, #606060, #B0B0B0);
-    border-radius: 22.5px;
+    border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 
         12px 12px 24px rgba(0, 0, 0, 0.4),
@@ -1861,7 +1811,7 @@ body.light-theme .tab.active {
     display: flex;
     flex-direction: column;
     background: linear-gradient(145deg, #808080, #606060);
-    border-radius: 22.5px;
+    border-radius: 50px;
     padding: 20px;
     box-shadow: 
         inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
@@ -1877,8 +1827,9 @@ body.light-theme .tab.active {
     display: flex;
     flex-direction: column;
     background: linear-gradient(145deg, #808080, #606060);
-    border-radius: 22.5px;
+    border-radius: 50px;
     padding: 20px;
+    font-size: 20;
     box-shadow: 
         inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
         inset -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
@@ -1896,11 +1847,15 @@ body.light-theme .tab.active {
     min-height: 0;
 }
 
+/* RECENT TRANSFERS HIGHT TRANSACTIONS **************************************************************************************************************/
+/* RECENT TRANSFERS HIGHT TRANSACTIONS **************************************************************************************************************/
+/* RECENT TRANSFERS HIGHT TRANSACTIONS **************************************************************************************************************/
+/* RECENT TRANSFERS HIGHT TRANSACTIONS **************************************************************************************************************/
 .active-p2p-connections .transaction-log ul#transaction-list {
     list-style: none;
     padding: 20px 0 0 0;
     margin: 40px 0 0 0;
-    max-height: 650px;
+    max-height: 920px;
     overflow-y: auto;
     box-sizing: border-box;
     display: flex;
@@ -1909,6 +1864,7 @@ body.light-theme .tab.active {
     min-height: 0;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
+    font-size: 28px;
 }
 
 .active-p2p-connections:hover {
@@ -2718,7 +2674,7 @@ body.light-theme .tab.active {
    ==========================================================================
    =============================================================== ██████ ===
    ===============================================================     ██ ===
-   Section 7: File Transfer, Cloud, and Security Tab Styles ======    ██  ===
+   Section 7: File Transfer, and Security Tab Styles ======    ██  ===
    File Transfer Tab Styles ======================================   ██   ===
    ===============================================================  ██    ===
    =============================================================== ██     ===
@@ -2772,23 +2728,6 @@ body.light-theme .tab.active {
 .transfer-list p {
     margin: 5px 0;
     font-size: 1em;
-}
-
-/* ==========================================================================
-   Cloud Tab Styles
-   ========================================================================== */
-/* Activity List for Cloud Tab */
-.activity-list {
-    padding: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 8px;
-    max-height: 200px;
-    overflow-y: auto;
-}
-
-.activity-list p {
-    margin: 3px 0;
-    font-size: 0.9em;
 }
 
 /* ==========================================================================
@@ -2901,41 +2840,6 @@ body.light-theme .tab.active {
         min-width: 70px;
     }
 
-    .circle-graph {
-        width: 120px;
-        height: 120px;
-    }
-
-    #circle-1, #storage-circle, #cloud-circle {
-        width: 120px;
-        height: 120px;
-    }
-
-    #circle-2 {
-        width: 96px;
-        height: 96px;
-    }
-
-    #circle-3 {
-        width: 72px;
-        height: 72px;
-    }
-
-    .center-circle {
-        width: 48px;
-        height: 48px;
-        font-size: 0.6em;
-    }
-
-    .center-circle i {
-        font-size: 1em;
-        margin-bottom: 3px;
-    }
-
-    .circle-label {
-        font-size: 0.8em;
-    }
-
     .graph-legend p {
         font-size: 0.7em;
     }
@@ -3041,6 +2945,7 @@ body.light-theme .tab.active {
     gap: 10px;
     max-height: calc(100% - 60px); /* Account for h3 and button */
     overflow: hidden;
+    border-radius: 10px;
 }
 
 .faq-preview .qna-card {
@@ -3095,6 +3000,18 @@ body.light-theme .tab.active {
     margin: 0;
     font-size: 0.9em;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Bot Chat Widget */
 .bot-chat .bot-chat-container {
@@ -3235,6 +3152,23 @@ body.light-theme .tab.active {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* FAQ Preview Widget */
 .faq-preview .faq-preview-cards {
     display: flex;
@@ -3349,12 +3283,634 @@ body.light-theme .tab.active {
 /* ==========================================================================
    ==========================================================================
    ==========================================================================
-   ========================================================== ██  ███████ ===
-   ========================================================== ██  ██   ██ ===
-   Section 10 MOBILE RESPONSIVENESS ========================= ██  ██   ██ ===
-   Make layout mobile-friendly ============================== ██  ██   ██ ===
-   ========================================================== ██  ███████ ===
+   =========================================================== ██  ██████ ===
+   =========================================================== ██  ██  ██ ===
+   Section 10 P2P ByteChat Widget ============================ ██  ██  ██ ===
+   Make P2P Widget A Twin As On Main DashBoardy ============== ██  ██  ██ ===
+   =========================================================== ██  ██████ ===
    ==========================================================================
    ==========================================================================
    ========================================================================== */
+
+/* P2P BytChat Live Messesing Tittle */
+.p2p-chat-container h3 {
+    margin-bottom: 15px;
+    padding-bottom: 7.5px;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.1);
+    font-size: 2.25em;
+    animation: glow 4s infinite ease-in-out;
+    align-self: flex-start;
+    margin-top: 0;
+}
+
+/* P2P ByteChat Live Messaging Widget Border and roundedness*/
+.p2p-chat-window {
+    filter: none !important;
+    opacity: 1 !important;
+    transition: filter 0.3s ease;
+    width: 100%;
+    max-height: 1550px;
+    position: relative;
+    background: linear-gradient(225deg, #606060, #B0B0B0);
+    border-radius: 80px;
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+        0 0 30px rgba(29, 78, 216, 0.7);
+    padding: 40px;
+    overflow: auto;
+    z-index: 2;
+    min-width: 0;
+    min-height: 0;
+}
+/* P2P BytChat Live Messesing Whole Color Widget */
+.p2p-chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-height: calc(100% - 60px);
+    background: linear-gradient(225deg, #606060, #B0B0B0);
+    border-radius: 50px;
+    box-shadow: 
+        inset 7.5px 7.5px 15px rgba(0, 0, 0, 0.3),
+        inset -7.5px -7.5px 15px rgba(255, 255, 255, 0.2),
+        0 0 45px rgba(29, 78, 216, 0.7);
+    padding: 30px;
+}
+
+/* P2P BytChat Live Messesing Inside Color */
+#p2p-chat-box {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    padding: 45px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column-reverse;
+    min-height: 300px;
+    max-height: 100%;
+}
+
+/* P2P BytChat Live Messesing Outside Type Your Message Bar But Buttons Color */
+.p2p-input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(225deg, #606060, #B0B0B0);
+    border-radius: 25px;
+    padding: 10px 15px;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.3),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+        0 0 20px rgba(29, 78, 216, 0.7);
+    margin-top: 10px;
+}
+
+/* P2P BytChat Live Messesing Type Your Message Bar Color */
+#p2p-user-input {
+    flex: 1;
+    background: linear-gradient(145deg, #404040, #606060);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 15px;
+    color: #E0E0E0;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+    font-size: 1em;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.15),
+        0 0 10px rgba(29, 78, 216, 0.2);
+    transition: box-shadow 0.2s;
+}
+
+/* P2P BytChat Live Messesing Type Your Message Text Color */
+#p2p-user-input::placeholder {
+    color: #A0A0A0;
+    opacity: 0.8;
+    font-family: 'Orbitron', 'Arial', sans-serif;
+}
+
+/* P2P BytChat Live Messesing File Link Color */
+#p2p-chat-box a.file-link {
+    color: #1e90ff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.p2p-chat-window:hover,
+.p2p-chat-window:focus-within {
+    filter: none !important;
+    opacity: 1 !important;
+    box-shadow: 
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2),
+        0 0 60px rgba(70, 120, 255, 1);
+}
+
+.widget.p2p-chat-window:hover {
+    opacity: 1 !important;
+    filter: none !important;
+}
+
+.dashboard-container.blurred .p2p-chat-window {
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+.widget[style*="grid-column: 2 / 6"][style*="grid-row: 2 / 4"] {
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* P2P Network Insights Widget */
+.widget[style*="grid-column: 1 / 3"][style*="grid-row: 4 / 9"] {
+    height: 980px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+#p2p-chat-box .message:first-child {
+    animation: bubbleUp 0.5s ease-out forwards;
+}
+
+#p2p-user-input:focus {
+    outline: none;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+        inset -2px -2px 5px rgba(255, 255, 257, 0.15),
+        0 0 20px rgba(29, 78, 216, 0.7);
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+.p2p-expand-button#p2p-expand-chat {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 6px;
+    font-size: 0.85em;
+    z-index: 1002;
+}
+
+.p2p-chat-window.p2p-chat-expanded .p2p-expand-button#p2p-expand-chat {
+    display: none;
+}
+
+.p2p-chat-window.p2p-chat-expanded .p2p-expand-button#p2p-expand-chat i::before {
+    content: "\f066";
+}
+
+.p2p-close-button#p2p-close-chat {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 8px;
+    font-size: 1em;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    box-shadow: 
+        0 5px 10px rgba(0, 0, 0, 0.3),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    display: none;
+    z-index: 1002;
+}
+
+.p2p-close-button#p2p-close-chat:hover {
+    background: linear-gradient(135deg, #1E3A8A, #162E6F);
+}
+
+.p2p-chat-window.p2p-chat-expanded .p2p-close-button#p2p-close-chat {
+    display: block;
+}
+
+.p2p-chat-window.p2p-chat-expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    max-width: 3200px;
+    max-height: 1920px;
+    z-index: 1001;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 
+        0 0 40px rgba(29, 78, 216, 0.9),
+        inset 5px 5px 10px rgba(0, 0, 0, 0.3),
+        inset -5px -5px 10px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(to top right, #4A4A4A, #D3D3D3);
+    filter: none !important;
+}
+
+.p2p-chat-window.p2p-chat-expanded .p2p-chat-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.p2p-chat-window.p2p-chat-expanded #p2p-chat-box {
+    min-height: 400px;
+    max-height: calc(100% - 120px);
+    overflow-y: auto;
+}
+
+.p2p-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+    display: none;
+}
+
+.p2p-overlay.active {
+    display: block;
+}
+
+#p2p-emoji-picker {
+    position: absolute;
+    bottom: 105px;
+    left: 15px;
+    z-index: 1000;
+    background: linear-gradient(225deg, #606060, #B0B0B0);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 37.5px;
+    box-shadow: 
+        7.5px 7.5px 22.5px rgba(0, 0, 0, 0.4),
+        -7.5px -7.5px 22.5px rgba(255, 250, 255, 0.15),
+        inset 3px 3px 7.5px rgba(0, 0, 0, 0.25),
+        inset -3px -3px 7.5px rgba(255, 255, 255, 0.35),
+        0 0 45px rgba(29, 78, 216, 0.7);
+    padding: 22.5px;
+    max-height: 450px;
+    overflow-y: auto;
+    display: none;
+    flex-direction: column;
+}
+
+/* Style specifically for the P2P ByteChat Live Messaging widget */
+.p2p-chat-widget {
+    width: 300px; /* Match the width from the second screenshot */
+    max-height: 100px; /* Fixed height to match the compact size in the second screenshot */
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0; /* Prevent the widget from shrinking */
+    flex-grow: 0; /* Prevent the widget from growing */
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden; /* Ensure content doesn't overflow outside the widget */
+}
+
+/* Style for the chat box inside the widget AND THE HIGHT*/
+#p2p-chat-box {
+    flex: 1; /* Take up the available space within the widget */
+    max-height: 1350px; /* Adjust to fit within the widget, leaving space for the header and input */
+    overflow-y: auto; /* Add scrollbar for overflowing messages */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Style for the chat input area to ensure it doesn't affect the widget height */
+.p2p-chat-input {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Ensure messages don't cause stretching */
+#p2p-chat-box .message {
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    margin-left: 30px; /* Add a gap on the left for bot messages */
+    margin-right: 40px; /* Ensure the bot message doesn't stretch too far to the right */
+    margin-bottom: 40px;
+}
+
+@media (max-width: 768px) {
+    .p2p-chat-window {
+        grid-column: span 1;
+        width: 100%;
+        height: 400px;
+    }
+
+    .p2p-chat-window.p2p-chat-expanded {
+        width: 100vw;
+        height: 100vh;
+        max-width: 1200px;
+        max-height: 800px;
+        padding: 20px;
+    }
+
+    .p2p-chat-window.p2p-chat-expanded .p2p-chat-container {
+        max-height: calc(100% - 40px);
+    }
+
+    #p2p-emoji-picker {
+        bottom: 60px;
+        left: 5px;
+        width: 90%;
+        max-height: 200px;
+    }
+}
+
+/* ==========================================================================
+   ==========================================================================
+   ==========================================================================
+   =============================================================== ██  ██ ===
+   =============================================================== ██  ██ ===
+   Section 11 Q&A Bot Chat Widget ================================ ██  ██ ===
+   Make Q&A Bot Chat & Add It To Q&A Tab ========================= ██  ██ ===
+   =============================================================== ██  ██ ===
+   ==========================================================================
+   ==========================================================================
+   ========================================================================== */
+
+/* Bot Chat Widget */
+.qna-bot-chat .qna-bot-chat-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 60px); /* Account for h3 */
+    gap: 10px;
+}
+
+/* Bot Chat Widget BackGround and HIGHT*/
+.qna-bot-chat #qna-bot-chat-box {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2), inset -5px -5px 10px rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: flex-end; /* Align messages to the bottom */
+    flex-direction: column;
+    max-height: 1050px;
+}
+
+/* Bot Chat Widget ////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+#qna-bot-chat-box .message {
+    padding: 10px; /* Adds a gap inside the message bubble */
+}
+/* Bot Chat Wighet #@////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+#qna-bot-chat-box .message .content {
+    padding: 0 10px; /* Adds a gap only around the message text */
+}
+
+/*???????????????????????????????????????????*/
+.qna-bot-chat .message {
+    max-width: 70%;
+    padding: 12px 20px;
+    border-radius: 25px;
+    word-wrap: break-word;
+    font-size: 1em !important;
+    line-height: 1.4;
+    margin: 10px 0;
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.5),
+        inset 0 2px 6px rgba(255, 255, 255, 0.6);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    filter: none !important;
+    opacity: 1 !important;
+}
+
+/* BotChat Bot Grey Message Bubble*/
+.qna-bot-chat .message.bot {
+    max-width: 70%;
+    padding: 12px 20px;
+    border-radius: 35px;
+    word-wrap: break-word;
+    font-size: 35px !important;
+    line-height: 1.4;
+    margin: 10px 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
+    box-shadow: 
+        0 10px 20px rgba(0, 0, 0, 0.5),
+        inset 0 2px 6px rgba(255, 255, 255, 0.6);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    filter: none !important;
+    opacity: 1 !important;
+    margin-left: 35px; /* Add a gap on the left for bot messages */
+    margin-right: 40px; /* Ensure the bot message doesn't stretch too far to the right */
+    margin-bottom: 35px;
+}
+
+/* BotChat User Blue Message Bubble*/
+.qna-bot-chat .message.user {
+    background: linear-gradient(145deg, #1E3A8A, #162E6F); /* Glossy blue for user */
+    align-self: flex-end;
+    color: #ffffff;
+    margin-right: 30px; /* Add a gap on the right for user messages */
+    margin-left: 40px; /* Ensure the user message doesn't stretch too far to the left */
+    margin-bottom: 25px;
+    line-height: 1.4;
+    font-size: 35px !important;
+    border-radius: 35px;
+}
+
+.qna-bot-chat .message .username,
+.qna-bot-chat .message .content {
+    display: inline-block;
+}
+
+.qna-bot-chat .message .username {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.qna-bot-chat .message .content {
+    font-size: 1em;
+}
+
+.qna-bot-chat .message .timestamp {
+    font-size: 0.8em;
+    color: whitesmoke;
+    align-self: flex-end;
+    margin-top: 20px;
+}
+
+.qna-bot-chat .input-container {
+    display: flex;
+    gap: 10px;
+}
+
+.qna-bot-chat #qna-bot-user-input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    background: #4a4a4a;
+    color: #ffffff;
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.2), inset -5px -5px 10px rgba(255, 255, 255, 0.1);
+}
+
+.qna-bot-chat #qna-bot-user-input:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#qna-bot-chat-box .message.user .username {
+    align-self: flex-end;
+    text-align: right;
+    margin-right: 5px; /* Adds a small gap between the username and timestamp */
+}
+
+.qna-bot-input-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(225deg, #606060, #B0B0B0);
+    border-radius: 25px;
+    padding: 10px 15px;
+    box-shadow: 
+        inset 2px 2px 5px rgba(0, 0, 0, 0.3),
+        inset -2px -2px 5px rgba(255, 255, 255, 0.2),
+        0 0 20px rgba(29, 78, 216, 0.7);
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Widget Container */
+.circle-graph-3d {
+    position: relative;
+    width: 290px;
+    height: 1450px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    perspective: 10000px;
+}
+
+/* Skeuomorphic Base Disc */
+.circle-3d {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 60%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0.3) 100%);
+    transform: rotateX(50deg);
+    transform-style: preserve-3d;
+    box-shadow: 
+    0 0 20px 6px rgba(30, 58, 138, 0.9),  /* outer blue glow */
+    inset 0 0 12px rgba(0, 0, 0, 0.2);     /* inner subtle depth */
+}
+
+/* Glowing 3D Filled Segment (Blue) */
+.circle-fill-3d {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(
+        #1E3A8A 0% var(--percent),
+        transparent var(--percent) 100%
+    ),
+    linear-gradient(135deg, rgba(255,255,255,0.3) 0%, #404040 100%);  /* gray area with lighting effect */
+    transform: translateZ(40px);
+    clip-path: polygon(50% 50%, 50% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.circle-fill-3d::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+    pointer-events: none;
+}
+
+/* Label Area */
+.chart-labels {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 11.6px;
+}
+
+/* Glowing Percentage Label */
+.label-filled {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.35em;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 20px;
+    animation: glow 4s infinite ease-in-out;
+}
+
+/* Optional if you want to show the remaining segment label separately */
+.label-remaining {
+    color: #f7d154;
+}
 

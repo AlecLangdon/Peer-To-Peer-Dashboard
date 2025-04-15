@@ -7,78 +7,1132 @@
     "status": "Sent"
   },
   {
-    "type": "bot",
-    "userName": "ByteBot",
-    "content": "I'm here to assist! What do you need help with?",
-    "timestamp": "[22:11 PM]",
-    "status": "Sent"
-  },
-  {
     "type": "user",
     "userName": "User",
-    "content": "what can you do",
-    "timestamp": "[22:11 PM]",
-    "status": "Sent"
+    "content": "WHAT IS THE TIME",
+    "timestamp": "[13:10 PM]",
+    "status": "Sent",
+    "messageId": "User-1744485040935-WHAT IS THE TIME"
   },
   {
     "type": "bot",
     "userName": "ByteBot",
-    "content": "Hello! How can I assist you today, User?",
-    "timestamp": "[22:11 PM]",
-    "status": "Sent"
-  },
-  {
-    "type": "user",
-    "userName": "User",
-    "content": "HIUYTFGVHB",
-    "timestamp": "[22:30 PM]",
-    "status": "Sent"
-  },
-  {
-    "type": "bot",
-    "userName": "ByteBot",
-    "content": "Hello! How can I assist you today, User?",
-    "timestamp": "[22:30 PM]",
-    "status": "Sent"
-  },
-  {
-    "type": "user",
-    "userName": "User",
-    "content": "🙌",
-    "timestamp": "[22:31 PM]",
-    "status": "Sent"
-  },
-  {
-    "type": "bot",
-    "userName": "ByteBot",
-    "content": "Hello! How can I assist you today, User?",
-    "timestamp": "[22:31 PM]",
-    "status": "Sent"
-  },
-  {
-    "type": "file",
-    "userName": "User",
-    "content": {
-      "fileId": "1744000272105-dydw9vvri",
-      "fileName": "1378252 (1).jpg",
-      "filePath": "/uploads/1744000272090-www3rp4a1.jpg",
-      "isImage": true
-    },
-    "timestamp": "[22:31 PM]",
-    "status": "Sent"
+    "content": "The current time is 1:10:41 PM.",
+    "timestamp": "[13:10 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485041457-The current time is 1:10:41 PM."
   },
   {
     "type": "user",
     "userName": "User",
     "content": "HELP",
-    "timestamp": "[23:13 PM]",
-    "status": "Sent"
+    "timestamp": "[13:11 PM]",
+    "status": "Sent",
+    "messageId": "User-1744485062290-HELP"
   },
   {
     "type": "bot",
     "userName": "ByteBot",
     "content": "I'm here to assist! What do you need help with?",
-    "timestamp": "[23:13 PM]",
-    "status": "Sent"
+    "timestamp": "[13:11 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485062801-I'm here to assist! What do you need help with?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "HELP",
+    "timestamp": "[13:11 PM]",
+    "status": "Sent",
+    "messageId": "User-1744485112041-HELP"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "I'm here to assist! What do you need help with?",
+    "timestamp": "[13:11 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485112564-I'm here to assist! What do you need help with?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "HI",
+    "timestamp": "[13:11 PM]",
+    "status": "Sent",
+    "messageId": "User-1744485118255-HI"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[13:11 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485118777-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "time",
+    "timestamp": "[13:18 PM]",
+    "status": "Sent",
+    "messageId": "User-1744485481314-time"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "The current time is 1:18:01 PM.",
+    "timestamp": "[13:18 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485481821-The current time is 1:18:01 PM."
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "The current time is 1:18:01 PM.",
+    "timestamp": "[13:18 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485481822-The current time is 1:18:01 PM."
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[13:18 PM]",
+    "status": "Sent",
+    "messageId": "User-1744485505807-hi"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[13:18 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485506315-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[13:18 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485506314-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "jjjjjhjhjhjjh",
+    "timestamp": "[13:18 PM]",
+    "status": "Sent",
+    "messageId": "User-1744485522595-jjjjjhjhjhjjh"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[13:18 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485523100-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[13:18 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485523101-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User1",
+    "content": "jjjjjjjjjjjjjjjjjjjjjjjjj",
+    "timestamp": "[13:19 PM]",
+    "status": "Sent",
+    "messageId": "User1-1744485566998-jjjjjjjjjjjjjjjjjjjjjjjjj"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User1?",
+    "timestamp": "[13:19 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485567522-Hello! How can I assist you today, User1?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "jjjjhjjhjhjkjhk",
+    "timestamp": "[13:19 PM]",
+    "status": "Sent",
+    "messageId": "User-1744485584316-jjjjhjjhjhjkjhk"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[13:19 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485584822-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "khakikhkkhkh",
+    "timestamp": "[13:20 PM]",
+    "status": "Sent",
+    "messageId": "User-1744485600866-khakikhkkhkh"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[13:20 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485601374-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User1",
+    "content": "khkhkhkhkhkhkk",
+    "timestamp": "[13:20 PM]",
+    "status": "Sent",
+    "messageId": "User1-1744485608704-khkhkhkhkhkhkk"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User1?",
+    "timestamp": "[13:20 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485609218-Hello! How can I assist you today, User1?"
+  },
+  {
+    "type": "user",
+    "userName": "User1",
+    "content": "jhjhjhjgjhjgjgj",
+    "timestamp": "[13:20 PM]",
+    "status": "Sent",
+    "messageId": "User1-1744485656309-jhjhjhjgjhjgjgj"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User1?",
+    "timestamp": "[13:20 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485656903-Hello! How can I assist you today, User1?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hjhjgjgjgjhjhjgjhgjh",
+    "timestamp": "[13:21 PM]",
+    "status": "Sent",
+    "messageId": "User-1744485670377-hjhjgjgjgjhjhjgjhgjh"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[13:21 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485670907-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User1",
+    "content": "khkhkhhbkjbkbjbkjbkjb",
+    "timestamp": "[13:21 PM]",
+    "status": "Sent",
+    "messageId": "User1-1744485683922-khkhkhhbkjbkbjbkjbkjb"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User1?",
+    "timestamp": "[13:21 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485684509-Hello! How can I assist you today, User1?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "jhkhkkjbhbkbh",
+    "timestamp": "[13:21 PM]",
+    "status": "Sent",
+    "messageId": "User-1744485698818-jhkhkkjbhbkbh"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[13:21 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485699324-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User1",
+    "content": "hkkjbhbkbhbkbkbkb",
+    "timestamp": "[13:21 PM]",
+    "status": "Sent",
+    "messageId": "User1-1744485712238-hkkjbhbkbhbkbkbkb"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User1?",
+    "timestamp": "[13:21 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485712754-Hello! How can I assist you today, User1?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hbkkbbkjbkjbkknknjjk",
+    "timestamp": "[13:22 PM]",
+    "status": "Sent",
+    "messageId": "User-1744485722668-hbkkbbkjbkjbkknknjjk"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[13:22 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744485723217-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "time",
+    "timestamp": "[13:29 PM]",
+    "status": "Sent",
+    "messageId": "User-1744486173372-time"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "The current time is 1:29:33 PM.",
+    "timestamp": "[13:29 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744486173880-The current time is 1:29:33 PM."
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[13:58 PM]",
+    "status": "Sent",
+    "messageId": "ByteBot-[13:58 PM]-Hello! How can I assist you today, User?",
+    "chatType": "p2p"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "what can you do to help me",
+    "timestamp": "[14:02 PM]",
+    "status": "Sent",
+    "messageId": "User-1744488154761-what can you do to help me",
+    "chatType": "dashboard"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "I'm here to assist! What do you need help with?",
+    "timestamp": "[14:02 PM]",
+    "status": "Sent",
+    "messageId": "Bot-[14:02 PM]-what can you do to help me",
+    "chatType": "dashboard"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[14:02 PM]",
+    "status": "Sent",
+    "messageId": "User-1744488170953-hi",
+    "chatType": "p2p"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[14:04 PM]",
+    "status": "Sent",
+    "messageId": "ByteBot-[14:04 PM]-Hello! How can I assist you today, User?",
+    "chatType": "p2p"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "time",
+    "timestamp": "[14:04 PM]",
+    "status": "Sent",
+    "messageId": "User-1744488271497-time",
+    "chatType": "dashboard"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "The current time is 2:04:32 PM.",
+    "timestamp": "[14:04 PM]",
+    "status": "Sent",
+    "messageId": "Bot-[14:04 PM]-time",
+    "chatType": "dashboard"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "help",
+    "timestamp": "[14:04 PM]",
+    "status": "Sent",
+    "messageId": "User-1744488278322-help",
+    "chatType": "p2p"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[14:05 PM]",
+    "status": "Sent",
+    "messageId": "User-1744488336796-hi",
+    "chatType": "dashboard"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[14:05 PM]",
+    "status": "Sent",
+    "messageId": "Bot-[14:05 PM]-hi",
+    "chatType": "dashboard"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[14:05 PM]",
+    "status": "Sent",
+    "messageId": "User-1744488349189-hi",
+    "chatType": "p2p"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[14:11 PM]",
+    "status": "Sent",
+    "messageId": "ByteBot-[14:11 PM]-Hello! How can I assist you today, User?",
+    "chatType": "p2p"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi]",
+    "timestamp": "[14:11 PM]",
+    "status": "Sent",
+    "messageId": "User-1744488674352-hi]",
+    "chatType": "dashboard"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[14:11 PM]",
+    "status": "Sent",
+    "messageId": "Bot-[14:11 PM]-hi]",
+    "chatType": "dashboard"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "🤝",
+    "timestamp": "[14:11 PM]",
+    "status": "Sent",
+    "messageId": "User-1744488678226-🤝",
+    "chatType": "dashboard"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[14:11 PM]",
+    "status": "Sent",
+    "messageId": "Bot-[14:11 PM]-🤝",
+    "chatType": "dashboard"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[14:11 PM]",
+    "status": "Sent",
+    "messageId": "User-1744488685378-hi",
+    "chatType": "p2p"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[14:54 PM]",
+    "status": "Sent",
+    "messageId": "ByteBot-[14:54 PM]-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "👍",
+    "timestamp": "[14:55 PM]",
+    "status": "Sent",
+    "messageId": "User-1744491318402-👍"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "time",
+    "timestamp": "[14:55 PM]",
+    "status": "Sent",
+    "messageId": "User-1744491325958-time"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[14:55 PM]",
+    "status": "Sent",
+    "messageId": "User-1744491331116-hi"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[14:55 PM]",
+    "status": "Sent",
+    "messageId": "User-1744491357765-hi"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "👏",
+    "timestamp": "[14:56 PM]",
+    "status": "Sent",
+    "messageId": "User-1744491361609-👏"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[14:56 PM]",
+    "status": "Sent",
+    "messageId": "User-1744491370692-hi"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "✌️",
+    "timestamp": "[14:56 PM]",
+    "status": "Sent",
+    "messageId": "User-1744491375275-✌️"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[15:00 PM]",
+    "status": "Sent",
+    "messageId": "User-1744491642390-hi"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[15:00 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744491642915-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[15:00 PM]",
+    "status": "Sent",
+    "messageId": "User-1744491647630-hi"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[15:00 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744491648155-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[15:03 PM]",
+    "status": "Sent",
+    "messageId": "User-1744491783957-hi"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[15:03 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744491784478-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "time",
+    "timestamp": "[15:03 PM]",
+    "status": "Sent",
+    "messageId": "User-1744491789662-time"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "The current time is 3:03:10 PM.",
+    "timestamp": "[15:03 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744491790185-The current time is 3:03:10 PM."
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "help",
+    "timestamp": "[15:03 PM]",
+    "status": "Sent",
+    "messageId": "User-1744491819183-help"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "I'm here to assist! What do you need help with?",
+    "timestamp": "[15:03 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744491819702-I'm here to assist! What do you need help with?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "time",
+    "timestamp": "[15:03 PM]",
+    "status": "Sent",
+    "messageId": "User-1744491827243-time"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "The current time is 3:03:47 PM.",
+    "timestamp": "[15:03 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744491827752-The current time is 3:03:47 PM."
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "time",
+    "timestamp": "[15:06 PM]",
+    "status": "Sent",
+    "messageId": "User-1744492010450-time"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "The current time is 3:06:50 PM.",
+    "timestamp": "[15:06 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744492010966-The current time is 3:06:50 PM."
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "help",
+    "timestamp": "[15:06 PM]",
+    "status": "Sent",
+    "messageId": "User-1744492018774-help"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "I'm here to assist! What do you need help with?",
+    "timestamp": "[15:06 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744492019287-I'm here to assist! What do you need help with?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "TIME",
+    "timestamp": "[15:30 PM]",
+    "status": "Sent",
+    "messageId": "User-1744493445506-TIME"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "The current time is 3:30:46 PM.",
+    "timestamp": "[15:30 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744493446024-The current time is 3:30:46 PM."
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "HELP",
+    "timestamp": "[15:30 PM]",
+    "status": "Sent",
+    "messageId": "User-1744493453152-HELP"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "I'm here to assist! What do you need help with?",
+    "timestamp": "[15:30 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744493453658-I'm here to assist! What do you need help with?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "help",
+    "timestamp": "[15:37 PM]",
+    "status": "Sent",
+    "messageId": "User-1744493841543-help"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "I'm here to assist! What do you need help with?",
+    "timestamp": "[15:37 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744493842057-I'm here to assist! What do you need help with?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "help",
+    "timestamp": "[16:02 PM]",
+    "status": "Sent",
+    "messageId": "User-1744495356562-help"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "I'm here to assist! What do you need help with?",
+    "timestamp": "[16:02 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744495357073-I'm here to assist! What do you need help with?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "👍",
+    "timestamp": "[16:02 PM]",
+    "status": "Sent",
+    "messageId": "User-1744495364944-👍"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[16:02 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744495365463-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "h",
+    "timestamp": "[0:48 AM]",
+    "status": "Sent",
+    "messageId": "User-1744526925043-h"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[0:48 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744526925565-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "💀",
+    "timestamp": "[1:24 AM]",
+    "status": "Sent",
+    "messageId": "User-1744529071580-💀"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[1:24 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744529072098-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "K",
+    "timestamp": "[1:28 AM]",
+    "status": "Sent",
+    "messageId": "User-1744529287106-K"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[1:28 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744529287621-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[1:28 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744529287632-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "test",
+    "timestamp": "[18:34 PM]",
+    "status": "Sent",
+    "messageId": "User-1744590873622-test"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[18:34 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744590874366-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[19:25 PM]",
+    "status": "Sent",
+    "messageId": "User-1744593933592-hi"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[19:25 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744593934104-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[22:29 PM]",
+    "status": "Sent",
+    "messageId": "User-1744604956051-hi"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[22:29 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744604956579-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "HIG",
+    "timestamp": "[23:21 PM]",
+    "status": "Sent",
+    "messageId": "User-1744608098661-HIG"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[23:21 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744608099172-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[10:10 AM]",
+    "status": "Sent",
+    "messageId": "User-1744647037439-hi"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[10:10 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744647037974-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "time",
+    "timestamp": "[10:10 AM]",
+    "status": "Sent",
+    "messageId": "User-1744647044760-time"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "The current time is 10:10:45 AM.",
+    "timestamp": "[10:10 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744647045277-The current time is 10:10:45 AM."
+  },
+  {
+    "type": "user",
+    "userName": "Alec Langdon",
+    "content": "hello what is the time and date",
+    "timestamp": "[22:16 PM]",
+    "status": "Sent",
+    "messageId": "Alec Langdon-1744690570269-hello what is the time and date"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "The current time is 10:16:10 PM.",
+    "timestamp": "[22:16 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744690570780-The current time is 10:16:10 PM."
+  },
+  {
+    "type": "user",
+    "userName": "Alec Langdon",
+    "content": "😎",
+    "timestamp": "[22:29 PM]",
+    "status": "Sent",
+    "messageId": "Alec Langdon-1744691348347-😎"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, Alec Langdon?",
+    "timestamp": "[22:29 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744691348856-Hello! How can I assist you today, Alec Langdon?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "HI",
+    "timestamp": "[23:51 PM]",
+    "status": "Sent",
+    "messageId": "User-1744696271037-HI"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[23:51 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744696271560-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, Alec Langdon?",
+    "timestamp": "[23:51 PM]",
+    "status": "Sent",
+    "messageId": "Bot-1744696272513-Hello! How can I assist you today, Alec Langdon?"
+  },
+  {
+    "type": "user",
+    "userName": "Alec Langdon",
+    "content": "WHATS THE TIME",
+    "timestamp": "[0:07 AM]",
+    "status": "Sent",
+    "messageId": "Alec Langdon-1744697239973-WHATS THE TIME"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "The current time is 12:07:20 AM.",
+    "timestamp": "[0:07 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744697240500-The current time is 12:07:20 AM."
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "TIME",
+    "timestamp": "[0:09 AM]",
+    "status": "Sent",
+    "messageId": "User-1744697352093-TIME"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "The current time is 12:09:12 AM.",
+    "timestamp": "[0:09 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744697352606-The current time is 12:09:12 AM."
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "The current time is 12:09:13 AM.",
+    "timestamp": "[0:09 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744697353560-The current time is 12:09:13 AM."
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "TIME",
+    "timestamp": "[0:37 AM]",
+    "status": "Sent",
+    "messageId": "User-1744699041441-TIME"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "The current time is 12:37:21 AM.",
+    "timestamp": "[0:37 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744699041955-The current time is 12:37:21 AM."
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "The current time is 12:37:21 AM.",
+    "timestamp": "[0:37 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744699041957-The current time is 12:37:21 AM."
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "HKVBJHVJHVHJHBVMBVN,MB,MB,M",
+    "timestamp": "[0:37 AM]",
+    "status": "Sent",
+    "messageId": "User-1744699051635-HKVBJHVJHVHJHBVMBVN,MB,MB,M"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[0:37 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744699052149-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[0:37 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744699052155-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User88",
+    "content": "khakihbhbnb",
+    "timestamp": "[0:50 AM]",
+    "status": "Sent",
+    "messageId": "User88-1744699804401-khakihbhbnb"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User88?",
+    "timestamp": "[0:50 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744699804917-Hello! How can I assist you today, User88?"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[0:50 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744699804920-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hihb,b",
+    "timestamp": "[0:50 AM]",
+    "status": "Sent",
+    "messageId": "User-1744699810931-hihb,b"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User88?",
+    "timestamp": "[0:50 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744699811444-Hello! How can I assist you today, User88?"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[0:50 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744699811461-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User88",
+    "content": "hkjvk",
+    "timestamp": "[0:50 AM]",
+    "status": "Sent",
+    "messageId": "User88-1744699820243-hkjvk"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User88?",
+    "timestamp": "[0:50 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744699820754-Hello! How can I assist you today, User88?"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[0:50 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744699820762-Hello! How can I assist you today, User?"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "khbkjhbkj",
+    "timestamp": "[0:50 AM]",
+    "status": "Sent",
+    "messageId": "User-1744699829739-khbkjhbkj"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User88?",
+    "timestamp": "[0:50 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744699830252-Hello! How can I assist you today, User88?"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[0:50 AM]",
+    "status": "Sent",
+    "messageId": "Bot-1744699830266-Hello! How can I assist you today, User?"
   }
 ]

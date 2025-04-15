@@ -1,0 +1,38 @@
+[
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "hi",
+    "timestamp": "[14:16 PM]",
+    "status": "Sent",
+    "messageId": "User-1744488968313-hi",
+    "chatType": "dashboard"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[14:16 PM]",
+    "status": "Sent",
+    "messageId": "Bot-[14:16 PM]-hi",
+    "chatType": "dashboard"
+  },
+  {
+    "type": "user",
+    "userName": "User",
+    "content": "🙌",
+    "timestamp": "[14:16 PM]",
+    "status": "Sent",
+    "messageId": "User-1744488985379-🙌",
+    "chatType": "dashboard"
+  },
+  {
+    "type": "bot",
+    "userName": "ByteBot",
+    "content": "Hello! How can I assist you today, User?",
+    "timestamp": "[14:16 PM]",
+    "status": "Sent",
+    "messageId": "Bot-[14:16 PM]-🙌",
+    "chatType": "dashboard"
+  }
+]
